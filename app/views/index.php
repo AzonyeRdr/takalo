@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php $baseurl = Flight::get('flight.base_url'); ?>
 <html lang="en">
 
 <head>
@@ -13,18 +14,20 @@
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl ?>/assets/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl ?>/assets/css/font-awesome.css">
 
-    <link rel="stylesheet" href="/assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/templatemo-hexashop.css">
 
-    <link rel="stylesheet" href="/assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/owl-carousel.css">
 
-    <link rel="stylesheet" href="/assets/css/lightbox.css">
+    <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/lightbox.css">
 </head>
 
 <body>
+
+    <?php include 'includes/header.php'; ?>
 
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
@@ -50,7 +53,7 @@
                                     <a href="#">Purchase Now!</a>
                                 </div>
                             </div>
-                            <img src="/assets/images/left-banner-image.jpg" alt="">
+                            <img src="<?php echo $baseurl ?>/assets/images/left-banner-image.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -73,7 +76,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="/assets/images/baner-right-image-01.jpg">
+                                        <img src="<?php echo $baseurl ?>/assets/images/baner-right-image-01.jpg">
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +96,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="/assets/images/baner-right-image-02.jpg">
+                                        <img src="<?php echo $baseurl ?>/assets/images/baner-right-image-02.jpg">
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +116,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="/assets/images/baner-right-image-03.jpg">
+                                        <img src="<?php echo $baseurl ?>/assets/images/baner-right-image-03.jpg">
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +136,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="/assets/images/baner-right-image-04.jpg">
+                                        <img src="<?php echo $baseurl ?>/assets/images/baner-right-image-04.jpg">
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +174,7 @@
                                             <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="/assets/images/men-01.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/men-01.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <h4>Classic Spring</h4>
@@ -194,7 +197,7 @@
                                             <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="/assets/images/men-02.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/men-02.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <h4>Air Force 1 X</h4>
@@ -217,7 +220,7 @@
                                             <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="/assets/images/men-03.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/men-03.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <h4>Love Surrounding</h4>
@@ -265,7 +268,7 @@
                                             <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="/assets/images/women-01.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/women-01.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <h4>New Pink Jacket</h4>
@@ -288,7 +291,7 @@
                                             <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="/assets/images/women-02.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/women-02.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <h4>Classic Dress</h4>
@@ -311,7 +314,7 @@
                                             <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="/assets/images/women-03.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/women-03.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <h4>Summer Collection</h4>
@@ -359,7 +362,7 @@
                                             <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="/assets/images/kid-01.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/kid-01.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <h4>School Collection</h4>
@@ -382,7 +385,7 @@
                                             <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="/assets/images/kid-02.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/kid-02.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <h4>Summer Wear</h4>
@@ -405,7 +408,7 @@
                                             <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="/assets/images/kid-03.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/kid-03.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <h4>Classic Kid</h4>
@@ -456,12 +459,12 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="first-image">
-                                    <img src="/assets/images/explore-image-01.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/explore-image-01.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="second-image">
-                                    <img src="/assets/images/explore-image-02.jpg" alt="">
+                                    <img src="<?php echo $baseurl ?>/assets/images/explore-image-02.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -500,7 +503,7 @@
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="/assets/images/instagram-01.jpg" alt="">
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-01.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -511,7 +514,7 @@
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="/assets/images/instagram-02.jpg" alt="">
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-02.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -522,7 +525,7 @@
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="/assets/images/instagram-03.jpg" alt="">
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-03.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -533,7 +536,7 @@
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="/assets/images/instagram-04.jpg" alt="">
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-04.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -544,7 +547,7 @@
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="/assets/images/instagram-05.jpg" alt="">
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-05.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -555,7 +558,7 @@
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="/assets/images/instagram-06.jpg" alt="">
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-06.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -622,7 +625,7 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="/assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                            <img src="<?php echo $baseurl ?>/assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
                         </div>
                         <ul>
                             <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
@@ -676,26 +679,26 @@
 
 
     <!-- jQuery -->
-    <script src="/assets/js/jquery-2.1.0.min.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="/assets/js/popper.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/popper.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="/assets/js/owl-carousel.js"></script>
-    <script src="/assets/js/accordions.js"></script>
-    <script src="/assets/js/datepicker.js"></script>
-    <script src="/assets/js/scrollreveal.min.js"></script>
-    <script src="/assets/js/waypoints.min.js"></script>
-    <script src="/assets/js/jquery.counterup.min.js"></script>
-    <script src="/assets/js/imgfix.min.js"></script>
-    <script src="/assets/js/slick.js"></script>
-    <script src="/assets/js/lightbox.js"></script>
-    <script src="/assets/js/isotope.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/owl-carousel.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/accordions.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/datepicker.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/scrollreveal.min.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/waypoints.min.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/jquery.counterup.min.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/imgfix.min.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/slick.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/lightbox.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/isotope.js"></script>
 
     <!-- Global Init -->
-    <script src="/assets/js/custom.js"></script>
+    <script src="<?php echo $baseurl ?>/assets/js/custom.js"></script>
 
 </body>
 

@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/controllers/PageController.php';
 
-
 Flight::route('GET /', ['PageController', 'showLogin']);
 Flight::route('GET /signup', ['PageController', 'showSignup']);
 Flight::route('GET /index', ['PageController', 'showIndex']);

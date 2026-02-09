@@ -1,3 +1,7 @@
+<?php 
+$baseurl = Flight::get('flight.base_url');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,14 +14,17 @@
     <title>Hexashop - Contact Page</title>
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css">
-    <link rel="stylesheet" href="/assets/css/templatemo-hexashop.css">
-    <link rel="stylesheet" href="/assets/css/owl-carousel.css">
-    <link rel="stylesheet" href="/assets/css/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl; ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl; ?>/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/lightbox.css">
 </head>
     
 <body>
+
+    <?php include 'includes/header.php'; ?>
+
 
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
@@ -35,13 +42,13 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <a href="/" class="logo">
-                            <img src="/assets/images/logo.png">
+                        <a href="<?php echo $baseurl; ?>/" class="logo">
+                            <img src="<?php echo $baseurl; ?>/assets/images/logo.png">
                         </a>
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="/">Home</a></li>
-                            <li class="scroll-to-section"><a href="/about">About Us</a></li>
-                            <li class="scroll-to-section"><a href="/contact" class="active">Contact</a></li>
+                            <li class="scroll-to-section"><a href="<?php echo $baseurl; ?>/">Home</a></li>
+                            <li class="scroll-to-section"><a href="<?php echo $baseurl; ?>/about">About Us</a></li>
+                            <li class="scroll-to-section"><a href="<?php echo $baseurl; ?>/contact" class="active">Contact</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -170,7 +177,7 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="/assets/images/white-logo.png" alt="">
+                            <img src="<?php echo $baseurl; ?>/assets/images/white-logo.png" alt="">
                         </div>
                         <ul>
                             <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
@@ -223,23 +230,23 @@
     
 
     <!-- jQuery -->
-    <script src="/assets/js/jquery-2.1.0.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/jquery-2.1.0.min.js"></script>
     <!-- Bootstrap -->
-    <script src="/assets/js/popper.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/popper.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/bootstrap.min.js"></script>
     <!-- Plugins -->
-    <script src="/assets/js/owl-carousel.js"></script>
-    <script src="/assets/js/accordions.js"></script>
-    <script src="/assets/js/datepicker.js"></script>
-    <script src="/assets/js/scrollreveal.min.js"></script>
-    <script src="/assets/js/waypoints.min.js"></script>
-    <script src="/assets/js/jquery.counterup.min.js"></script>
-    <script src="/assets/js/imgfix.min.js"></script>
-    <script src="/assets/js/slick.js"></script>
-    <script src="/assets/js/lightbox.js"></script>
-    <script src="/assets/js/isotope.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/owl-carousel.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/accordions.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/datepicker.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/scrollreveal.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/waypoints.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/jquery.counterup.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/imgfix.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/slick.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/lightbox.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/isotope.js"></script>
     <!-- Global Init -->
-    <script src="/assets/js/custom.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/custom.js"></script>
 
 </body>
 

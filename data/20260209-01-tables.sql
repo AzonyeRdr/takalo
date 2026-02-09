@@ -9,13 +9,15 @@ CREATE TABLE `user`(
     `mail` TEXT NOT NULL,
     `role` TEXT NOT NULL
 );
+
 CREATE TABLE `objet`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `lib` TEXT NOT NULL,
-    `descritption` TEXT NOT NULL,
+    `description` TEXT NOT NULL,
     `id_proprio` INT UNSIGNED NOT NULL,
     CONSTRAINT `objet_id_proprio_foreign` FOREIGN KEY(`id_proprio`) REFERENCES `user`(`id`)
 );
+
 CREATE TABLE `echange`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `id_objet` INT UNSIGNED NOT NULL,

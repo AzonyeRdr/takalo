@@ -1,1 +1,43 @@
 https://docs.google.com/spreadsheets/d/1F2w9zj4KX3KRVzFYZTiYmrHlx0h4fSpZyCZWEkRhDMI/edit?usp=sharing
+
+- ajouter le footer 
+- mettre dans header.php les includes des css et dans footer.php les includes des js 
+- base url a ajoute pour chaque pages
+
+- full OOP:
+    - caractere majuscule des classes
+    - private attributes
+    - attributs en Objet
+    - handle the nulls
+    - constructeur vide. Initialisation des objets avec setters ?                 
+    - getters et setters
+    - pour plus de maintenabilite
+
+- les pages doivent etres renderer par leur propre Controller ?
+- mettre un folder config pour (bootstrap.php, config.php et routes.php) et updater les liens.
+
+- syntax DB simple 
+- insertion de donnes DB
+
+DB:
+    - ajouter tables categories;
+    - tables objet:
+        - titre
+        - description
+        - categorie
+        - etat (neuf ou use) => preshot
+        - statut (disponible, reserve, deja echange) => preshot
+        - photo
+    - choix:
+        - table echanges avec date_demande et date_accept (default NULL. Si date_accept == NULL donc statut = pas encore accepte)
+        - table echange_mere et echange_fille
+
+Fonction:
+    - upload photo dans ajouter objets
+
+CRUD:
+    - liste des objets qu'on peut echanger
+    
+- todo a detailer
+
+Fonctionnalite 1: Login

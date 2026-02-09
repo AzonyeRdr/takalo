@@ -1,35 +1,46 @@
 <?php
 
-class PageController {
-
-    public function showIndex() {
+class PageController
+{
+    public function showLogin()
+    {
+        Flight::render('login');
+    }
+    public function showSignup()
+    {
+        Flight::render('signup');
+    }
+    public function showIndex()
+    {
         Flight::render('index');
     }
-
-    public function showAbout() {
+    public function showAbout()
+    {
         Flight::render('about');
     }
 
-    public function showContact() {
+    public function showContact()
+    {
         Flight::render('contact');
     }
 
-    public function showListProduit() {
+    public function showListProduit()
+    {
         Flight::render('list-produit');
     }
 
-    public function showModifier() {
+    public function showModifier()
+    {
         Flight::render('modifier');
     }
 
-    public function showSingleProduct() {
+    public function showSingleProduct()
+    {
         Flight::render('single-product');
     }
 
-    public function showUploadProduct() {
+    public function showUploadProduct()
+    {
         Flight::render('upload-product');
     }
-
 }
-
-?>

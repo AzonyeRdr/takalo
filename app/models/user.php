@@ -4,9 +4,9 @@ namespace app\models;
 
 class User
 {
-    public $id;
-    public $name;
-    public $email;
+    private $id;
+    private $name;
+    private $email;
     private $role;
 
     public function __construct($id, $name, $email, $role)
@@ -55,40 +55,40 @@ class User
     {
         $stmt = $pdo->prepare('INSERT INTO user (name, email, role) VALUES (:name, :email, :role)');
         $stmt->execute([
-            'name' => $this->name,
-            'email' => $this->email,
-            'role' => $this->role
+            'name' => $this->getName(),
+            'email' => $this->getEmail(),
+            'role' => $this->getRole()
         ]);
-        $this->id = $pdo->lastInsertId();
+        $this->setId($pdo->lastInsertId());
     }
 
     public function delete($pdo)
     {
-        if ($this->id) {
+        if ($this->getId()) {
             $stmt = $pdo->prepare('DELETE FROM user WHERE id = :id');
-            $stmt->execute(['id' => $this->id]);
-            $this->id = null;
+            $stmt->execute(['id' => $this->getId()]);
+            $this->setId(null);
         }
     }
 
     public function findById($pdo)
     {
         $stmt = $pdo->prepare('SELECT * FROM user WHERE id = :id');
-        $stmt->execute(['id' => $this->id]);
-        $stmt->fetch();
-        $this->name = $stmt->name;
-        $this->email = $stmt->email;
-        $this->role = $stmt->role;
+        $stmt->execute(['id' => $this->getId()]);
+        $row = $stmt->fetch();
+        $this->setName($row['name']);
+        $this->setEmail($row['email']);
+        $this->setRole($row['role']);
     }
 
     public function update($pdo)
     {
         $stmt = $pdo->prepare('UPDATE user SET name = :name, email = :email, role = :role WHERE id = :id');
         $stmt->execute([
-            'id' => $this->id,
-            'name' => $this->name,
-            'email' => $this->email,
-            'role' => $this->role
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'email' => $this->getEmail(),
+            'role' => $this->getRole()
         ]);
     }
 

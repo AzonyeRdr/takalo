@@ -16,8 +16,6 @@ https://docs.google.com/spreadsheets/d/1F2w9zj4KX3KRVzFYZTiYmrHlx0h4fSpZyCZWEkRh
 - les pages doivent etres renderer par leur propre Controller ?
 - mettre un folder config pour (bootstrap.php, config.php et routes.php) et updater les liens.
 
-- syntax DB simple 
-- insertion de donnes DB
 
 DB:
     - ajouter tables categories;
@@ -28,9 +26,16 @@ DB:
         - etat (neuf ou use) => preshot
         - statut (disponible, reserve, deja echange) => preshot
         - photo
+    - tables echange:
+        - id 
+        - requesterid 
+        - receiverid 
+        - 
     - choix:
         - table echanges avec date_demande et date_accept (default NULL. Si date_accept == NULL donc statut = pas encore accepte)
         - table echange_mere et echange_fille
+    - syntax DB simple  
+    - insertion de donnes DB
 
 Fonction:
     - upload photo dans ajouter objets

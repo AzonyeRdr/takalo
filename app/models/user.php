@@ -16,7 +16,7 @@ class User
         $this->email = $email;
         $this->role = $role;
     }
-    
+
     public function setName($name)
     {
         $this->name = $name;
@@ -91,4 +91,10 @@ class User
             'role' => $this->role
         ]);
     }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
 }

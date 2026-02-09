@@ -4,48 +4,44 @@ namespace app\models;
 
 class User
 {
-    private $id;
-    private $name;
-    private $email;
-    private $role;
+    private ?int $id;
+    private ?string $name;
+    private ?string $email;
+    private ?string $role;
 
-    public function __construct($id, $name, $email, $role)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->email = $email;
-        $this->role = $role;
     }
 
-    public function setName($name)
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function setEmail($email)
+    public function setEmail(?string $email): void
     {
         $this->email = $email;
     }
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
-    public function setId($id)
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
-    public function setRole($role)
+    public function setRole(?string $role): void
     {
         $this->role = $role;
     }
-    public function getRole()
+    public function getRole(): ?string
     {
         return $this->role;
     }

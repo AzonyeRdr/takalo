@@ -16,7 +16,6 @@ https://docs.google.com/spreadsheets/d/1F2w9zj4KX3KRVzFYZTiYmrHlx0h4fSpZyCZWEkRh
 - les pages doivent etres renderer par leur propre Controller ?
 - mettre un folder config pour (bootstrap.php, config.php et routes.php) et updater les liens.
 
-
 DB:
     - ajouter tables categories;
     - tables objet:
@@ -30,7 +29,13 @@ DB:
         - id 
         - requesterid 
         - receiverid 
-        - 
+        - statut: en cours, accepte, rejete.
+        - date_demande
+        - date_reponse
+    - table echange fille: "je t'echange 2 livres contre ton jeu" 
+        - idechange 
+        - objet
+         
     - choix:
         - table echanges avec date_demande et date_accept (default NULL. Si date_accept == NULL donc statut = pas encore accepte)
         - table echange_mere et echange_fille

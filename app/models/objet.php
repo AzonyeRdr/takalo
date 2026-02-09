@@ -3,67 +3,62 @@ namespace app\models;
 
 class Objet
 {
-    private $id;
-    private $name;
-    private $description;
-    private $owner_id;
-    private $categorie_id;
+    private ?int $id;
+    private ?string $name;
+    private ?string $description;
+    private ?int $owner_id;
+    private ?int $categorie_id;
 
-    public function __construct($id, $name, $description, $owner_id, $categorie_id)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->owner_id = $owner_id;
-        $this->categorie_id = $categorie_id;
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
 
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription($description)
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
-    public function getOwnerId()
+    public function getOwnerId(): ?int
     {
         return $this->owner_id;
     }
 
-    public function setOwnerId($owner_id)
+    public function setOwnerId(?int $owner_id): void
     {
         $this->owner_id = $owner_id;
     }
 
-    public function getCategorieId()
+    public function getCategorieId(): ?int
     {
         return $this->categorie_id;
     }
 
-    public function setCategorieId($categorie_id)
+    public function setCategorieId(?int $categorie_id): void
     {
         $this->categorie_id = $categorie_id;
     }

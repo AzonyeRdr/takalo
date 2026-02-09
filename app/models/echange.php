@@ -4,55 +4,51 @@ namespace app\models;
 
 class Echange
 {
-    private $id;
-    private $objet;
-    private $ownerActuel;
-    private $ownerProchain;
+    private ?int $id;
+    private ?Objet $objet;
+    private ?User $ownerActuel;
+    private ?User $ownerProchain;
 
-    public function __construct($id, $objet, $ownerActuel, $ownerProchain)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->objet = $objet;
-        $this->ownerActuel = $ownerActuel;
-        $this->ownerProchain = $ownerProchain;
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
 
-    public function getObjet()
+    public function getObjet(): ?Objet
     {
         return $this->objet;
     }
 
-    public function setObjet($objet)
+    public function setObjet(?Objet $objet): void
     {
         $this->objet = $objet;
     }
 
-    public function getOwnerActuel()
+    public function getOwnerActuel(): ?User
     {
         return $this->ownerActuel;
     }
 
-    public function setOwnerActuel($ownerActuel)
+    public function setOwnerActuel(?User $ownerActuel): void
     {
         $this->ownerActuel = $ownerActuel;
     }
 
-    public function getOwnerProchain()
+    public function getOwnerProchain(): ?User
     {
         return $this->ownerProchain;
     }
 
-    public function setOwnerProchain($ownerProchain)
+    public function setOwnerProchain(?User $ownerProchain): void
     {
         $this->ownerProchain = $ownerProchain;
     }

@@ -1,0 +1,10 @@
+<?php
+require_once __DIR__ . '/controllers/PageController.php';
+
+Flight::route('GET /', ['PageController', 'showIndex']);
+Flight::route('GET /about', ['PageController', 'showAbout']);
+Flight::route('GET /contact', ['PageController', 'showContact']);
+Flight::route('GET /list-produit', ['PageController', 'showListProduit']);
+Flight::route('GET /modifier', ['PageController', 'showModifier']);
+Flight::route('GET /single-product', ['PageController', 'showSingleProduct']);
+Flight::route('GET /upload-product', ['PageController', 'showUploadProduct']);

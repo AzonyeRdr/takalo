@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php $baseurl = Flight::get('flight.base_url'); ?>
 <html lang="en">
 
 <head>
@@ -14,22 +13,15 @@
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl; ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl; ?>/assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css">
 
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="/assets/css/templatemo-hexashop.css">
 
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="/assets/css/owl-carousel.css">
 
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/lightbox.css">
-    <!--
-
-TemplateMo 571 Hexashop
-
-https://templatemo.com/tm-571-hexashop
-
--->
+    <link rel="stylesheet" href="/assets/css/lightbox.css">
 </head>
 
 <body>
@@ -43,11 +35,6 @@ https://templatemo.com/tm-571-hexashop
         </div>
     </div>
     <!-- ***** Preloader End ***** -->
-
-
-    <!-- ***** Header Area Start ***** -->
-    <?php include('../inc/header_ind.php'); ?>
-    <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
@@ -63,7 +50,7 @@ https://templatemo.com/tm-571-hexashop
                                     <a href="#">Purchase Now!</a>
                                 </div>
                             </div>
-                            <img src="<?php echo $baseurl; ?>/assets/images/left-banner-image.jpg" alt="">
+                            <img src="/assets/images/left-banner-image.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -86,7 +73,7 @@ https://templatemo.com/tm-571-hexashop
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="<?php echo $baseurl; ?>/assets/images/baner-right-image-01.jpg">
+                                        <img src="/assets/images/baner-right-image-01.jpg">
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +93,7 @@ https://templatemo.com/tm-571-hexashop
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="<?php echo $baseurl; ?>/assets/images/baner-right-image-02.jpg">
+                                        <img src="/assets/images/baner-right-image-02.jpg">
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +113,7 @@ https://templatemo.com/tm-571-hexashop
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="<?php echo $baseurl; ?>/assets/images/baner-right-image-03.jpg">
+                                        <img src="/assets/images/baner-right-image-03.jpg">
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +133,7 @@ https://templatemo.com/tm-571-hexashop
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="<?php echo $baseurl; ?>/assets/images/baner-right-image-04.jpg">
+                                        <img src="/assets/images/baner-right-image-04.jpg">
                                     </div>
                                 </div>
                             </div>
@@ -175,34 +162,75 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-12">
                     <div class="men-item-carousel">
                         <div class="owl-men-item owl-carousel">
-                            <!--Manomboka eto-->
-                            <?php $men_prod = getProduitByCateg(1);
-                            foreach ($men_prod as $m) { ?>
-                                <div class="item">
-                                    <div class="thumb">
-                                        <div class="hover-content">
-                                            <ul>
-                                                <li><a href="single-product.php?id_p=<?= $m["id_produit"]; ?>"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="single-product.php?id_p=<?= $m["id_produit"]; ?>"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="single-product.php?id_p=<?= $m["id_produit"]; ?>"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <img src="<?php echo $baseurl; ?>/assets/images/<?= $m['image_produit'] ?>" alt="">
-                                    </div>
-                                    <div class="down-content">
-                                        <h4><?= $m['nom_produit'] ?></h4>
-                                        <span>$<?= number_format($m['prix_produit'], 2) ?></span>
-                                        <ul class="stars">
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
+                                    <img src="/assets/images/men-01.jpg" alt="">
                                 </div>
-                            <?php } ?>
-                            <!--Tapitra eto-->
+                                <div class="down-content">
+                                    <h4>Classic Spring</h4>
+                                    <span>$120.00</span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="/assets/images/men-02.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Air Force 1 X</h4>
+                                    <span>$90.00</span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="/assets/images/men-03.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Love Surrounding</h4>
+                                    <span>$45.00</span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,32 +256,75 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-12">
                     <div class="women-item-carousel">
                         <div class="owl-women-item owl-carousel">
-                            <?php $men_prod = getProduitByCateg(2);
-                            foreach ($men_prod as $m) { ?>
-                                <div class="item">
-                                    <div class="thumb">
-                                        <div class="hover-content">
-                                            <ul>
-                                                <li><a href="single-product.php?id_p=<?= $m["id_produit"]; ?>"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="single-product.php?id_p=<?= $m["id_produit"]; ?>"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="single-product.php?id_p=<?= $m["id_produit"]; ?>"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <img src="<?php echo $baseurl; ?>/assets/images/<?= $m['image_produit'] ?>" alt="">
-                                    </div>
-                                    <div class="down-content">
-                                        <h4><?= $m['nom_produit'] ?></h4>
-                                        <span>$<?= number_format($m['prix_produit'], 2) ?></span>
-                                        <ul class="stars">
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
+                                    <img src="/assets/images/women-01.jpg" alt="">
                                 </div>
-                            <?php } ?>
+                                <div class="down-content">
+                                    <h4>New Pink Jacket</h4>
+                                    <span>$65.00</span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="/assets/images/women-02.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Classic Dress</h4>
+                                    <span>$45.00</span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="/assets/images/women-03.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Summer Collection</h4>
+                                    <span>$55.00</span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -279,32 +350,75 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-12">
                     <div class="kid-item-carousel">
                         <div class="owl-kid-item owl-carousel">
-                            <?php $men_prod = getProduitByCateg(3);
-                            foreach ($men_prod as $m) { ?>
-                                <div class="item">
-                                    <div class="thumb">
-                                        <div class="hover-content">
-                                            <ul>
-                                                <li><a href="single-product.php?id_p=<?= $m["id_produit"]; ?>"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="single-product.php?id_p=<?= $m["id_produit"]; ?>"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="single-product.php?id_p=<?= $m["id_produit"]; ?>"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <img src="<?php echo $baseurl; ?>/assets/images/<?= $m['image_produit'] ?>" alt="">
-                                    </div>
-                                    <div class="down-content">
-                                        <h4><?= $m['nom_produit'] ?></h4>
-                                        <span>$<?= number_format($m['prix_produit'], 2) ?></span>
-                                        <ul class="stars">
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
+                                    <img src="/assets/images/kid-01.jpg" alt="">
                                 </div>
-                            <?php } ?>
+                                <div class="down-content">
+                                    <h4>School Collection</h4>
+                                    <span>$35.00</span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="/assets/images/kid-02.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Summer Wear</h4>
+                                    <span>$30.00</span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="/assets/images/kid-03.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Classic Kid</h4>
+                                    <span>$25.00</span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -320,15 +434,14 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-6">
                     <div class="left-content">
                         <h2>Explore Our Products</h2>
-                        <span>You are allowed to use this HexaShop HTML CSS template. You can feel free to modify or edit this layout. You can convert this template as any kind of ecommerce CMS theme as you wish.</span>
+                        <span>You are allowed to use this HexaShop HTML CSS template.</span>
                         <div class="quote">
                             <i class="fa fa-quote-left"></i>
                             <p>You are not allowed to redistribute this template ZIP file on any other website.</p>
                         </div>
-                        <p>There are 5 pages included in this HexaShop Template and we are providing it to you for absolutely free of charge at our TemplateMo website. There are web development costs for us.</p>
-                        <p>If this template is beneficial for your website or business, please kindly <a rel="nofollow" href="https://paypal.me/templatemo" target="_blank">support us</a> a little via PayPal. Please also tell your friends about our great website. Thank you.</p>
+                        <p>There are 5 pages included in this HexaShop Template.</p>
                         <div class="main-border-button">
-                            <a href="products.php">Discover More</a>
+                            <a href="products">Discover More</a>
                         </div>
                     </div>
                 </div>
@@ -343,12 +456,12 @@ https://templatemo.com/tm-571-hexashop
                             </div>
                             <div class="col-lg-6">
                                 <div class="first-image">
-                                    <img src="<?php echo $baseurl; ?>/assets/images/explore-image-01.jpg" alt="">
+                                    <img src="/assets/images/explore-image-01.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="second-image">
-                                    <img src="<?php echo $baseurl; ?>/assets/images/explore-image-02.jpg" alt="">
+                                    <img src="/assets/images/explore-image-02.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -387,7 +500,7 @@ https://templatemo.com/tm-571-hexashop
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="<?php echo $baseurl; ?>/assets/images/instagram-01.jpg" alt="">
+                        <img src="/assets/images/instagram-01.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -398,7 +511,7 @@ https://templatemo.com/tm-571-hexashop
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="<?php echo $baseurl; ?>/assets/images/instagram-02.jpg" alt="">
+                        <img src="/assets/images/instagram-02.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -409,7 +522,7 @@ https://templatemo.com/tm-571-hexashop
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="<?php echo $baseurl; ?>/assets/images/instagram-03.jpg" alt="">
+                        <img src="/assets/images/instagram-03.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -420,7 +533,7 @@ https://templatemo.com/tm-571-hexashop
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="<?php echo $baseurl; ?>/assets/images/instagram-04.jpg" alt="">
+                        <img src="/assets/images/instagram-04.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -431,7 +544,7 @@ https://templatemo.com/tm-571-hexashop
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="<?php echo $baseurl; ?>/assets/images/instagram-05.jpg" alt="">
+                        <img src="/assets/images/instagram-05.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-2">
@@ -442,7 +555,7 @@ https://templatemo.com/tm-571-hexashop
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
-                        <img src="<?php echo $baseurl; ?>/assets/images/instagram-06.jpg" alt="">
+                        <img src="/assets/images/instagram-06.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -521,8 +634,8 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-3">
                     <h4>Shopping &amp; Categories</h4>
                     <ul>
-                        <li><a href="#">Men’s Shopping</a></li>
-                        <li><a href="#">Women’s Shopping</a></li>
+                        <li><a href="#">Men's Shopping</a></li>
+                        <li><a href="#">Women's Shopping</a></li>
                         <li><a href="#">Kid's Shopping</a></li>
                     </ul>
                 </div>
@@ -547,7 +660,6 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-12">
                     <div class="under-footer">
                         <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
-
                             <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
                         </p>
                         <ul>
@@ -564,42 +676,26 @@ https://templatemo.com/tm-571-hexashop
 
 
     <!-- jQuery -->
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery-2.1.0.min.js"></script>
+    <script src="/assets/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="<?php echo $baseurl; ?>/assets/js/popper.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/popper.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="<?php echo $baseurl; ?>/assets/js/owl-carousel.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/accordions.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/datepicker.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/scrollreveal.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/waypoints.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.counterup.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/imgfix.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/slick.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/lightbox.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/isotope.js"></script>
+    <script src="/assets/js/owl-carousel.js"></script>
+    <script src="/assets/js/accordions.js"></script>
+    <script src="/assets/js/datepicker.js"></script>
+    <script src="/assets/js/scrollreveal.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/imgfix.min.js"></script>
+    <script src="/assets/js/slick.js"></script>
+    <script src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/isotope.js"></script>
 
     <!-- Global Init -->
-    <script src="<?php echo $baseurl; ?>/assets/js/custom.js"></script>
-
-    <script>
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function() {
-                selectedClass = $(this).attr("data-rel");
-                $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("." + selectedClass).fadeOut();
-                setTimeout(function() {
-                    $("." + selectedClass).fadeIn();
-                    $("#portfolio").fadeTo(50, 1);
-                }, 500);
-
-            });
-        });
-    </script>
+    <script src="/assets/js/custom.js"></script>
 
 </body>
 

@@ -1,39 +1,24 @@
 <!DOCTYPE html>
-<?php $baseurl = Flight::get('flight.base_url'); ?>
 <html lang="en">
 
-  <head>
-
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
     <title>Hexashop - About Page</title>
 
-
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl; ?>/assets/css/bootstrap.min.css">
-
-    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl; ?>/assets/css/font-awesome.css">
-
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/templatemo-hexashop.css">
-
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/owl-carousel.css">
-
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/lightbox.css">
-<!--
-
-TemplateMo 571 Hexashop
-
-https://templatemo.com/tm-571-hexashop
-
--->
-    </head>
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="/assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="/assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="/assets/css/lightbox.css">
+</head>
     
-    <body>
-    
+<body>
+
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -44,48 +29,23 @@ https://templatemo.com/tm-571-hexashop
     </div>  
     <!-- ***** Preloader End ***** -->
     
-    
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">
-                            <img src="<?php echo $baseurl; ?>/assets/images/logo.png">
+                        <a href="/" class="logo">
+                            <img src="/assets/images/logo.png">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="index.php">Men's</a></li>
-                            <li class="scroll-to-section"><a href="index.php">Women's</a></li>
-                            <li class="scroll-to-section"><a href="index.php">Kid's</a></li>
-                            <li class="submenu">
-                                <a href="javascript:;">Pages</a>
-                                <ul>
-                                    <li><a href="about.php">About Us</a></li>
-                                    <li><a href="products.php">Products</a></li>
-                                    <li><a href="single-product.php">Single Product</a></li>
-                                    <li><a href="contact.php">Contact Us</a></li>
-                                </ul>
-                            </li>
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
-                                </ul>
-                            </li>
-                            <li class="scroll-to-section"><a href="index.php">Explore</a></li>
+                            <li class="scroll-to-section"><a href="/">Home</a></li>
+                            <li class="scroll-to-section"><a href="/about" class="active">About Us</a></li>
+                            <li class="scroll-to-section"><a href="/contact">Contact</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
@@ -114,7 +74,7 @@ https://templatemo.com/tm-571-hexashop
             <div class="row">
                 <div class="col-lg-6">
                     <div class="left-image">
-                        <img src="<?php echo $baseurl; ?>/assets/images/about-left-image.jpg" alt="">
+                        <img src="/assets/images/about-left-image.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -161,7 +121,7 @@ https://templatemo.com/tm-571-hexashop
                                     </ul>
                                 </div>
                             </div>
-                            <img src="<?php echo $baseurl; ?>/assets/images/team-member-01.jpg">
+                            <img src="/assets/images/team-member-01.jpg">
                         </div>
                         <div class="down-content">
                             <h4>Ragnar Lodbrok</h4>
@@ -182,11 +142,11 @@ https://templatemo.com/tm-571-hexashop
                                     </ul>
                                 </div>
                             </div>
-                            <img src="<?php echo $baseurl; ?>/assets/images/team-member-02.jpg">
+                            <img src="/assets/images/team-member-02.jpg">
                         </div>
                         <div class="down-content">
-                            <h4>Ragnar Lodbrok</h4>
-                            <span>Product Caretaker</span>
+                            <h4>Lagertha</h4>
+                            <span>Product Expert</span>
                         </div>
                     </div>
                 </div>
@@ -203,11 +163,11 @@ https://templatemo.com/tm-571-hexashop
                                     </ul>
                                 </div>
                             </div>
-                            <img src="<?php echo $baseurl; ?>/assets/images/team-member-03.jpg">
+                            <img src="/assets/images/team-member-03.jpg">
                         </div>
                         <div class="down-content">
-                            <h4>Ragnar Lodbrok</h4>
-                            <span>Product Caretaker</span>
+                            <h4>Bjorn Ironside</h4>
+                            <span>Product Designer</span>
                         </div>
                     </div>
                 </div>
@@ -215,42 +175,6 @@ https://templatemo.com/tm-571-hexashop
         </div>
     </section>
     <!-- ***** Our Team Area Ends ***** -->
-
-    <!-- ***** Services Area Starts ***** -->
-    <section class="our-services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-heading">
-                        <h2>Our Services</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service-item">
-                        <h4>Synther Vaporware</h4>
-                        <p>Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>
-                        <img src="<?php echo $baseurl; ?>/assets/images/service-01.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service-item">
-                        <h4>Locavore Squidward</h4>
-                        <p>Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>
-                        <img src="<?php echo $baseurl; ?>/assets/images/service-02.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service-item">
-                        <h4>Health Gothfam</h4>
-                        <p>Lorem ipsum dolor sit amet, consecteturti adipiscing elit, sed do eiusmod temp incididunt ut labore, et dolore quis ipsum suspend.</p>
-                        <img src="<?php echo $baseurl; ?>/assets/images/service-03.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Services Area Ends ***** -->
 
     <!-- ***** Subscribe Area Starts ***** -->
     <div class="subscribe">
@@ -311,7 +235,7 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="<?php echo $baseurl; ?>/assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                            <img src="/assets/images/white-logo.png" alt="">
                         </div>
                         <ul>
                             <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
@@ -323,8 +247,8 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-3">
                     <h4>Shopping &amp; Categories</h4>
                     <ul>
-                        <li><a href="#">Men’s Shopping</a></li>
-                        <li><a href="#">Women’s Shopping</a></li>
+                        <li><a href="#">Men's Shopping</a></li>
+                        <li><a href="#">Women's Shopping</a></li>
                         <li><a href="#">Kid's Shopping</a></li>
                     </ul>
                 </div>
@@ -348,8 +272,7 @@ https://templatemo.com/tm-571-hexashop
                 </div>
                 <div class="col-lg-12">
                     <div class="under-footer">
-                        <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved. 
-                        
+                        <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
                         <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
                         <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -365,45 +288,24 @@ https://templatemo.com/tm-571-hexashop
     
 
     <!-- jQuery -->
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery-2.1.0.min.js"></script>
-
+    <script src="/assets/js/jquery-2.1.0.min.js"></script>
     <!-- Bootstrap -->
-    <script src="<?php echo $baseurl; ?>/assets/js/popper.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/bootstrap.min.js"></script>
-
+    <script src="/assets/js/popper.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <!-- Plugins -->
-    <script src="<?php echo $baseurl; ?>/assets/js/owl-carousel.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/accordions.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/datepicker.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/scrollreveal.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/waypoints.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.counterup.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/imgfix.min.js"></script> 
-    <script src="<?php echo $baseurl; ?>/assets/js/slick.js"></script> 
-    <script src="<?php echo $baseurl; ?>/assets/js/lightbox.js"></script> 
-    <script src="<?php echo $baseurl; ?>/assets/js/isotope.js"></script> 
-    
+    <script src="/assets/js/owl-carousel.js"></script>
+    <script src="/assets/js/accordions.js"></script>
+    <script src="/assets/js/datepicker.js"></script>
+    <script src="/assets/js/scrollreveal.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/imgfix.min.js"></script>
+    <script src="/assets/js/slick.js"></script>
+    <script src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/isotope.js"></script>
     <!-- Global Init -->
-    <script src="<?php echo $baseurl; ?>/assets/js/custom.js"></script>
+    <script src="/assets/js/custom.js"></script>
 
-    <script>
-
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function(){
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
-            setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
-            }, 500);
-                
-            });
-        });
-
-    </script>
-
-  </body>
+</body>
 
 </html>

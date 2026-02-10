@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <?php $baseurl = Flight::get('flight.base_url'); ?>
 <html lang="en">

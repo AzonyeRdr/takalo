@@ -1,8 +1,8 @@
 https://docs.google.com/spreadsheets/d/1F2w9zj4KX3KRVzFYZTiYmrHlx0h4fSpZyCZWEkRhDMI/edit?usp=sharing
 
-- ajouter le footer 
-- mettre dans header.php les includes des css et dans footer.php les includes des js 
-- base url a ajoute pour chaque pages
+OK - ajouter le footer 
+OK - mettre dans header.php les includes des css et dans footer.php les includes des js 
+OK - base url a ajoute pour chaque pages
 
 - full OOP:
     OK - caractere majuscule des classes
@@ -16,25 +16,26 @@ WIP - les pages doivent etres renderer par leur propre Controller ?
 
 DB:
 
-    - ajouter tables categories:
+    OK - ajouter tables categories:
         - id 
         - libelle
         - symbole
 
-    - tables objet:
+    OK - tables objet:
         - titre
+        - owner_id
         - description
         - categorie
         - etat (neuf ou use) => preshot
         - statut (disponible, reserve, deja echange) => preshot
         - prix 
 
-    - table objets_photo:
+    OK - table objets_photo:
         - id 
         - idobjet
         - photo
 
-    - tables echange:
+    OK - tables echange:
         - id 
         - requesterid 
         - receiverid 
@@ -42,12 +43,12 @@ DB:
         - date_demande
         - date_reponse
 
-    - table echange fille: "je t'echange 2 livres contre ton jeu" 
+    OK - table echange fille: "je t'echange 2 livres contre ton jeu" 
         - idechange 
         - objet_demande 
         - objet_recu
     
-    -table user:
+    OK -table user:
         - id
         - nom 
         - mail 
@@ -55,28 +56,18 @@ DB:
         - role
     insert admin/admin
 
-    - view v_echange_user: JOIN echange et users
+    OK - table historique proprietaire
 
-    NOTE: ajout de index unique ?
+    OK - view v_echange_user: JOIN echange et users
 
-    - choix:
-        - echange: 
-            - table echanges avec date_demande et date_accept
-            - table echange_mere et echange_fille
-        
-        - query avoir l'owner actuel d'un objet:
-            - mettre attribut owner dans  objet ?
-            - ou voir l'historique des echange --> voir l'objet voulu --> voir si c'est accepte ou refuse ou en cours --> setOwner depending on status (peut creer un view pour ca ou un trigger d'echange)
-        
+    OK NOTE: ajout de index unique ?
 
-    - syntax DB simple  
-    - insertion de donnes DB
+    OK - syntax DB simple  
+    OK - insertion de donnes DB
 
 Page:
-    - upload plusieurs photo dans ajouter objets
-    - affichage statistique frontend avance
-
-
+    WIP - upload plusieurs photo dans ajouter objets
+    WIP - affichage statistique frontend avance
 
 
 - todo a detailer

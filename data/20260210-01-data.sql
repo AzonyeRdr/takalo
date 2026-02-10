@@ -40,7 +40,7 @@ INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, de
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (2, 4, 3, 1, 'Chaise de bureau', 'Chaise ergonomique', 120.00);
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (3, 5, 2, 1, 'Ballon de football', 'Ballon professionnel', 30.00);
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (1, 1, 1, 1, 'Smartphone', 'Dernier modèle', 600.00);
-INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (2, 2, 2, 1, 'Jean bleu', 'Jean slim fit', 40.00);
+INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (3, 2, 2, 1, 'Jean bleu', 'Jean slim fit', 40.00);
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (3, 3, 1, 1, 'Roman policier', 'Thriller captivant', 12.00);
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (1, 4, 3, 1, 'Table basse', 'Table en bois', 150.00);
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (2, 5, 2, 1, 'Raquette de tennis', 'Raquette Wilson', 80.00);
@@ -55,37 +55,37 @@ INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, de
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (2, 4, 3, 1, 'Lit', 'Lit double', 400.00);
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (3, 5, 2, 1, 'Skis', 'Paire de skis', 150.00);
 
--- Photos objets (liens vers images/products/)
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (1, 'images/products/ordinateur1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (2, 'images/products/tshirt1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (3, 'images/products/livre1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (4, 'images/products/chaise1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (5, 'images/products/ballon1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (6, 'images/products/smartphone1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (7, 'images/products/jean1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (8, 'images/products/roman1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (9, 'images/products/table1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (10, 'images/products/raquette1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (11, 'images/products/casque1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (12, 'images/products/pullover1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (13, 'images/products/manuel1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (14, 'images/products/armoire1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (15, 'images/products/velo1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (16, 'images/products/tablette1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (17, 'images/products/robe1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (18, 'images/products/bd1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (19, 'images/products/lit1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (20, 'images/products/skis1.jpg', 1, true);
+-- Photos objets (liens vers 
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (1, 'ordinateur1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (2, 'tshirt1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (3, 'livre1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (4, 'chaise1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (5, 'ballon1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (6, 'smartphone1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (7, 'jean1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (8, 'roman1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (9, 'table1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (10, 'raquette1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (11, 'casque1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (12, 'pullover1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (13, 'manuel1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (14, 'armoire1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (15, 'velo1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (16, 'tablette1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (17, 'robe1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (18, 'bd1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (19, 'lit1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (20, 'skis1.jpg', 1, true);
 
 -- Echanges
 INSERT INTO echanges (demandeur_id, receveur_id, statut_id) VALUES (1, 2, 1); -- Jean demande a Marie
-INSERT INTO echanges (demandeur_id, receveur_id, statut_id) VALUES (3, 4, 2); -- Pierre demande a Admin, accepte
+INSERT INTO echanges (demandeur_id, receveur_id, statut_id) VALUES (3, 2, 2); -- Pierre demande a Marie, accepte
 
 -- Echange objets
 INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (1, 1, 'OFFERT'); -- Jean offre ordinateur
 INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (1, 3, 'DEMANDE'); -- Jean demande livre de Marie
 INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (2, 5, 'OFFERT'); -- Pierre offre ballon
-INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (2, 11, 'DEMANDE'); -- Pierre demande casque de Admin
+INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (2, 7, 'DEMANDE'); -- Pierre demande jean bleu de Marie
 
 -- Historique proprietaire objet (acquisition initiale pour chaque objet)
 INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (1, 1, '2024-01-01 10:00:00');
@@ -108,3 +108,7 @@ INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquis
 INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (18, 1, '2024-01-18 10:00:00');
 INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (19, 2, '2024-01-19 10:00:00');
 INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (20, 3, '2024-01-20 10:00:00');
+
+-- Transferts pour echange accepte (id 2)
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, echange_id, date_acquisition) VALUES (5, 2, 2, '2024-02-01 10:00:00'); -- Ballon de Pierre a Marie
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, echange_id, date_acquisition) VALUES (7, 3, 2, '2024-02-01 10:00:00'); -- Jean bleu de Marie a Pierre

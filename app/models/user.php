@@ -49,7 +49,7 @@ class User
 
     public function create($pdo)
     {
-        $stmt = $pdo->prepare('INSERT INTO user (name, email, role) VALUES (:name, :email, :role)');
+        $stmt = $pdo->prepare("INSERT INTO user (name, email, role) VALUES (:name, :email, :role)");
         $stmt->execute([
             'name' => $this->getName(),
             'email' => $this->getEmail(),
@@ -61,7 +61,7 @@ class User
     public function delete($pdo)
     {
         if ($this->getId()) {
-            $stmt = $pdo->prepare('DELETE FROM user WHERE id = :id');
+            $stmt = $pdo->prepare("DELETE FROM user WHERE id = :id");
             $stmt->execute(['id' => $this->getId()]);
             $this->setId(null);
         }
@@ -69,7 +69,7 @@ class User
 
     public function findById($pdo)
     {
-        $stmt = $pdo->prepare('SELECT * FROM user WHERE id = :id');
+        $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
         $stmt->execute(['id' => $this->getId()]);
         $row = $stmt->fetch();
         $this->setName($row['name']);
@@ -79,7 +79,7 @@ class User
 
     public function update($pdo)
     {
-        $stmt = $pdo->prepare('UPDATE user SET name = :name, email = :email, role = :role WHERE id = :id');
+        $stmt = $pdo->prepare("UPDATE user SET name = :name, email = :email, role = :role WHERE id = :id");
         $stmt->execute([
             'id' => $this->getId(),
             'name' => $this->getName(),

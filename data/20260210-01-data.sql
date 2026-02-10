@@ -35,7 +35,7 @@ INSERT INTO statuts_echange (code, libelle) VALUES ('refuse', 'Refusé');
 
 -- Objets (20 objets)
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (1, 1, 1, 1, 'Ordinateur portable', 'Ordinateur portable neuf', 800.00);
-INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (1, 2, 2, 1, 'T-shirt rouge', 'T-shirt en coton', 15.00);
+INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (1, 2, 2, 1, 'T-shirt noire', 'T-shirt en coton', 15.00);
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (2, 3, 1, 1, 'Livre de programmation', 'Guide complet PHP', 25.00);
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (2, 4, 3, 1, 'Chaise de bureau', 'Chaise ergonomique', 120.00);
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (3, 5, 2, 1, 'Ballon de football', 'Ballon professionnel', 30.00);

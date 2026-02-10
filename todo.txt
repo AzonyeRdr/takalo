@@ -61,7 +61,7 @@ DB:
 
     - choix:
         - echange: 
-            - table echanges avec date_demande et date_accept (default NULL. Si date_accept == NULL donc statut = pas encore accepte)
+            - table echanges avec date_demande et date_accept
             - table echange_mere et echange_fille
         
         - query avoir l'owner actuel d'un objet:

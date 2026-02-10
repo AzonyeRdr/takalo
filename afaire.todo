@@ -1,0 +1,192 @@
+
+OK - ajouter le footer 
+OK - mettre dans header.php les includes des css et dans footer.php les includes des js 
+OK - base url a ajoute pour chaque pages
+
+- full OOP:
+    OK - caractere majuscule des classes
+    OK - private attributes
+    OK - attributs en Objet
+    OK - handle the nulls
+    OK - constructeur vide. Initialisation des objets avec setters.              
+    OK - getters et setters
+
+WIP - les pages doivent etres renderer par leur propre Controller ?
+
+DB:
+
+    OK - ajouter tables categories:
+        - id 
+        - libelle
+        - symbole
+
+    OK - tables objet:
+        - titre
+        - owner_id
+        - description
+        - categorie
+        - etat (neuf ou use) => preshot
+        - statut (disponible, reserve, deja echange) => preshot
+        - prix 
+
+    OK - table objets_photo:
+        - id 
+        - idobjet
+        - photo
+
+    OK - tables echange:
+        - id 
+        - requesterid 
+        - receiverid 
+        - statut: en cours, accepte, rejete.
+        - date_demande
+        - date_reponse
+
+    OK - table echange fille: "je t'echange 2 livres contre ton jeu" 
+        - idechange 
+        - objet_demande 
+        - objet_recu
+    
+    OK -table user:
+        - id
+        - nom 
+        - mail 
+        - password (hash passwords)
+        - role
+    insert admin/admin
+
+    OK - table historique proprietaire
+
+    OK - view v_echange_user: JOIN echange et users
+
+    OK NOTE: ajout de index unique ?
+
+    OK - syntax DB simple  
+    OK - insertion de donnes DB
+
+Page:
+    WIP - upload plusieurs photo dans ajouter objets
+    WIP - affichage statistique frontend avance
+
+
+- todo a detailer:
+
+
+TODO: Création de la base de données Takalo
+
+1. Créer la base de données : Exécuter 20260210-01-init.sql
+2. Créer les tables (exécuter 20260210-01-tables.sql) :
+   WIP - Créer la table roles (id, code, libelle)
+   OK - Créer la table utilisateurs (id, nom, email, password_hash, role_id, created_at, updated_at, deleted_at)
+   OK - Créer la table categories (id, libelle, symbole, created_at)
+   WIP - Créer la table etats_objet (id, code, libelle)
+   WIP  - Créer la table statuts_objet (id, code, libelle)
+   OK - Créer la table objets (id, proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime, created_at, updated_at, deleted_at)
+   OK - Créer la table photos_objet (id, objet_id, chemin, ordre, est_principale, created_at)
+   WIP - Créer la table statuts_echange (id, code, libelle)
+   OK - Créer la table echanges (id, demandeur_id, receveur_id, statut_id, date_demande, date_reponse)
+   OK - Créer la table echange_objets (id, echange_id, objet_id, direction)
+   WIP - Créer la table historique_proprietaire_objet (id, objet_id, utilisateur_id, echange_id, date_acquisition)
+   OK - Créer la vue v_echanges_utilisateur
+   OK - Créer la vue v_historique_objet
+
+3. Insérer les données de test : Exécuter 20260210-01-data.sql
+4. Optionnel : Vider les tables : Exécuter 20260210-01-truncate.sql
+
+
+Explication:
+Je fais un projet web Flight MVC avec utilsiastion de DB mysql avec un template Hexashop. Je veux implementer la fonction de login et d'inscription a la fois pour l'user et pour l'admin. Ainsi je veux que tu m'implemente ces fonctionllaier en suivants les etapes donnce ci apres. Voila comment ca fonctionner: l'user arrivera sr la page home. Sur le header il y aura un logo avec dropdownlist Login et dans ce dropdownlist y aura lien login et lien logout. Quand on va vers login on est rediriger vers login-user.php selon le controller. Et on aura le formualire en card natif au template de email et de password (pas de input validator ici). En bas on aura deux liens: log in en tant qu administrateur et inscriptoin. Quan on clique sur incription on tombe sur la page isnc[riton] que tu vas creer toujours suelon les forms et inputs class du template. Puis on s;cincripts avec les inputs: nom, email, password, confirmation password. (le role sera automaquemten Utilisatuer). Le JS et le Validator.php que j'ai offert dans utils handle les messages d'erreurs et autres. J'ai mis un exemple de page d incription dans views inscirption. Et quand tout est bon on s'scrit et puis on es redireiger ves page login pour se login. ON verifie session role si admin ou user pour comprendre si il faut verifier qui on est. La page log in en tatn qua dministarateut login-admin.php est comme la page de login mais faut veriier dans le controller quelle role on est. Voici le todo ne detail.
+
+- Login et Inscription:
+    - rajoute dans al table utilisateurs numero de telephone et corrige les data (on est au dernier scripts ql le plsu recent)
+    - creer model user mapped to table User avec type hints et null checks: 
+CREATE TABLE IF NOT EXISTS utilisateurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    role_id INT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at DATETIME NULL,
+
+    - rajouter lien login sur le navbar header 
+    - redireigere vers login.php 
+    - creer page inscirption.php 
+    - mettre un lien s'inscrire 
+    - prendre les template d'inscirption precedants
+    - mettre le formulaire d'inscirption avec validation 
+    - dropdownliste user: bouton logout + login
+
+    - login:
+        - LoginController:
+            - showLogin() --> Initliaser session role = User render login-user.php.
+            - function verifyUser():
+                - creer pdo FlightDB
+                - prendre les parametres des inputs 
+                - if session role = user 
+                - appeller UserService.verifyUser($user, PDO) --> creer l'objet user: initialiser SESSION user, creer json avecc success, messages, redirect. avec retour home 
+                - si n'existe pas: json avec success false, messages invalide, redirect.
+
+            - funciton logout():
+                - unset session et destroy
+        
+        - UserService:
+            - fonction appelle $user.verifyUser($pdo)
+        
+        - boolean User.verifyUsre(pdo):
+            - select where this.mail = ?. 
+            - verify password hash 
+            - if exist: set the atributes return true 
+            - else: return false 
+        
+        - login.js:
+            - function async verifyUser quand bouton cliquer appelle ajax de loginController verifyUser et verifier le messages et les redirects. div message populate.
+        
+        - login.php:
+            - creer div messages pour afficher les messages (erreurs ou succes du json de login.js)
+        
+        - routes:
+            - ajouter routes vers LoginController, showLOgin()
+            - ajouter routes vers LoginController, logout()
+
+    - mettre un lien acces Administrateur sur le formulaire de login:
+
+        - loginAdmin:
+            - LoginController gotoAdminLogin(): Session role = Admin render vers login-admin.php 
+            - LoginController verifyUser:
+                - if SEssion role == Admin
+                - meme logique que l'utilisateur  
+            
+        - routes:
+            - ajouter routes LoginController gotoAdminLogin()
+        
+        - aussi handled par login.js 
+
+    - Inscritpion:
+        - validation inscirption js, avec inputs, et inscription 
+
+    - creer login-admin.php avec email et password de l'admin et(hint: admin@gmail.com/admin)
+
+Structure:
+    - cree un dossier login dans views et met les pages views de login et d'inscirption a l interieur.
+
+Attente:
+    - page login totalement fonctionnel avec session role et session user 
+    - page d'inscirption fonction avec implementation de validator 
+    - aucun style creer. Seuelemt utilisation des form
+
+A faire attention:
+    - utilise le css du template. INTERDIT de css par toi meme.
+    - on est en full OOP
+
+Comment proceder:
+    - anlayse en profondeur le css et le js et chque fichiers du projets 
+    - analyse en detail la conception de la base (les fichiers les plus recents) pour comprendre comment les objets sont creers.
+    - pour inscirptoin, analyse les fichier inscirption.js, insirpton.php et Validator.php pour savoir comment ca marche 
+    - pour les formulaire, tu dois recycler les formulaire deja existant (avec leur classe) du template. The same goes for inscirption.php, il faut que tu change tout dans cette page car elle n'implementer pas le tempalte.
+    - pour inscription, les fichiers a utilsier sont inscipriotn.php, inscriptionController, VAlidator, et isncirpton.js
+
+Notes:
+    - n'oublie pas la coherence avec les routes et les focnitons du controller, du layer service, et du model 
+    - insciption.ph est just un exemple et non la page final

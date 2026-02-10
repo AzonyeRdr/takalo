@@ -19,9 +19,9 @@ INSERT INTO categories (libelle, symbole) VALUES ('Sports', 's');
 
 -- Etats objet
 INSERT INTO etats_objet (code, libelle) VALUES ('neuf', 'Neuf');
-INSERT INTO etats_objet (code, libelle) VALUES ('bon', 'Bon état');
-INSERT INTO etats_objet (code, libelle) VALUES ('moyen', 'État moyen');
-INSERT INTO etats_objet (code, libelle) VALUES ('mauvais', 'Mauvais état');
+INSERT INTO etats_objet (code, libelle) VALUES ('bon_etat', 'Bon état');
+INSERT INTO etats_objet (code, libelle) VALUES ('etat_moyen', 'État moyen');
+INSERT INTO etats_objet (code, libelle) VALUES ('mauvais_etat', 'Mauvais état');
 
 -- Statuts objet
 INSERT INTO statuts_objet (code, libelle) VALUES ('disponible', 'Disponible');
@@ -85,7 +85,26 @@ INSERT INTO echanges (demandeur_id, receveur_id, statut_id) VALUES (3, 4, 2); --
 INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (1, 1, 'OFFERT'); -- Jean offre ordinateur
 INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (1, 3, 'DEMANDE'); -- Jean demande livre de Marie
 INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (2, 5, 'OFFERT'); -- Pierre offre ballon
-INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (2, 6, 'DEMANDE'); -- Pierre demande smartphone de Jean (mais echange avec admin, wait, adjust)
--- Correction: pour echange 2, objets de Pierre et Admin
-INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (2, 5, 'OFFERT'); -- Pierre offre ballon
-INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (2, 11, 'DEMANDE'); -- Pierre demande casque de Admin (objet 11 is Admin's)
+INSERT INTO echange_objets (echange_id, objet_id, direction) VALUES (2, 11, 'DEMANDE'); -- Pierre demande casque de Admin
+
+-- Historique proprietaire objet (acquisition initiale pour chaque objet)
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (1, 1, '2024-01-01 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (2, 1, '2024-01-02 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (3, 2, '2024-01-03 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (4, 2, '2024-01-04 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (5, 3, '2024-01-05 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (6, 1, '2024-01-06 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (7, 2, '2024-01-07 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (8, 3, '2024-01-08 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (9, 1, '2024-01-09 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (10, 2, '2024-01-10 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (11, 3, '2024-01-11 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (12, 1, '2024-01-12 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (13, 2, '2024-01-13 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (14, 3, '2024-01-14 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (15, 1, '2024-01-15 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (16, 2, '2024-01-16 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (17, 3, '2024-01-17 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (18, 1, '2024-01-18 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (19, 2, '2024-01-19 10:00:00');
+INSERT INTO historique_proprietaire_objet (objet_id, utilisateur_id, date_acquisition) VALUES (20, 3, '2024-01-20 10:00:00');

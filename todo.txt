@@ -15,14 +15,25 @@ https://docs.google.com/spreadsheets/d/1F2w9zj4KX3KRVzFYZTiYmrHlx0h4fSpZyCZWEkRh
 WIP - les pages doivent etres renderer par leur propre Controller ?
 
 DB:
-    - ajouter tables categories;
+
+    - ajouter tables categories:
+        - id 
+        - libelle
+        - symbole
+
     - tables objet:
         - titre
         - description
         - categorie
         - etat (neuf ou use) => preshot
         - statut (disponible, reserve, deja echange) => preshot
+        - prix 
+
+    - table objets_photo:
+        - id 
+        - idobjet
         - photo
+
     - tables echange:
         - id 
         - requesterid 
@@ -30,24 +41,43 @@ DB:
         - statut: en cours, accepte, rejete.
         - date_demande
         - date_reponse
+
     - table echange fille: "je t'echange 2 livres contre ton jeu" 
         - idechange 
-        - objet_demande
+        - objet_demande 
         - objet_recu
-         
+    
+    -table user:
+        - id
+        - nom 
+        - mail 
+        - password (hash passwords)
+        - role
+    insert admin/admin
+
+    - view v_echange_user: JOIN echange et users
+
+    NOTE: ajout de index unique ?
+
     - choix:
-        - table echanges avec date_demande et date_accept (default NULL. Si date_accept == NULL donc statut = pas encore accepte)
-        - table echange_mere et echange_fille
+        - echange: 
+            - table echanges avec date_demande et date_accept (default NULL. Si date_accept == NULL donc statut = pas encore accepte)
+            - table echange_mere et echange_fille
         
+        - query avoir l'owner actuel d'un objet:
+            - mettre attribut owner dans  objet ?
+            - ou voir l'historique des echange --> voir l'objet voulu --> voir si c'est accepte ou refuse ou en cours --> setOwner depending on status (peut creer un view pour ca ou un trigger d'echange)
+        
+
     - syntax DB simple  
     - insertion de donnes DB
 
-Fonction:
-    - upload photo dans ajouter objets
+Page:
+    - upload plusieurs photo dans ajouter objets
+    - affichage statistique frontend avance
 
-CRUD:
-    - liste des objets qu'on peut echanger
-    
+
+
+
 - todo a detailer
 
-Fonctionnalite 1: Login

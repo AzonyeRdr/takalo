@@ -56,26 +56,26 @@ INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, de
 INSERT INTO objets (proprietaire_id, categorie_id, etat_id, statut_id, titre, description, prix_estime) VALUES (3, 5, 2, 1, 'Skis', 'Paire de skis', 150.00);
 
 -- Photos objets (liens vers 
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (1, 'ordinateur1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (2, 'tshirt1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (3, 'livre1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (4, 'chaise1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (5, 'ballon1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (6, 'smartphone1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (7, 'jean1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (8, 'roman1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (9, 'table1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (10, 'raquette1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (11, 'casque1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (12, 'pullover1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (13, 'manuel1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (14, 'armoire1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (15, 'velo1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (16, 'tablette1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (17, 'robe1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (18, 'bd1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (19, 'lit1.jpg', 1, true);
-INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (20, 'skis1.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (1, 'ordinateur.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (2, 'tshirt.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (3, 'livre.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (4, 'chaise.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (5, 'ballon.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (6, 'smartphone.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (7, 'jean.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (8, 'roman.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (9, 'table.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (10, 'raquette.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (11, 'casque.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (12, 'pullover.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (13, 'manuel.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (14, 'armoire.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (15, 'velo.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (16, 'tablette.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (17, 'robe.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (18, 'bd.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (19, 'lit.jpg', 1, true);
+INSERT INTO photos_objet (objet_id, chemin, ordre, est_principale) VALUES (20, 'skis.jpg', 1, true);
 
 -- Echanges
 INSERT INTO echanges (demandeur_id, receveur_id, statut_id) VALUES (1, 2, 1); -- Jean demande a Marie

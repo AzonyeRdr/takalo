@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS objets (
     id INT AUTO_INCREMENT PRIMARY KEY,
     proprietaire_id INT NOT NULL,
     categorie_id INT NOT NULL,
-    etat_id INT NOT NULL,
-    statut_id INT NOT NULL,
+    etat_id INT NOT NULL, -- NOUVEAU, USE
+    statut_id INT NOT NULL, -- DISPONIBLE, RESERVE
     titre VARCHAR(150) NOT NULL,
     description TEXT,
     prix_estime DECIMAL(10,2),

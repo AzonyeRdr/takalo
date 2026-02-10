@@ -5,16 +5,14 @@ https://docs.google.com/spreadsheets/d/1F2w9zj4KX3KRVzFYZTiYmrHlx0h4fSpZyCZWEkRh
 - base url a ajoute pour chaque pages
 
 - full OOP:
-    - caractere majuscule des classes
-    - private attributes
-    - attributs en Objet
-    - handle the nulls
-    - constructeur vide. Initialisation des objets avec setters ?                 
-    - getters et setters
-    - pour plus de maintenabilite
+    OK - caractere majuscule des classes
+    OK - private attributes
+    OK - attributs en Objet
+    OK - handle the nulls
+    OK - constructeur vide. Initialisation des objets avec setters.              
+    OK - getters et setters
 
-- les pages doivent etres renderer par leur propre Controller ?
-- mettre un folder config pour (bootstrap.php, config.php et routes.php) et updater les liens.
+WIP - les pages doivent etres renderer par leur propre Controller ?
 
 DB:
     - ajouter tables categories;
@@ -34,11 +32,13 @@ DB:
         - date_reponse
     - table echange fille: "je t'echange 2 livres contre ton jeu" 
         - idechange 
-        - objet
+        - objet_demande
+        - objet_recu
          
     - choix:
         - table echanges avec date_demande et date_accept (default NULL. Si date_accept == NULL donc statut = pas encore accepte)
         - table echange_mere et echange_fille
+        
     - syntax DB simple  
     - insertion de donnes DB
 

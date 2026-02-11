@@ -6,38 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const map = {
     nom: { input: "#nom", err: "#nomError" },
-    prenom: { input: "#prenom", err: "#prenomError" },
     email: { input: "#email", err: "#emailError" },
     password: { input: "#password", err: "#passwordError" },
     confirm_password: { input: "#confirm_password", err: "#confirmPasswordError" },
     telephone: { input: "#telephone", err: "#telephoneError" },
   };
-
-  // Password toggle functionality
-  const togglePassword = document.querySelector("#togglePassword");
-  const toggleConfirmPassword = document.querySelector("#toggleConfirmPassword");
-  const passwordInput = document.querySelector("#password");
-  const confirmPasswordInput = document.querySelector("#confirm_password");
-
-  if (togglePassword) {
-    togglePassword.addEventListener("click", () => {
-      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-      passwordInput.setAttribute("type", type);
-      const icon = togglePassword.querySelector("i");
-      icon.classList.toggle("bi-eye");
-      icon.classList.toggle("bi-eye-slash");
-    });
-  }
-
-  if (toggleConfirmPassword) {
-    toggleConfirmPassword.addEventListener("click", () => {
-      const type = confirmPasswordInput.getAttribute("type") === "password" ? "text" : "password";
-      confirmPasswordInput.setAttribute("type", type);
-      const icon = toggleConfirmPassword.querySelector("i");
-      icon.classList.toggle("bi-eye");
-      icon.classList.toggle("bi-eye-slash");
-    });
-  }
 
   function setStatus(type, msg) {
     if (!statusBox) return;

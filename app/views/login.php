@@ -12,6 +12,5 @@
         <input type="email" id="email" name="email" required><br><br>
         <input type="submit" value="Login">
     </form>
-
 </body>
 </html>

@@ -7,13 +7,12 @@ class Validator {
 
   public static function validateRegister(array $input, $pdo = null) {
     $errors = [
-      'nom' => '', 'prenom' => '', 'email' => '',
+      'nom' => '', 'email' => '',
       'password' => '', 'confirm_password' => '', 'telephone' => ''
     ];
 
     $values = [
       'nom' => trim((string)($input['nom'] ?? '')),
-      'prenom' => trim((string)($input['prenom'] ?? '')),
       'email' => trim((string)($input['email'] ?? '')),
       'telephone' => self::normalizeTelephone($input['telephone'] ?? ''),
     ];
@@ -22,7 +21,6 @@ class Validator {
     $confirm  = (string)($input['confirm_password'] ?? '');
 
     if (mb_strlen($values['nom']) < 2) $errors['nom'] = "Le nom doit contenir au moins 2 caractères.";
-    if (mb_strlen($values['prenom']) < 2) $errors['prenom'] = "Le prénom doit contenir au moins 2 caractères.";
 
     if ($values['email'] === '') $errors['email'] = "L'email est obligatoire.";
     elseif (!filter_var($values['email'], FILTER_VALIDATE_EMAIL))

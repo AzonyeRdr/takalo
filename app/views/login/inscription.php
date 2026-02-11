@@ -1,102 +1,139 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<?php $baseurl = Flight::get('flight.base_url'); ?>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Metis Admin</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon-CvUZKS4z.svg">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap CSS from Metis -->
-    <link rel="stylesheet" href="/assets/main-QD_VOj1Y.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <title>Hexashop - Inscription</title>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl; ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl; ?>/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/lightbox.css">
 </head>
-<body class="bg-dark min-vh-100 d-flex align-items-center">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-5">
-                <div class="card bg-body-tertiary border-0 shadow-lg">
-                    <div class="card-body p-4 p-md-5">
-                        <!-- Logo/Brand -->
-                        <div class="text-center mb-4">
-                            <div class="mb-3">
-                                <img src="data:image/svg+xml,%3csvg%20width='64'%20height='64'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='16'%20cy='16'%20r='16'%20fill='url(%23logoGradient)'/%3e%3cpath%20d='M10%2024V8h2.5l2.5%206.5L17.5%208H20v16h-2V12.5L16.5%2020h-1L14%2012.5V24H10z'%20fill='white'%20font-weight='700'/%3e%3cdefs%3e%3clinearGradient%20id='logoGradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236366f1;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%238b5cf6;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e" alt="Metis Logo" width="64" height="64">
-                            </div>
-                            <h2 class="h3 fw-bold text-primary mb-1">Metis Admin</h2>
-                            <p class="text-body-secondary">Create your account</p>
-                        </div>
+    
+<body>
 
-                        <form id="inscriptionForm" novalidate>
-                            <div id="formStatus" class="alert d-none"></div>
+    <?php include 'includes/header.php'; ?>
 
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="nom" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="nom" name="nom" required>
-                                    <div id="nomError" class="invalid-feedback d-block"></div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="prenom" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="prenom" name="prenom" required>
-                                    <div id="prenomError" class="invalid-feedback d-block"></div>
-                                </div>
-                            </div>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
 
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                                <div id="emailError" class="invalid-feedback d-block"></div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="telephone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="telephone" name="telephone" required>
-                                <div id="telephoneError" class="invalid-feedback d-block"></div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="password" name="password" required>
-                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                        <i class="bi bi-eye"></i>
-                                    </button>
-                                </div>
-                                <div id="passwordError" class="invalid-feedback d-block"></div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="confirm_password" class="form-label">Confirm Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
-                                    <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
-                                        <i class="bi bi-eye"></i>
-                                    </button>
-                                </div>
-                                <div id="confirmPasswordError" class="invalid-feedback d-block"></div>
-                            </div>
-
-                            <button class="btn btn-primary w-100 py-2 mb-3" type="submit">
-                                <span class="btn-text">Sign Up</span>
-                            </button>
-                            
-                            <div class="text-center">
-                                <p class="text-body-secondary mb-0">
-                                    Already have an account? 
-                                    <a href="/login" class="text-primary text-decoration-none fw-semibold">Sign in</a>
-                                </p>
-                            </div>
-                        </form>
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="page-heading about-page-heading" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-content">
+                        <h2>Inscription</h2>
+                        <span>Rejoignez notre communauté d'échange</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- ***** Main Banner Area End ***** -->
 
-    <script src="/assets/vendor-bootstrap-C9iorZI5.js"></script>
-    <script src="/assets/users/js/inscription-validation.js"></script>
+    <!-- ***** Inscription Area Start ***** -->
+    <div class="contact-us">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="section-heading text-center">
+                                <h2>S'inscrire</h2>
+                                <span>Créez votre compte pour commencer à échanger</span>
+                            </div>
+                            <form id="inscriptionForm">
+                                <div id="formStatus" class="alert d-none"></div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input name="nom" type="text" id="nom" placeholder="Votre nom complet" required="">
+                                            <div id="nomError" class="invalid-feedback d-block"></div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input name="email" type="email" id="email" placeholder="Votre email" required="">
+                                            <div id="emailError" class="invalid-feedback d-block"></div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input name="telephone" type="tel" id="telephone" placeholder="Votre téléphone" required="">
+                                            <div id="telephoneError" class="invalid-feedback d-block"></div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input name="password" type="password" id="password" placeholder="Mot de passe" required="">
+                                            <div id="passwordError" class="invalid-feedback d-block"></div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input name="confirm_password" type="password" id="confirm_password" placeholder="Confirmer le mot de passe" required="">
+                                            <div id="confirmPasswordError" class="invalid-feedback d-block"></div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="main-dark-button">S'inscrire</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="text-center mt-3">
+                                <p>Déjà un compte? <a href="<?php echo $baseurl; ?>/login">Se connecter</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Inscription Area End ***** -->
+
+    <?php include 'includes/footer.php'; ?>
+
+    <!-- jQuery -->
+    <script src="<?php echo $baseurl; ?>/assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="<?php echo $baseurl; ?>/assets/js/popper.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="<?php echo $baseurl; ?>/assets/js/owl-carousel.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/accordions.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/datepicker.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/scrollreveal.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/waypoints.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/jquery.counterup.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/imgfix.min.js"></script> 
+    <script src="<?php echo $baseurl; ?>/assets/js/slick.js"></script> 
+    <script src="<?php echo $baseurl; ?>/assets/js/lightbox.js"></script> 
+    <script src="<?php echo $baseurl; ?>/assets/js/isotope.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="<?php echo $baseurl; ?>/assets/js/custom.js"></script>
+
+    <script src="<?php echo $baseurl; ?>/assets/js/user/inscription.js"></script>
+
 </body>
 </html>

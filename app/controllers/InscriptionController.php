@@ -16,7 +16,7 @@ class InscriptionController
      */
     public function showInscription()
     {
-        require __DIR__ . '/../views/inscription.php';
+        Flight::render('login/inscription');
     }
 
     /**
@@ -30,8 +30,6 @@ class InscriptionController
             $req = Flight::request();
 
             $input = [
-                'nom' => $req->data->nom ?? '',
-                'prenom' => $req->data->prenom ?? '',
                 'email' => $req->data->email ?? '',
                 'password' => $req->data->password ?? '',
                 'confirm_password' => $req->data->confirm_password ?? '',
@@ -66,8 +64,6 @@ class InscriptionController
             $req = Flight::request();
 
             $input = [
-                'nom' => $req->data->nom ?? '',
-                'prenom' => $req->data->prenom ?? '',
                 'email' => $req->data->email ?? '',
                 'password' => $req->data->password ?? '',
                 'confirm_password' => $req->data->confirm_password ?? '',
@@ -78,7 +74,7 @@ class InscriptionController
 
             if ($res['ok']) {
                 $user = new User();
-                $user->setNom($res['values']['nom'] . ' ' . $res['values']['prenom']); // combine nom and prenom
+                $user->setNom($res['values']['nom']);
                 $user->setEmail($res['values']['email']);
                 $user->setPasswordHash(password_hash($input['password'], PASSWORD_DEFAULT));
                 $user->setRoleId(1); // default user role

@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/controllers/PageController.php';
+require_once __DIR__ . '/controllers/InscriptionController.php';
 
 Flight::route('GET /', ['PageController', 'showLogin']);
 Flight::route('GET /signup', ['PageController', 'showSignup']);
@@ -10,3 +11,7 @@ Flight::route('GET /list-produit', ['PageController', 'showListProduit']);
 Flight::route('GET /modifier', ['PageController', 'showModifier']);
 Flight::route('GET /single-product', ['PageController', 'showSingleProduct']);
 Flight::route('GET /upload-product', ['PageController', 'showUploadProduct']);
+
+Flight::route('GET /inscription', ['InscriptionController', 'showInscription']);
+Flight::route('POST /inscription/validate', ['InscriptionController', 'validateRegister']);
+Flight::route('POST /inscription/register', ['InscriptionController', 'register']);

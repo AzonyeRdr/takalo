@@ -1,7 +1,5 @@
 <?php
-
 require_once __DIR__ . '/config.php';
-
 
 Flight::register('db', 'PDO', array(
     "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET,
@@ -12,8 +10,6 @@ Flight::register('db', 'PDO', array(
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     )
 ));
-
-
 
 Flight::set('flight.views.path', __DIR__ . '/views');
 

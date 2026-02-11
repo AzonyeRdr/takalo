@@ -9,9 +9,7 @@ class User
     private ?string $email;
     private ?string $role;
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public function setName(?string $name): void
     {
@@ -49,7 +47,7 @@ class User
 
     public function create($pdo)
     {
-        $stmt = $pdo->prepare('INSERT INTO user (name, email, role) VALUES (:name, :email, :role)');
+        $stmt = $pdo->prepare('INSERT INTO user (name, mail, role) VALUES (:name, :email, :role)');
         $stmt->execute([
             'name' => $this->getName(),
             'email' => $this->getEmail(),
@@ -67,19 +65,25 @@ class User
         }
     }
 
-    public function findById($pdo)
+    public function findByMail($pdo)
     {
-        $stmt = $pdo->prepare('SELECT * FROM user WHERE id = :id');
-        $stmt->execute(['id' => $this->getId()]);
+        $stmt = $pdo->prepare('SELECT * FROM user WHERE mail = :email');
+        $stmt->execute(['email' => $this->getEmail()]);
         $row = $stmt->fetch();
-        $this->setName($row['name']);
-        $this->setEmail($row['email']);
-        $this->setRole($row['role']);
+
+        if ($row) {
+            $this->setId($row['id']);
+            $this->setName($row['name']);
+            $this->setEmail($row['mail']);
+            $this->setRole($row['role']);
+        } else {
+            $this->setId(null);
+        }
     }
 
     public function update($pdo)
     {
-        $stmt = $pdo->prepare('UPDATE user SET name = :name, email = :email, role = :role WHERE id = :id');
+        $stmt = $pdo->prepare('UPDATE user SET name = :name, mail = :email, role = :role WHERE id = :id');
         $stmt->execute([
             'id' => $this->getId(),
             'name' => $this->getName(),
@@ -92,5 +96,4 @@ class User
     {
         return $this->role === 'admin';
     }
-
 }

@@ -2,44 +2,44 @@
 
 class PageController
 {
-    public function showLogin()
+    public static function showLogin()
     {
         Flight::render('login');
     }
-    public function showSignup()
+    public static function showSignup()
     {
         Flight::render('signup');
     }
-    public function showIndex()
+    public static function showIndex()
     {
         Flight::render('index');
     }
-    public function showAbout()
+    public static function showAbout()
     {
         Flight::render('about');
     }
 
-    public function showContact()
+    public static function showContact()
     {
         Flight::render('contact');
     }
 
-    public function showListProduit()
+    public static function showListProduit()
     {
         Flight::render('list-produit');
     }
 
-    public function showModifier()
+    public static function showModifier()
     {
         Flight::render('modifier');
     }
 
-    public function showSingleProduct()
+    public static function showSingleProduct()
     {
         Flight::render('single-product');
     }
 
-    public function showUploadProduct()
+    public static function showUploadProduct()
     {
         Flight::render('upload-product');
     }

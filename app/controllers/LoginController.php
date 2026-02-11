@@ -77,7 +77,6 @@ class LoginController {
         $user = $user->verifyUser($this->db);
 
         if ($user) {
-            // Check if login type matches user role
             if ($loginType === 'admin' && !$user->isAdmin()) {
                 Flight::json([
                     'success' => false,
@@ -86,10 +85,16 @@ class LoginController {
                 return;
             }
 
+            if ($loginType === 'user' && $user->isAdmin()) {
+                Flight::json([
+                    'success' => false,
+                    'message' => 'Aller vers connexion admin pour vous connecter en tant qu\'admin',
+                ], 302);
+                return;
+            }
+
             // Store user in session
             $_SESSION['user'] = $user;
-            $_SESSION['user_id'] = $user->getId();
-            $_SESSION['user_role'] = $user->getRoleId();
             
             // Set session type
             if ($user->isAdmin()) {
@@ -101,7 +106,7 @@ class LoginController {
             Flight::json([
                 'success' => true,
                 'message' => 'Connexion réussie',
-                'redirect' => '/index',
+                'redirect' => $user->isAdmin() ? '/backoffice' : '/index',
                 'sessionType' => $_SESSION['session_type']
             ]);
         } else {
@@ -121,6 +126,10 @@ class LoginController {
         session_unset();
         session_destroy();
 
-        Flight::redirect('/');
+        Flight::redirect('/index');
+    }
+
+    public function goToBackoffice() {
+        Flight::redirect('/backoffice');
     }
 }

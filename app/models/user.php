@@ -144,4 +144,10 @@ class User
         return null;
     }
 
+    public static function countAll($pdo)
+    {
+        $stmt = $pdo->query('SELECT COUNT(*) FROM utilisateurs WHERE deleted_at IS NULL');
+        return $stmt->fetchColumn();
+    }
+
 }

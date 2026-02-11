@@ -199,4 +199,9 @@ I still want to add this in Validator: if ($repo && $errors['email'] === '' && $
 $errors['email'] = "Cet email est déjà utilisé.";
 } DOnt create a \userrepository use user model
 
-
+Few fixes:
+- index a veriier avec carousel des categories
+- check routes, HomeContrller, BackofficeController, 
+- erase statistics,
+- header a verfier
+- backoffice a regarder utiliser template css

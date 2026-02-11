@@ -1,28 +1,21 @@
-
 <!DOCTYPE html>
 <?php $baseurl = Flight::get('flight.base_url'); ?>
-<html lang="en">
+<html lang="fr">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="Takalo - Plateforme d'échange d'objets entre utilisateurs">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Hexashop Ecommerce HTML CSS Template</title>
-
+    <title>Takalo - Échangez vos objets simplement</title>
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="<?php echo $baseurl ?>/assets/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="<?php echo $baseurl ?>/assets/css/font-awesome.css">
-
     <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/templatemo-hexashop.css">
-
     <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/owl-carousel.css">
-
     <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/lightbox.css">
 </head>
 
@@ -48,10 +41,10 @@
                     <div class="left-content">
                         <div class="thumb">
                             <div class="inner-content">
-                                <h4>We Are Hexashop</h4>
-                                <span>Awesome, clean &amp; creative HTML5 Template</span>
+                                <h4>Bienvenue sur Takalo</h4>
+                                <span>Échangez vos objets simplement et gratuitement</span>
                                 <div class="main-border-button">
-                                    <a href="#">Purchase Now!</a>
+                                    <a href="#recent">Découvrir les objets</a>
                                 </div>
                             </div>
                             <img src="<?php echo $baseurl ?>/assets/images/left-banner-image.jpg" alt="">
@@ -65,15 +58,15 @@
                                 <div class="right-first-image">
                                     <div class="thumb">
                                         <div class="inner-content">
-                                            <h4>Women</h4>
-                                            <span>Best Clothes For Women</span>
+                                            <h4>Proposez</h4>
+                                            <span>Vos objets à échanger</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
-                                                <h4>Women</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <h4>Proposez vos objets</h4>
+                                                <p>Mettez en ligne les objets que vous souhaitez échanger avec d'autres membres.</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="<?php echo $baseurl; ?>/inscription">Commencer</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,15 +78,15 @@
                                 <div class="right-first-image">
                                     <div class="thumb">
                                         <div class="inner-content">
-                                            <h4>Men</h4>
-                                            <span>Best Clothes For Men</span>
+                                            <h4>Échangez</h4>
+                                            <span>Avec la communauté</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
-                                                <h4>Men</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <h4>Échangez facilement</h4>
+                                                <p>Trouvez les objets qui vous intéressent et proposez des échanges équitables.</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="<?php echo $baseurl; ?>/login">Parcourir</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,15 +98,15 @@
                                 <div class="right-first-image">
                                     <div class="thumb">
                                         <div class="inner-content">
-                                            <h4>Kids</h4>
-                                            <span>Best Clothes For Kids</span>
+                                            <h4>Communauté</h4>
+                                            <span>Des milliers d'utilisateurs</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
-                                                <h4>Kids</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <h4>Rejoignez-nous</h4>
+                                                <p>Faites partie d'une communauté engagée dans l'économie circulaire.</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="<?php echo $baseurl; ?>/inscription">S'inscrire</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,15 +118,15 @@
                                 <div class="right-first-image">
                                     <div class="thumb">
                                         <div class="inner-content">
-                                            <h4>Accessories</h4>
-                                            <span>Best Trend Accessories</span>
+                                            <h4>Sécurisé</h4>
+                                            <span>100% gratuit et fiable</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
-                                                <h4>Accessories</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <h4>En toute sécurité</h4>
+                                                <p>Notre plateforme garantit des échanges sécurisés entre membres vérifiés.</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="#explore">En savoir plus</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -149,475 +142,178 @@
     </div>
     <!-- ***** Main Banner Area End ***** -->
 
-    <!-- ***** Men Area Starts ***** -->
-    <section class="section" id="men">
+    <!-- ***** Statistics Section Start ***** -->
+    <!-- ***** Categories Section Start ***** -->
+    <section class="section" id="categories">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="section-heading">
-                        <h2>Men's Latest</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <h2>Catégories populaires</h2>
+                        <span>Explorez nos différentes catégories d'objets</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="men-item-carousel">
-                        <div class="owl-men-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
+                <?php foreach ($categories as $categorie): ?>
+                <div class="col-lg-3 col-md-6">
+                    <div class="item">
+                        <div class="thumb">
+                            <div class="hover-content">
+                                <div class="inner">
+                                    <h4><?php echo htmlspecialchars($categorie['libelle']); ?></h4>
+                                    <p><?php echo $categorie['objet_count']; ?> objet<?php echo $categorie['objet_count'] > 1 ? 's' : ''; ?></p>
+                                    <div class="main-border-button">
+                                        <a href="<?php echo $baseurl; ?>/list-produit?categorie=<?php echo $categorie['id']; ?>">Explorer</a>
                                     </div>
-                                    <img src="<?php echo $baseurl ?>/assets/images/men-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="<?php echo $baseurl ?>/assets/images/men-02.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Air Force 1 X</h4>
-                                    <span>$90.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="<?php echo $baseurl ?>/assets/images/men-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Love Surrounding</h4>
-                                    <span>$45.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
+                            <div class="down-content">
+                                <h4><?php echo htmlspecialchars($categorie['libelle']); ?></h4>
+                                <span><?php echo $categorie['objet_count']; ?> objet<?php echo $categorie['objet_count'] > 1 ? 's' : ''; ?></span>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
-    <!-- ***** Men Area Ends ***** -->
+    <!-- ***** Categories Section End ***** -->
 
-    <!-- ***** Women Area Starts ***** -->
-    <section class="section" id="women">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h2>Women's Latest</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- ***** Recent Objects Section Start ***** -->
+    <section class="section" id="recent">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="women-item-carousel">
-                        <div class="owl-women-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="<?php echo $baseurl ?>/assets/images/women-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>New Pink Jacket</h4>
-                                    <span>$65.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="<?php echo $baseurl ?>/assets/images/women-02.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Dress</h4>
-                                    <span>$45.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="<?php echo $baseurl ?>/assets/images/women-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Summer Collection</h4>
-                                    <span>$55.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Women Area Ends ***** -->
-
-    <!-- ***** Kids Area Starts ***** -->
-    <section class="section" id="kids">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
                     <div class="section-heading">
-                        <h2>Kid's Latest</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <h2>Objets récemment ajoutés</h2>
+                        <span>Découvrez les derniers objets disponibles pour l'échange</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="kid-item-carousel">
-                        <div class="owl-kid-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="<?php echo $baseurl ?>/assets/images/kid-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>School Collection</h4>
-                                    <span>$35.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
+                <?php if (empty($recentObjects)): ?>
+                    <div class="col-lg-12 text-center">
+                        <p>Aucun objet disponible pour le moment. Soyez le premier à proposer un objet !</p>
+                        <div class="main-border-button">
+                            <a href="<?php echo $baseurl; ?>/inscription">Commencer</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <?php foreach ($recentObjects as $objet): ?>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                                <?php if ($objet['photo_principale']): ?>
+                                    <img src="<?php echo $baseurl . '/' . htmlspecialchars($objet['photo_principale']); ?>" alt="">
+                                <?php else: ?>
+                                    <img src="<?php echo $baseurl ?>/assets/images/explore-image-01.jpg" alt="">
+                                <?php endif; ?>
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="<?php echo $baseurl ?>/assets/images/kid-02.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Summer Wear</h4>
-                                    <span>$30.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="<?php echo $baseurl ?>/assets/images/kid-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Kid</h4>
-                                    <span>$25.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
+                            <div class="down-content">
+                                <h4><?php echo htmlspecialchars($objet['titre']); ?></h4>
+                                <span><?php echo $objet['prix_estime'] ? number_format($objet['prix_estime'], 2) . ' Ar' : 'À négocier'; ?></span>
+                                <ul class="stars">
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                                <p><small>Proposé par <?php echo htmlspecialchars($objet['proprietaire_nom']); ?></small></p>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
-    <!-- ***** Kids Area Ends ***** -->
+    <!-- ***** Recent Objects Section End ***** -->
 
-    <!-- ***** Explore Area Starts ***** -->
+    <!-- ***** How It Works Section Start ***** -->
     <section class="section" id="explore">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="left-content">
-                        <h2>Explore Our Products</h2>
-                        <span>You are allowed to use this HexaShop HTML CSS template.</span>
-                        <div class="quote">
-                            <i class="fa fa-quote-left"></i>
-                            <p>You are not allowed to redistribute this template ZIP file on any other website.</p>
-                        </div>
-                        <p>There are 5 pages included in this HexaShop Template.</p>
-                        <div class="main-border-button">
-                            <a href="products">Discover More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="right-content">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="leather">
-                                    <h4>Leather Bags</h4>
-                                    <span>Latest Collection</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="first-image">
-                                    <img src="<?php echo $baseurl ?>/assets/images/explore-image-01.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="second-image">
-                                    <img src="<?php echo $baseurl ?>/assets/images/explore-image-02.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="types">
-                                    <h4>Different Types</h4>
-                                    <span>Over 304 Products</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Explore Area Ends ***** -->
-
-    <!-- ***** Social Area Starts ***** -->
-    <section class="section" id="social">
-        <div class="container">
-            <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <h2>Social Media</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <h2>Comment ça marche ?</h2>
+                        <span>Échangez vos objets en 3 étapes simples</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-            <div class="row images">
-                <div class="col-2">
-                    <div class="thumb">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="item">
                         <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Fashion</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
+                            <i class="fa fa-user-plus"></i>
                         </div>
-                        <img src="<?php echo $baseurl ?>/assets/images/instagram-01.jpg" alt="">
+                        <h4>1. Inscrivez-vous</h4>
+                        <p>Créez votre compte gratuitement en quelques secondes et rejoignez notre communauté d'échangistes.</p>
                     </div>
                 </div>
-                <div class="col-2">
-                    <div class="thumb">
+                <div class="col-lg-4">
+                    <div class="item">
                         <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>New</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
+                            <i class="fa fa-camera"></i>
                         </div>
-                        <img src="<?php echo $baseurl ?>/assets/images/instagram-02.jpg" alt="">
+                        <h4>2. Ajoutez vos objets</h4>
+                        <p>Prenez des photos de vos objets, ajoutez une description et publiez-les sur la plateforme.</p>
                     </div>
                 </div>
-                <div class="col-2">
-                    <div class="thumb">
+                <div class="col-lg-4">
+                    <div class="item">
                         <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Brand</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
+                            <i class="fa fa-exchange"></i>
                         </div>
-                        <img src="<?php echo $baseurl ?>/assets/images/instagram-03.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Makeup</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                        <img src="<?php echo $baseurl ?>/assets/images/instagram-04.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Leather</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                        <img src="<?php echo $baseurl ?>/assets/images/instagram-05.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Bag</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                        <img src="<?php echo $baseurl ?>/assets/images/instagram-06.jpg" alt="">
+                        <h4>3. Échangez !</h4>
+                        <p>Trouvez des objets qui vous intéressent et proposez des échanges avec d'autres utilisateurs.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ***** Social Area Ends ***** -->
+    <!-- ***** How It Works Section End ***** -->
 
-    <!-- ***** Subscribe Area Starts ***** -->
-    <div class="subscribe">
+    <!-- ***** Call to Action Start ***** -->
+    <section class="section" id="subscribe">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="section-heading">
-                        <h2>By Subscribing To Our Newsletter You Can Get 30% Off</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <h2>Prêt à échanger vos objets ?</h2>
+                        <span>Rejoignez dès maintenant notre communauté et commencez à échanger !</span>
                     </div>
-                    <form id="subscribe" action="" method="get">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <fieldset>
-                                    <input name="name" type="text" id="name" placeholder="Your Name" required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-5">
-                                <fieldset>
-                                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-2">
-                                <fieldset>
-                                    <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </form>
+                    <div class="main-border-button">
+                        <a href="<?php echo $baseurl; ?>/inscription">S'inscrire gratuitement</a>
+                    </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-6">
-                            <ul>
-                                <li>Store Location:<br><span>Sunny Isles Beach, FL 33160, United States</span></li>
-                                <li>Phone:<br><span>010-020-0340</span></li>
-                                <li>Office Location:<br><span>North Miami Beach</span></li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <ul>
-                                <li>Work Hours:<br><span>07:30 AM - 9:30 PM Daily</span></li>
-                                <li>Email:<br><span>info@company.com</span></li>
-                                <li>Social Media:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Behance</a>, <a href="#">Linkedin</a></span></li>
-                            </ul>
-                        </div>
+                    <div class="section-heading">
+                        <h2>Besoin d'aide ?</h2>
+                        <span>Notre équipe est là pour vous accompagner</span>
+                    </div>
+                    <div class="main-border-button">
+                        <a href="<?php echo $baseurl; ?>/index#explore">En savoir plus</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- ***** Subscribe Area Ends ***** -->
+    </section>
+    <!-- ***** Call to Action End ***** -->
 
     <?php include 'includes/footer.php'; ?>
 
@@ -635,14 +331,13 @@
     <script src="<?php echo $baseurl ?>/assets/js/scrollreveal.min.js"></script>
     <script src="<?php echo $baseurl ?>/assets/js/waypoints.min.js"></script>
     <script src="<?php echo $baseurl ?>/assets/js/jquery.counterup.min.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/imgfix.min.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/slick.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/lightbox.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/isotope.js"></script>
-
+    <script src="<?php echo $baseurl ?>/assets/js/imgfix.min.js"></script> 
+    <script src="<?php echo $baseurl ?>/assets/js/slick.js"></script> 
+    <script src="<?php echo $baseurl ?>/assets/js/lightbox.js"></script> 
+    <script src="<?php echo $baseurl ?>/assets/js/isotope.js"></script> 
+    
     <!-- Global Init -->
     <script src="<?php echo $baseurl ?>/assets/js/custom.js"></script>
 
 </body>
-
 </html>

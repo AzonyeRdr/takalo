@@ -13,8 +13,6 @@ Flight::register('db', 'PDO', array(
     )
 ));
 
-
-
 Flight::set('flight.views.path', __DIR__ . '/views');
 
 require_once __DIR__ . '/routes.php';

@@ -19,7 +19,6 @@
 </head>
     
 <body>
-
     <!-- ***** Inscription Area Start ***** -->
     <div class="contact-us" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
         <div class="container">

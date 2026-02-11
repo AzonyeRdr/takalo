@@ -1,10 +1,11 @@
 <?php
+session_start();
 function getCateg() {
     return [
-        ['nom_categorie' => 'Men'],
-        ['nom_categorie' => 'Women'],
-        ['nom_categorie' => 'Kids'],
-        ['nom_categorie' => 'Accessories']
+        ['nom_categorie' => 'Hommes'],
+        ['nom_categorie' => 'Femmes'],
+        ['nom_categorie' => 'Enfants'],
+        ['nom_categorie' => 'Accessoires']
     ];
 }
 ?>
@@ -14,53 +15,41 @@ function getCateg() {
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">
+                        <a href="/index" class="logo">
                             <img src="<?php echo $baseurl ?>/assets/images/logo.png">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <!-- <li class="scroll-to-section"><a href="#men">Men's</a></li>
-                            <li class="scroll-to-section"><a href="#women">Women's</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Kid's</a></li> -->
-                            <!-- <?php 
-                                $categ = getCateg();
-                                foreach($categ as $c) { ?>
-                                    <li class="scroll-to-section"><a href="#<?= $c['nom_categorie']?>"><?= $c['nom_categorie']?>'s</a></li>
-                                <?php }
-                            ?> -->
+                            <li class="scroll-to-section"><a href="<?php echo $baseurl; ?>/index" class="active">Accueil</a></li>
+                            <?php if (!isset($_SESSION['session_type'])): ?>
+                            <!-- Show login/signup when NOT logged in -->
                             <li class="submenu">
-                                <a href="javascript:;">Pages</a>
+                                <a href="javascript:;">Se connecter</a>
                                 <ul>
-                                    <li><a href="about.php">About Us</a></li>
-                                    <li><a href="products.php">Products</a></li>
-                                    <li><a href="single-product.php">Single Product</a></li>
-                                    <li><a href="contact.php">Contact Us</a></li>
+                                    <li><a href="<?php echo $baseurl; ?>/login">Connexion Utilisateur</a></li>
+                                    <li><a href="<?php echo $baseurl; ?>/login-admin">Connexion Admin</a></li>
                                 </ul>
                             </li>
-                            <!-- <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
-                                </ul>
-                            </li> -->
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
-                            <li class="scroll-to-section"><a href="list-produit.php">List Products</a></li>
-                            <li class="scroll-to-section"><a href="upload-product.php">Upload Product</a></li>
+                            <li class="scroll-to-section"><a href="<?php echo $baseurl; ?>/inscription">S'inscrire</a></li>
+                            <?php else: ?>
+                            <!-- Show user account dropdown when logged in -->
                             <li class="submenu">
-                                <a href="javascript:;">Login</a>
+                                <a href="javascript:;">
+                                    <i class="fa fa-user"></i> <?php echo htmlspecialchars($_SESSION['user']->getEmail()); ?>
+                                </a>
                                 <ul>
-                                    <li><a href="<?php echo $baseurl; ?>/login">User Login</a></li>
-                                    <li><a href="<?php echo $baseurl; ?>/login-admin">Admin Login</a></li>
+                                    <?php if ($_SESSION['session_type'] === 'admin'): ?>
+                                        <li><a href="<?php echo $baseurl; ?>/backoffice">
+                                            <i class="fa fa-dashboard"></i> Administration
+                                        </a></li>
+                                    <?php endif; ?>
+                                    <li><a href="<?php echo $baseurl; ?>/logout">
+                                        <i class="fa fa-sign-out"></i> Déconnexion
+                                    </a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="<?php echo $baseurl; ?>/inscription">Inscrivez-vous</a></li>
-
-                            
+                            <?php endif; ?>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

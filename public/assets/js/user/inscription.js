@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!form) return;
 
   const statusBox = document.querySelector("#formStatus");
+  const submitBtn = document.querySelector("#form-submit");
 
   const map = {
     nom: { input: "#nom", err: "#nomError" },
@@ -74,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "X-Requested-With": "XMLHttpRequest" 
       },
     });
-    if (!res.ok) throw new Error("Server error during validation.");
+    if (!res.ok) throw new Error("Erreur serveur lors de la validation.");
     return res.json();
   }
 
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       applyServerResult(data);
 
       if (data.ok) {
-        setStatus("success", "Validation OK ✅ Submitting...");
+        setStatus("success", "Validation réussie. Envoi en cours...");
         
         // Submit the form data via fetch
         const formData = {};
@@ -107,19 +108,31 @@ document.addEventListener("DOMContentLoaded", () => {
         const result = await res.json();
         
         if (result.ok) {
-          setStatus("success", "Account created successfully! Redirecting...");
+          setStatus("success", "Le compte a été créé avec succès ! Redirection...");
           setTimeout(() => {
-            window.location.href = "/login";
+            window.location.href = "/login/showLogin";
           }, 1500);
         } else {
-          setStatus("danger", "Registration failed: " + (result.errors?._global || "Unknown error"));
+          setStatus("danger", "Échec de l'inscription : " + (result.errors?._global || "Erreur inconnue"));
           applyServerResult(result);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "S'inscrire";
+          }
         }
       } else {
-        setStatus("danger", "Please correct the errors.");
+        setStatus("danger", "Veuillez corriger les erreurs.");
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = "S'inscrire";
+        }
       }
     } catch (err) {
-      setStatus("warning", err.message || "An error occurred.");
+      setStatus("warning", err.message || "Une erreur s'est produite.");
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = "S'inscrire";
+      }
     }
   });
 

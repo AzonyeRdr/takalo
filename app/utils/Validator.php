@@ -5,7 +5,7 @@ class Validator {
     return preg_replace('/\s+/', '', trim((string)$tel));
   }
 
-  public static function validateRegister(array $input, UserRepository $repo = null) {
+  public static function validateRegister(array $input, $pdo = null) {
     $errors = [
       'nom' => '', 'prenom' => '', 'email' => '',
       'password' => '', 'confirm_password' => '', 'telephone' => ''
@@ -40,8 +40,12 @@ class Validator {
     if (strlen($tel) < 8 || strlen($tel) > 15) $errors['telephone'] = "Le téléphone doit contenir entre 8 et 15 chiffres.";
     elseif (!preg_match('/^[0-9]+$/', $tel)) $errors['telephone'] = "Le téléphone ne doit contenir que des chiffres.";
 
-    if ($repo && $errors['email'] === '' && $repo->emailExists($values['email'])) {
-      $errors['email'] = "Cet email est déjà utilisé.";
+    if ($pdo && $errors['email'] === '') {
+      $user = new \app\models\User();
+      $user->setEmail($values['email']);
+      if ($user->emailExists($pdo)) {
+        $errors['email'] = "Cet email est déjà utilisé.";
+      }
     }
 
     $ok = true;

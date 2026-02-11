@@ -1,15 +1,14 @@
 <?php
 
+use app\models\User;
+
 class InscriptionController
 {
-    private $userService;
-    private $userRepository;
+    private $db;
 
     public function __construct()
     {
-        $db = Flight::db();
-        $this->userRepository = new UserRepository($db);
-        $this->userService = new UserService($this->userRepository);
+        $this->db = Flight::db();
     }
 
     /**
@@ -39,7 +38,7 @@ class InscriptionController
                 'telephone' => $req->data->telephone ?? '',
             ];
 
-            $res = Validator::validateRegister($input, $this->userRepository);
+            $res = Validator::validateRegister($input, $this->db);
             
             Flight::json([
                 'ok' => $res['ok'],
@@ -75,16 +74,22 @@ class InscriptionController
                 'telephone' => $req->data->telephone ?? '',
             ];
 
-            $res = Validator::validateRegister($input, $this->userRepository);
+            $res = Validator::validateRegister($input, $this->db);
 
             if ($res['ok']) {
-                $userId = $this->userService->register($res['values'], (string)$input['password']);
+                $user = new User();
+                $user->setNom($res['values']['nom'] . ' ' . $res['values']['prenom']); // combine nom and prenom
+                $user->setEmail($res['values']['email']);
+                $user->setPasswordHash(password_hash($input['password'], PASSWORD_DEFAULT));
+                $user->setRoleId(1); // default user role
+                $user->setTel($res['values']['telephone']);
+                $user->create($this->db);
                 
                 Flight::json([
                     'ok' => true,
                     'success' => true,
                     'message' => 'Compte créé avec succès',
-                    'user_id' => (int)$userId
+                    'user_id' => (int)$user->getId()
                 ], 201);
             } else {
                 Flight::json([

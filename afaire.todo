@@ -190,3 +190,13 @@ Comment proceder:
 Notes:
     - n'oublie pas la coherence avec les routes et les focnitons du controller, du layer service, et du model 
     - insciption.ph est just un exemple et non la page final
+
+Fix the imports in here: I dont want Userrepository or UserService but only models user and Controller (full MVC). SO you need to fix the sincpriton controller.  email Exist is not a static function and it should take only pdo and call it like user->emailexis
+
+in table user add tel (phone phone numebr) and updates the model and any other methods
+
+I still want to add this in Validator: if ($repo && $errors['email'] === '' && $repo->emailExists($values['email'])) {
+$errors['email'] = "Cet email est déjà utilisé.";
+} DOnt create a \userrepository use user model
+
+

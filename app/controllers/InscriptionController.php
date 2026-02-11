@@ -30,6 +30,7 @@ class InscriptionController
             $req = Flight::request();
 
             $input = [
+                'nom' => $req->data->nom ?? '',
                 'email' => $req->data->email ?? '',
                 'password' => $req->data->password ?? '',
                 'confirm_password' => $req->data->confirm_password ?? '',
@@ -49,7 +50,7 @@ class InscriptionController
             Flight::json([
                 'ok' => false,
                 'errors' => [
-                    '_global' => 'Erreur serveur lors de la validation.'
+                    '_global' => 'Erreur serveur lors de la validation: ' . $e->getMessage()
                 ]
             ]);
         }
@@ -64,6 +65,7 @@ class InscriptionController
             $req = Flight::request();
 
             $input = [
+                'nom' => $req->data->nom ?? '',
                 'email' => $req->data->email ?? '',
                 'password' => $req->data->password ?? '',
                 'confirm_password' => $req->data->confirm_password ?? '',

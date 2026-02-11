@@ -20,35 +20,8 @@
     
 <body>
 
-    <?php include 'includes/header.php'; ?>
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="page-heading about-page-heading" id="top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner-content">
-                        <h2>Inscription</h2>
-                        <span>Rejoignez notre communauté d'échange</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
-
     <!-- ***** Inscription Area Start ***** -->
-    <div class="contact-us">
+    <div class="contact-us" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -61,40 +34,33 @@
                             <form id="inscriptionForm">
                                 <div id="formStatus" class="alert d-none"></div>
                                 <div class="row">
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <input name="nom" type="text" id="nom" placeholder="Votre nom complet" required="">
-                                            <div id="nomError" class="invalid-feedback d-block"></div>
-                                        </fieldset>
+                                    <div class="col-lg-12 mb-3">
+                                        <label for="nom" class="form-label">Nom complet</label>
+                                        <input name="nom" type="text" class="form-control" id="nom" placeholder="Votre nom complet" required="">
+                                        <div id="nomError" class="invalid-feedback d-block"></div>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <input name="email" type="email" id="email" placeholder="Votre email" required="">
-                                            <div id="emailError" class="invalid-feedback d-block"></div>
-                                        </fieldset>
+                                    <div class="col-lg-12 mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="Votre email" required="">
+                                        <div id="emailError" class="invalid-feedback d-block"></div>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <input name="telephone" type="tel" id="telephone" placeholder="Votre téléphone" required="">
-                                            <div id="telephoneError" class="invalid-feedback d-block"></div>
-                                        </fieldset>
+                                    <div class="col-lg-12 mb-3">
+                                        <label for="telephone" class="form-label">Téléphone</label>
+                                        <input name="telephone" type="tel" class="form-control" id="telephone" placeholder="Votre téléphone" required="">
+                                        <div id="telephoneError" class="invalid-feedback d-block"></div>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <input name="password" type="password" id="password" placeholder="Mot de passe" required="">
-                                            <div id="passwordError" class="invalid-feedback d-block"></div>
-                                        </fieldset>
+                                    <div class="col-lg-12 mb-3">
+                                        <label for="password" class="form-label">Mot de passe</label>
+                                        <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" required="">
+                                        <div id="passwordError" class="invalid-feedback d-block"></div>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <input name="confirm_password" type="password" id="confirm_password" placeholder="Confirmer le mot de passe" required="">
-                                            <div id="confirmPasswordError" class="invalid-feedback d-block"></div>
-                                        </fieldset>
+                                    <div class="col-lg-12 mb-3">
+                                        <label for="confirm_password" class="form-label">Confirmer le mot de passe</label>
+                                        <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Confirmer le mot de passe" required="">
+                                        <div id="confirmPasswordError" class="invalid-feedback d-block"></div>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <button type="submit" id="form-submit" class="main-dark-button">S'inscrire</button>
-                                        </fieldset>
+                                    <div class="col-lg-12 text-center">
+                                        <button type="submit" id="form-submit" class="main-dark-button w-100">S'inscrire</button>
                                     </div>
                                 </div>
                             </form>
@@ -108,8 +74,6 @@
         </div>
     </div>
     <!-- ***** Inscription Area End ***** -->
-
-    <?php include 'includes/footer.php'; ?>
 
     <!-- jQuery -->
     <script src="<?php echo $baseurl; ?>/assets/js/jquery-2.1.0.min.js"></script>

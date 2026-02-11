@@ -127,7 +127,7 @@ class User
     }
 
     public function verifyUser($pdo) {
-        $st = $pdo->prepare("SELECT * FROM USERS WHERE EMAIL=? LIMIT 1");
+        $st = $pdo->prepare("SELECT * FROM utilisateurs WHERE email=? LIMIT 1");
         $st->execute([(string)$this->getEmail()]);
         $row = $st->fetch();
 
@@ -135,7 +135,7 @@ class User
             $user = new User();
             $user->setId($row['id']);
             $user->setNom($row['nom']);
-            $user->setEmail($row['enal']);
+            $user->setEmail($row['email']);
             $user->setPasswordHash($row['password_hash']);
             $user->setRoleId($row['role_id']);
             $user->setTel($row['tel']);

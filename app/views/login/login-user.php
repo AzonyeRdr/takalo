@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <title>Hexashop - Inscription</title>
+    <title>Hexashop - User Login</title>
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="<?php echo $baseurl; ?>/assets/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
     
 <body>
 
-    <!-- ***** Inscription Area Start ***** -->
+    <!-- ***** Login Area Start ***** -->
     <div class="contact-us" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
         <div class="container">
             <div class="row justify-content-center">
@@ -28,44 +28,31 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="section-heading text-center">
-                                <h2>S'inscrire</h2>
-                                <span>Créez votre compte pour commencer à échanger</span>
+                                <h2>Se connecter</h2>
+                                <span>Connectez-vous à votre compte</span>
                             </div>
-                            <form id="inscriptionForm">
+                            <form id="loginForm">
                                 <div id="formStatus" class="alert d-none"></div>
+                                <input type="hidden" name="loginType" value="user">
                                 <div class="row">
-                                    <div class="col-lg-12 mb-3">
-                                        <label for="nom" class="form-label">Nom complet</label>
-                                        <input name="nom" type="text" class="form-control" id="nom" placeholder="Votre nom complet" required="">
-                                        <div id="nomError" class="invalid-feedback d-block"></div>
-                                    </div>
                                     <div class="col-lg-12 mb-3">
                                         <label for="email" class="form-label">Email</label>
                                         <input name="email" type="email" class="form-control" id="email" placeholder="Votre email" required="">
                                         <div id="emailError" class="invalid-feedback d-block"></div>
                                     </div>
                                     <div class="col-lg-12 mb-3">
-                                        <label for="telephone" class="form-label">Téléphone</label>
-                                        <input name="telephone" type="tel" class="form-control" id="telephone" placeholder="Votre téléphone" required="">
-                                        <div id="telephoneError" class="invalid-feedback d-block"></div>
-                                    </div>
-                                    <div class="col-lg-12 mb-3">
                                         <label for="password" class="form-label">Mot de passe</label>
                                         <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" required="">
                                         <div id="passwordError" class="invalid-feedback d-block"></div>
                                     </div>
-                                    <div class="col-lg-12 mb-3">
-                                        <label for="confirm_password" class="form-label">Confirmer le mot de passe</label>
-                                        <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Confirmer le mot de passe" required="">
-                                        <div id="confirmPasswordError" class="invalid-feedback d-block"></div>
-                                    </div>
                                     <div class="col-lg-12 text-center">
-                                        <button type="submit" id="form-submit" class="main-dark-button w-100">S'inscrire</button>
+                                        <button type="submit" id="form-submit" class="main-dark-button w-100">Se connecter</button>
                                     </div>
                                 </div>
                             </form>
                             <div class="text-center mt-3">
-                                <p>Déjà un compte? <a href="<?php echo $baseurl; ?>/login">Se connecter</a></p>
+                                <p>Pas de compte? <a href="<?php echo $baseurl; ?>/signup">S'inscrire</a></p>
+                                <p><a href="<?php echo $baseurl; ?>/login-admin">Se connecter en tant qu'admin</a></p>
                             </div>
                         </div>
                     </div>
@@ -73,7 +60,7 @@
             </div>
         </div>
     </div>
-    <!-- ***** Inscription Area End ***** -->
+    <!-- ***** Login Area End ***** -->
 
     <!-- jQuery -->
     <script src="<?php echo $baseurl; ?>/assets/js/jquery-2.1.0.min.js"></script>
@@ -97,7 +84,7 @@
     <!-- Global Init -->
     <script src="<?php echo $baseurl; ?>/assets/js/custom.js"></script>
 
-    <script src="<?php echo $baseurl; ?>/assets/js/user/inscription.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/user/login.js"></script>
 
 </body>
 </html>

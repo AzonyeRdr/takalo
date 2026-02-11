@@ -21,8 +21,19 @@ class LoginController {
         session_unset();
         session_destroy();
         
-        // Render login page
-        Flight::render('login');
+        // Render user login page
+        Flight::render('login/login-user');
+    }
+
+    public function goToAdminLogin() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_unset();
+        session_destroy();
+        
+        // Render admin login page
+        Flight::render('login/login-admin');
     }
 
     public function verifyUser() {
@@ -32,12 +43,13 @@ class LoginController {
 
         $email = Flight::request()->data->email ?? '';
         $password = Flight::request()->data->password ?? '';
+        $loginType = Flight::request()->data->loginType ?? 'user'; 
 
-        // Simple validation without Validator class
+        // Simple validation
         if (empty(trim($email))) {
             Flight::json([
                 'success' => false,
-                'message' => 'Email is required'
+                'message' => 'L\'email est requis'
             ], 400);
             return;
         }
@@ -45,7 +57,7 @@ class LoginController {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             Flight::json([
                 'success' => false,
-                'message' => 'Invalid email format'
+                'message' => 'Format d\'email invalide'
             ], 400);
             return;
         }
@@ -53,7 +65,7 @@ class LoginController {
         if (empty(trim($password))) {
             Flight::json([
                 'success' => false,
-                'message' => 'Password is required'
+                'message' => 'Le mot de passe est requis'
             ], 400);
             return;
         }
@@ -65,19 +77,37 @@ class LoginController {
         $user = $user->verifyUser($this->db);
 
         if ($user) {
-            // Store only user object in session
+            // Check if login type matches user role
+            if ($loginType === 'admin' && !$user->isAdmin()) {
+                Flight::json([
+                    'success' => false,
+                    'message' => 'Accès refusé. Identifiants administrateur requis.'
+                ], 403);
+                return;
+            }
+
+            // Store user in session
             $_SESSION['user'] = $user;
             $_SESSION['user_id'] = $user->getId();
+            $_SESSION['user_role'] = $user->getRoleId();
+            
+            // Set session type
+            if ($user->isAdmin()) {
+                $_SESSION['session_type'] = 'admin';
+            } else {
+                $_SESSION['session_type'] = 'user';
+            }
 
             Flight::json([
                 'success' => true,
-                'message' => 'Login successful',
-                'redirect' => '/index'
+                'message' => 'Connexion réussie',
+                'redirect' => '/index',
+                'sessionType' => $_SESSION['session_type']
             ]);
         } else {
             Flight::json([
                 'success' => false,
-                'message' => 'Invalid email or password'
+                'message' => 'Email ou mot de passe invalide'
             ], 401);
         }
     }

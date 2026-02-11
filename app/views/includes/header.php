@@ -51,6 +51,13 @@ function getCateg() {
                             <li class="scroll-to-section"><a href="#explore">Explore</a></li>
                             <li class="scroll-to-section"><a href="list-produit.php">List Products</a></li>
                             <li class="scroll-to-section"><a href="upload-product.php">Upload Product</a></li>
+                            <li class="submenu">
+                                <a href="javascript:;">Login</a>
+                                <ul>
+                                    <li><a href="<?php echo $baseurl; ?>/login">User Login</a></li>
+                                    <li><a href="<?php echo $baseurl; ?>/login-admin">Admin Login</a></li>
+                                </ul>
+                            </li>
                             <li class="scroll-to-section"><a href="<?php echo $baseurl; ?>/inscription">Inscrivez-vous</a></li>
 
                             

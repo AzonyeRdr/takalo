@@ -1,6 +1,7 @@
 <?php
 use controllers\PageController;
 use controllers\InscriptionController;
+use controllers\LoginController;
 
 Flight::route('GET /', [PageController::class, 'showLogin']);
 Flight::route('GET /signup', [PageController::class, 'showSignup']);
@@ -15,3 +16,7 @@ Flight::route('GET /upload-product', [PageController::class, 'showUploadProduct'
 Flight::route('GET /inscription', [InscriptionController::class, 'showInscription']);
 Flight::route('POST /inscription/validate', [InscriptionController::class, 'validateRegister']);
 Flight::route('POST /inscription/register', [InscriptionController::class, 'register']);
+
+Flight::route('GET /login', [LoginController::class, 'goToLogin']);
+Flight::route('POST /login/verifyUser', [LoginController::class, 'verifyUser']);
+Flight::route('GET /logout', [LoginController::class, 'logout']);

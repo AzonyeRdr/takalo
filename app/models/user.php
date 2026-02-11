@@ -126,4 +126,22 @@ class User
         return $this->role_id === 2; // assuming 2 is admin
     }
 
+    public function verifyUser($pdo) {
+        $st = $pdo->prepare("SELECT * FROM USERS WHERE EMAIL=? LIMIT 1");
+        $st->execute([(string)$this->getEmail()]);
+        $row = $st->fetch();
+
+        if ($row && password_verify($this->getPasswordHash(), $row['password_hash'])) {
+            $user = new User();
+            $user->setId($row['id']);
+            $user->setNom($row['nom']);
+            $user->setEmail($row['enal']);
+            $user->setPasswordHash($row['password_hash']);
+            $user->setRoleId($row['role_id']);
+            $user->setTel($row['tel']);
+            return $user;
+        }
+        return null;
+    }
+
 }

@@ -1,4 +1,9 @@
 <?php
+
+namespace utils;
+
+use models\User;
+
 class Validator {
 
   public static function normalizeTelephone($tel) {
@@ -39,7 +44,7 @@ class Validator {
     elseif (!preg_match('/^[0-9]+$/', $tel)) $errors['telephone'] = "Le téléphone ne doit contenir que des chiffres.";
 
     if ($pdo && $errors['email'] === '') {
-      $user = new \app\models\User();
+      $user = new User();
       $user->setEmail($values['email']);
       if ($user->emailExists($pdo)) {
         $errors['email'] = "Cet email est déjà utilisé.";

@@ -13,9 +13,21 @@ class ComposerStaticInit4b3a253f57d31d773b6986822b8dc6cf
     );
 
     public static $prefixLengthsPsr4 = array (
+        'u' =>
+        array (
+            'utils\\' => 6,
+        ),
+        'm' =>
+        array (
+            'models\\' => 7,
+        ),
         'f' =>
         array (
             'flight\\' => 7,
+        ),
+        'c' =>
+        array (
+            'controllers\\' => 12,
         ),
         'T' =>
         array (
@@ -32,9 +44,21 @@ class ComposerStaticInit4b3a253f57d31d773b6986822b8dc6cf
     );
 
     public static $prefixDirsPsr4 = array (
+        'utils\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/app/utils',
+        ),
+        'models\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/app/models',
+        ),
         'flight\\' =>
         array (
             0 => __DIR__ . '/..' . '/flightphp/runway/src',
+        ),
+        'controllers\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/app/controllers',
         ),
         'Tracy\\' =>
         array (

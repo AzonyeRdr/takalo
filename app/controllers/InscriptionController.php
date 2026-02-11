@@ -1,6 +1,11 @@
 <?php
 
-use app\models\User;
+namespace controllers;
+
+use Flight;
+use Throwable;
+use models\User;
+use utils\Validator;
 
 class InscriptionController
 {

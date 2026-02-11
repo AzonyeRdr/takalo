@@ -1,5 +1,9 @@
 <?php
 
+namespace controllers;
+
+use Flight;
+
 class PageController
 {
     public function showLogin()

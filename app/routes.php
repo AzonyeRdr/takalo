@@ -1,17 +1,17 @@
 <?php
-require_once __DIR__ . '/controllers/PageController.php';
-require_once __DIR__ . '/controllers/InscriptionController.php';
+use controllers\PageController;
+use controllers\InscriptionController;
 
-Flight::route('GET /', ['PageController', 'showLogin']);
-Flight::route('GET /signup', ['PageController', 'showSignup']);
-Flight::route('GET /index', ['PageController', 'showIndex']);
-Flight::route('GET /about', ['PageController', 'showAbout']);
-Flight::route('GET /contact', ['PageController', 'showContact']);
-Flight::route('GET /list-produit', ['PageController', 'showListProduit']);
-Flight::route('GET /modifier', ['PageController', 'showModifier']);
-Flight::route('GET /single-product', ['PageController', 'showSingleProduct']);
-Flight::route('GET /upload-product', ['PageController', 'showUploadProduct']);
+Flight::route('GET /', [PageController::class, 'showLogin']);
+Flight::route('GET /signup', [PageController::class, 'showSignup']);
+Flight::route('GET /index', [PageController::class, 'showIndex']);
+Flight::route('GET /about', [PageController::class, 'showAbout']);
+Flight::route('GET /contact', [PageController::class, 'showContact']);
+Flight::route('GET /list-produit', [PageController::class, 'showListProduit']);
+Flight::route('GET /modifier', [PageController::class, 'showModifier']);
+Flight::route('GET /single-product', [PageController::class, 'showSingleProduct']);
+Flight::route('GET /upload-product', [PageController::class, 'showUploadProduct']);
 
-Flight::route('GET /inscription', ['InscriptionController', 'showInscription']);
-Flight::route('POST /inscription/validate', ['InscriptionController', 'validateRegister']);
-Flight::route('POST /inscription/register', ['InscriptionController', 'register']);
+Flight::route('GET /inscription', [InscriptionController::class, 'showInscription']);
+Flight::route('POST /inscription/validate', [InscriptionController::class, 'validateRegister']);
+Flight::route('POST /inscription/register', [InscriptionController::class, 'register']);

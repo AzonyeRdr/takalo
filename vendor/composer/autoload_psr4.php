@@ -6,7 +6,10 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'utils\\' => array($baseDir . '/app/utils'),
+    'models\\' => array($baseDir . '/app/models'),
     'flight\\' => array($vendorDir . '/flightphp/runway/src'),
+    'controllers\\' => array($baseDir . '/app/controllers'),
     'Tracy\\' => array($vendorDir . '/tracy/tracy/src'),
     'Nette\\' => array($vendorDir . '/nette/php-generator/src', $vendorDir . '/nette/utils/src'),
     'Ahc\\Cli\\' => array($vendorDir . '/adhocore/cli/src'),

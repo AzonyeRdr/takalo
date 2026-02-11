@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script defer src="<?php echo $baseurl; ?>/assets/js/loginValidation.js"></script>
 </head>
 
 <body>
@@ -22,7 +21,8 @@
         
         <input type="submit" value="Login">
     </form>
-
+    
+    <script src="<?php echo $baseurl; ?>/assets/js/loginValidation.js"></script>
 </body>
 
 </html>

@@ -76,21 +76,22 @@ document.addEventListener("DOMContentLoaded", function () {
         headers: { "X-Requested-With": "XMLHttpRequest" },
       });
 
-      if (!response.ok) {
+      let data = null;
+      try {
+        data = await response.json();
+      } catch (e) {
         throw new Error("Erreur serveur lors de la connexion.");
       }
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (data && data.success) {
         setSuccess(data.message || "Login successful!");
         setTimeout(() => {
           window.location.href = "/index";
         }, 500);
       } else {
-        if (data.errors && data.errors.email) {
+        if (data && data.errors && data.errors.email) {
           setError(data.errors.email);
-        } else if (data.errors && data.errors.general) {
+        } else if (data && data.errors && data.errors.general) {
           setError(data.errors.general);
         } else {
           setError("Login failed. Please try again.");

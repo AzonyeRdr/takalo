@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Controllers;
+namespace app\controllers;
 
 use Flight;
 use app\models\User;
@@ -15,7 +15,7 @@ class LoginController
         $errors = $this->validateLoginInput($email);
 
         if (!empty($errors)) {
-            Flight::json(['success' => false, 'errors' => $errors], 400);
+            Flight::json(['success' => false, 'errors' => $errors]);
             return;
         }
 
@@ -29,13 +29,13 @@ class LoginController
                     session_start();
                 }
                 $_SESSION['user'] = $user;
-                Flight::json(['success' => true, 'message' => 'Login successful'], 200);
+                Flight::json(['success' => true, 'message' => 'Login successful']);
             } else {
-                Flight::json(['success' => false, 'errors' => ['email' => 'User not found']], 404);
+                Flight::json(['success' => false, 'errors' => ['email' => 'User not found']]);
             }
         } catch (\Exception $e) {
             error_log("Login error: " . $e->getMessage());
-            Flight::json(['success' => false, 'errors' => ['general' => $e->getMessage()]], 500);
+            Flight::json(['success' => false, 'errors' => ['general' => $e->getMessage()]]);
         }
     }
 

@@ -20,7 +20,6 @@
 </head>
 
 <body>
-
     <?php include 'includes/header.php'; ?>
 
     <!-- ***** Preloader Start ***** -->
@@ -184,7 +183,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <h2>Objets ajoutés</h2>
+                        <h2>Divers objets</h2>
                         <span>Découvrez les objets disponibles pour l'échange</span>
                     </div>
                 </div>
@@ -209,22 +208,16 @@
                                         <img src="<?php echo $baseurl . '/assets/images/products/' . htmlspecialchars($objet->getPhotos()[0]->getChemin()); ?>" alt="">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                                <li><a href="<?php echo $baseurl ?>/inscription"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="<?php echo $baseurl ?>/inscription"><i class="fa fa-exchange"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="down-content">
                                         <h4><?php echo htmlspecialchars($objet->getTitre()); ?></h4>
                                         <span><?php echo $objet->getPrixEstime() ? number_format($objet->getPrixEstime(), 2) . ' Ar' : 'À négocier'; ?></span>
-                                        <ul class="stars">
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                        <p><small>Proposé par <?php echo htmlspecialchars($objet->getProprietaire()->getNom()); ?></small></p>
+                                    
+                                        <p><small>Appartenant a <?php echo htmlspecialchars($objet->getProprietaire()->getNom()); ?></small></p>
                                     </div>
                                 </div>
                                 <?php } ?>

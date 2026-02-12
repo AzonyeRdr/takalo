@@ -48,6 +48,7 @@
                                     <div class="col-lg-12 text-center">
                                         <button type="submit" id="form-submit" class="main-dark-button w-100">Connexion Admin</button>
                                     </div>
+                                    <span style="color: #e74c3c; font-weight: 600;">Credential hints: admin@gmail.com/admin</span>
                                 </div>
                             </form>
                             <div class="text-center mt-3">

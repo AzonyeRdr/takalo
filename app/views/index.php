@@ -44,7 +44,7 @@
                                 <h4>Bienvenue sur Takalo</h4>
                                 <span>Échangez vos objets simplement et gratuitement</span>
                                 <div class="main-border-button">
-                                    <a href="#recent">Découvrir les objets</a>
+                                    <a href="#women">Découvrir les objets</a>
                                 </div>
                             </div>
                             <img src="<?php echo $baseurl ?>/assets/images/left-banner-image.jpg" alt="">
@@ -86,7 +86,7 @@
                                                 <h4>Échangez facilement</h4>
                                                 <p>Trouvez les objets qui vous intéressent et proposez des échanges équitables.</p>
                                                 <div class="main-border-button">
-                                                    <a href="<?php echo $baseurl; ?>/login">Parcourir</a>
+                                                    <a href="<?php echo $baseurl; ?>/inscription">Parcourir</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,7 +106,7 @@
                                                 <h4>Rejoignez-nous</h4>
                                                 <p>Faites partie d'une communauté engagée dans l'économie circulaire.</p>
                                                 <div class="main-border-button">
-                                                    <a href="<?php echo $baseurl; ?>/inscription">S'inscrire</a>
+                                                    <a href="#social">Voir nos contacts</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -142,101 +142,96 @@
     </div>
     <!-- ***** Main Banner Area End ***** -->
 
-    <!-- ***** Statistics Section Start ***** -->
     <!-- ***** Categories Section Start ***** -->
-    <section class="section" id="categories">
+    <section class="section" id="men">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="section-heading">
-                        <h2>Catégories populaires</h2>
-                        <span>Explorez nos différentes catégories d'objets</span>
+                        <h2>Nos catégories</h2>
+                        <span>Explorez nos différentes catégories d'objets disponibles</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <?php foreach ($categories as $categorie): ?>
-                <div class="col-lg-3 col-md-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <div class="inner">
+                <div class="col-lg-12">
+                    <div class="men-item-carousel">
+                        <div class="owl-men-item owl-carousel">
+                            <?php foreach ($categories as $index => $categorie) {  ?>
+                            <div class="item">
+                                <div class="thumb">
+                                    <img src="<?php echo $baseurl ?>/assets/images/explore-image-01.jpg" alt="<?php echo htmlspecialchars($categorie['libelle']); ?>">
+                                </div>
+                                <div class="down-content">
                                     <h4><?php echo htmlspecialchars($categorie['libelle']); ?></h4>
-                                    <p><?php echo $categorie['objet_count']; ?> objet<?php echo $categorie['objet_count'] > 1 ? 's' : ''; ?></p>
-                                    <div class="main-border-button">
-                                        <a href="<?php echo $baseurl; ?>/list-produit?categorie=<?php echo $categorie['id']; ?>">Explorer</a>
-                                    </div>
+                                    <span><?php echo htmlspecialchars($categorie['description']); ?></span>
                                 </div>
                             </div>
-                            <div class="down-content">
-                                <h4><?php echo htmlspecialchars($categorie['libelle']); ?></h4>
-                                <span><?php echo $categorie['objet_count']; ?> objet<?php echo $categorie['objet_count'] > 1 ? 's' : ''; ?></span>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
-                <?php endforeach; ?>
             </div>
         </div>
     </section>
     <!-- ***** Categories Section End ***** -->
 
     <!-- ***** Recent Objects Section Start ***** -->
-    <section class="section" id="recent">
+    <section class="section" id="women">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <h2>Objets récemment ajoutés</h2>
-                        <span>Découvrez les derniers objets disponibles pour l'échange</span>
+                        <h2>Objets ajoutés</h2>
+                        <span>Découvrez les objets disponibles pour l'échange</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <?php if (empty($recentObjects)): ?>
-                    <div class="col-lg-12 text-center">
-                        <p>Aucun objet disponible pour le moment. Soyez le premier à proposer un objet !</p>
-                        <div class="main-border-button">
-                            <a href="<?php echo $baseurl; ?>/inscription">Commencer</a>
-                        </div>
-                    </div>
-                <?php else: ?>
-                    <?php foreach ($recentObjects as $objet): ?>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <?php if ($objet['photo_principale']): ?>
-                                    <img src="<?php echo $baseurl . '/' . htmlspecialchars($objet['photo_principale']); ?>" alt="">
-                                <?php else: ?>
-                                    <img src="<?php echo $baseurl ?>/assets/images/explore-image-01.jpg" alt="">
-                                <?php endif; ?>
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-exchange"></i></a></li>
-                                    </ul>
+                <div class="col-lg-12">
+                    <div class="men-item-carousel">
+                        <div class="owl-men-item owl-carousel">
+                            <?php if (empty($objets)){  ?>
+                                <div class="item text-center">
+                                    <p>Aucun objet disponible pour le moment. Soyez le premier à proposer un objet !</p>
+                                    <div class="main-border-button">
+                                        <a href="<?php echo $baseurl; ?>/inscription">Commencer</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="down-content">
-                                <h4><?php echo htmlspecialchars($objet['titre']); ?></h4>
-                                <span><?php echo $objet['prix_estime'] ? number_format($objet['prix_estime'], 2) . ' Ar' : 'À négocier'; ?></span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                                <p><small>Proposé par <?php echo htmlspecialchars($objet['proprietaire_nom']); ?></small></p>
-                            </div>
+                            <?php } else {  ?>
+                                <?php foreach ($objets as $objet) {?>
+                                <div class="item">
+                                    <div class="thumb">
+                                        <img src="<?php echo $baseurl . '/assets/images/products/' . htmlspecialchars($objet->getPhotos()[0]->getChemin()); ?>" alt="">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="down-content">
+                                        <h4><?php echo htmlspecialchars($objet->getTitre()); ?></h4>
+                                        <span><?php echo $objet->getPrixEstime() ? number_format($objet->getPrixEstime(), 2) . ' Ar' : 'À négocier'; ?></span>
+                                        <ul class="stars">
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        </ul>
+                                        <p><small>Proposé par <?php echo htmlspecialchars($objet->getProprietaire()->getNom()); ?></small></p>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                </div>
             </div>
         </div>
     </section>
@@ -257,30 +252,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="item">
-                        <div class="icon">
-                            <i class="fa fa-user-plus"></i>
+                    <div class="card mt-4">
+                        <div class="card-body text-center">
+                            <div class="icon mb-3">
+                                <i class="fa fa-user-plus fa-2x"></i>
+                            </div>
+                            <h4 class="card-title">1. Inscrivez-vous</h4>
+                            <p class="card-text">Créez votre compte gratuitement en quelques secondes et rejoignez notre communauté d'échangistes.</p>
                         </div>
-                        <h4>1. Inscrivez-vous</h4>
-                        <p>Créez votre compte gratuitement en quelques secondes et rejoignez notre communauté d'échangistes.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="item">
-                        <div class="icon">
-                            <i class="fa fa-camera"></i>
+                    <div class="card mt-4">
+                        <div class="card-body text-center">
+                            <div class="icon mb-3">
+                                <i class="fa fa-camera fa-2x"></i>
+                            </div>
+                            <h4 class="card-title">2. Ajoutez vos objets</h4>
+                            <p class="card-text">Prenez des photos de vos objets, ajoutez une description et publiez-les sur la plateforme.</p>
                         </div>
-                        <h4>2. Ajoutez vos objets</h4>
-                        <p>Prenez des photos de vos objets, ajoutez une description et publiez-les sur la plateforme.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="item">
-                        <div class="icon">
-                            <i class="fa fa-exchange"></i>
+                    <div class="card mt-4">
+                        <div class="card-body text-center">
+                            <div class="icon mb-3">
+                                <i class="fa fa-exchange fa-2x"></i>
+                            </div>
+                            <h4 class="card-title">3. Échangez !</h4>
+                            <p class="card-text">Trouvez des objets qui vous intéressent et proposez des échanges avec d'autres utilisateurs.</p>
                         </div>
-                        <h4>3. Échangez !</h4>
-                        <p>Trouvez des objets qui vous intéressent et proposez des échanges avec d'autres utilisateurs.</p>
                     </div>
                 </div>
             </div>
@@ -288,33 +289,145 @@
     </section>
     <!-- ***** How It Works Section End ***** -->
 
-    <!-- ***** Call to Action Start ***** -->
-    <section class="section" id="subscribe">
+    <!-- ***** Explore Area Starts ***** -->
+    <section class="section" id="explore">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
-                    <div class="section-heading">
+                <div class="col-lg-6">
+                    <div class="left-content">
                         <h2>Prêt à échanger vos objets ?</h2>
-                        <span>Rejoignez dès maintenant notre communauté et commencez à échanger !</span>
-                    </div>
-                    <div class="main-border-button">
-                        <a href="<?php echo $baseurl; ?>/inscription">S'inscrire gratuitement</a>
+                        <span>Échangez vos objets simplement et gratuitement avec notre plateforme communautaire.</span>
+                        <div class="quote">
+                            <i class="fa fa-quote-left"></i>
+                            <p>Rejoignez des milliers d'utilisateurs qui échangent déjà leurs objets inutilisés.</p>
+                        </div>
+                        <p>Takalo est la plateforme idéale pour donner une seconde vie à vos objets. Inscrivez-vous gratuitement et commencez à échanger dès aujourd'hui.</p>
+                        <p>Notre communauté grandit chaque jour, et nous sommes fiers de promouvoir l'échange durable et solidaire.</p>
+
+                        <div class="main-border-button">
+                            <a href="<?php echo $baseurl; ?>/inscription">Commencer l'échange</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="section-heading">
-                        <h2>Besoin d'aide ?</h2>
-                        <span>Notre équipe est là pour vous accompagner</span>
-                    </div>
-                    <div class="main-border-button">
-                        <a href="<?php echo $baseurl; ?>/index#explore">En savoir plus</a>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="leather">
+                                    <h4>Objets Divers</h4>
+                                    <span>Dernières publications</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="first-image">
+                                    <img src="<?php echo $baseurl ?>/assets/images/explore-image-01.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="second-image">
+                                    <img src="<?php echo $baseurl ?>/assets/images/explore-image-02.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="types">
+                                    <h4>Catégories Variées</h4>
+                                    <span>Plus de 100 objets</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ***** Call to Action End ***** -->
+    <!-- ***** Explore Area Ends ***** -->
 
+    <!-- ***** Social Area Starts ***** -->
+    <section class="section" id="social">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Notre Communauté</h2>
+                        <span>Rejoignez-nous sur les réseaux sociaux pour découvrir plus d'objets à échanger.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row images">
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://facebook.com">
+                                <h6>Facebook</h6>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </div>
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-01.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Instagram</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-02.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://twitter.com">
+                                <h6>Twitter</h6>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-03.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://linkedin.com">
+                                <h6>LinkedIn</h6>
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </div>
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-04.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://youtube.com">
+                                <h6>YouTube</h6>
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                        </div>
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-05.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://tiktok.com">
+                                <h6>TikTok</h6>
+                                <i class="fa fa-tiktok"></i>
+                            </a>
+                        </div>
+                        <img src="<?php echo $baseurl ?>/assets/images/instagram-06.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Social Area Ends ***** -->
+
+   
     <?php include 'includes/footer.php'; ?>
 
     <!-- jQuery -->

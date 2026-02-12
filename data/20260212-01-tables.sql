@@ -9,11 +9,8 @@ CREATE TABLE IF NOT EXISTS utilisateurs (
     nom VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
-    tel VARCHAR(15) NULL,
+    tel VARCHAR(15),
     role_id INT NOT NULL,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-    deleted_at DATETIME NULL,
 
     UNIQUE (email),
     INDEX idx_utilisateur_role (role_id),
@@ -26,7 +23,7 @@ CREATE TABLE IF NOT EXISTS categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     libelle VARCHAR(100) NOT NULL,
     symbole VARCHAR(50),
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    description TEXT,
 
     UNIQUE (libelle)
 );
@@ -52,9 +49,6 @@ CREATE TABLE IF NOT EXISTS objets (
     titre VARCHAR(150) NOT NULL,
     description TEXT,
     prix_estime DECIMAL(10,2),
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-    deleted_at DATETIME NULL,
 
     INDEX idx_objet_proprietaire (proprietaire_id),
     INDEX idx_objet_categorie (categorie_id),
@@ -79,7 +73,6 @@ CREATE TABLE IF NOT EXISTS photos_objet (
     chemin VARCHAR(255) NOT NULL,
     ordre INT NOT NULL,
     est_principale BOOLEAN NOT NULL DEFAULT FALSE,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     INDEX idx_photo_objet (objet_id),
     INDEX idx_photo_ordre (objet_id, ordre),

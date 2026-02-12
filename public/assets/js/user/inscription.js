@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (result.ok) {
           setStatus("success", "Le compte a été créé avec succès ! Redirection...");
           setTimeout(() => {
-            window.location.href = "/login/showLogin";
+            window.location.href = "/login";
           }, 1500);
         } else {
           setStatus("danger", "Échec de l'inscription : " + (result.errors?._global || "Erreur inconnue"));

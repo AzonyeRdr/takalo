@@ -51,7 +51,7 @@
                                 </div>
                             </form>
                             <div class="text-center mt-3">
-                                <p>Pas de compte? <a href="<?php echo $baseurl; ?>/signup">S'inscrire</a></p>
+                                <p>Pas de compte? <a href="<?php echo $baseurl; ?>/inscription">S'inscrire</a></p>
                                 <p><a href="<?php echo $baseurl; ?>/login-admin">Se connecter en tant qu'admin</a></p>
                             </div>
                         </div>

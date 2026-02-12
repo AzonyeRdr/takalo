@@ -112,7 +112,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <th>Catégorie</th>
                                     <th>Propriétaire</th>
                                     <th>Prix</th>
-                                    <th>Date</th>
+                                    <th>ID</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -124,7 +124,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <td><span class="badge bg-info"><?php echo htmlspecialchars($objet['categorie_nom']); ?></span></td>
                                         <td><?php echo htmlspecialchars($objet['proprietaire_nom']); ?></td>
                                         <td><?php echo $objet['prix_estime'] ? number_format($objet['prix_estime'], 2) . ' Ar' : 'N/A'; ?></td>
-                                        <td><?php echo date('d/m/Y', strtotime($objet['created_at'])); ?></td>
+                                        <td><?php echo $objet['id']; ?></td>
                                     </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>

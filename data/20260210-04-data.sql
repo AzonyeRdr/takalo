@@ -6,17 +6,15 @@ INSERT INTO roles (code, libelle) VALUES ('admin', 'Administrateur');
 
 -- Utilisateurs
 /*
-
 jean123
 marie123
 pierre123
 admin
-
 */
-INSERT INTO utilisateurs (nom, email, password_hash, role_id) VALUES ('Jean', 'jean@gmail.com', '$2y$10$cDoDpXattpZT2kp2ZqIJGuzrInR8eXPvzFF2BBRStTyzHgW.h2Ngi', 1);
-INSERT INTO utilisateurs (nom, email, password_hash, role_id) VALUES ('Marie', 'marie@gmail.com', '$2y$10$y2ffuDIWbdKtE1kyU0662u6MC/orZyKD8T1N5W2AqPYCV.JSCGvA2', 1);
-INSERT INTO utilisateurs (nom, email, password_hash, role_id) VALUES ('Pierre', 'pierre@gmail.com', '$2y$10$2cdDTjrYW7I8s/AzF5y3ruYo7v/TL.lwZdrChE30.e3aIV5Lx8Fbu', 1);
-INSERT INTO utilisateurs (nom, email, password_hash, role_id) VALUES ('Admin', 'admin@gmail.com', '$2y$10$hpgcoFH.dxkymO9Qdwfp8.TcwuoRnNXZmzbon1BWjvwdksrV.7GHq', 2);
+INSERT INTO utilisateurs (nom, email, password_hash, tel, role_id) VALUES ('Jean', 'jean@gmail.com', '$2y$10$cDoDpXattpZT2kp2ZqIJGuzrInR8eXPvzFF2BBRStTyzHgW.h2Ngi', '1234567890', 1);
+INSERT INTO utilisateurs (nom, email, password_hash, tel, role_id) VALUES ('Marie', 'marie@gmail.com', '$2y$10$y2ffuDIWbdKtE1kyU0662u6MC/orZyKD8T1N5W2AqPYCV.JSCGvA2', '0987654321', 1);
+INSERT INTO utilisateurs (nom, email, password_hash, tel, role_id) VALUES ('Pierre', 'pierre@gmail.com', '$2y$10$2cdDTjrYW7I8s/AzF5y3ruYo7v/TL.lwZdrChE30.e3aIV5Lx8Fbu', '1122334455', 1);
+INSERT INTO utilisateurs (nom, email, password_hash, tel, role_id) VALUES ('Admin', 'admin@gmail.com', '$2y$10$hpgcoFH.dxkymO9Qdwfp8.TcwuoRnNXZmzbon1BWjvwdksrV.7GHq', '9988776655', 2);
 
 -- Categorie
 INSERT INTO categories (libelle, symbole) VALUES ('Electronique', 'e');

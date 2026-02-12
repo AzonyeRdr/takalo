@@ -6,7 +6,7 @@ class Categorie
     private ?int $id;
     private ?string $libelle;
     private ?string $symbole;
-    private ?string $created_at;
+    private ?string $description;
 
     public function __construct()
     {
@@ -42,32 +42,34 @@ class Categorie
         $this->symbole = $symbole;
     }
 
-    public function getCreatedAt(): ?string
+    public function getDescription(): ?string
     {
-        return $this->created_at;
+        return $this->description;
     }
 
-    public function setCreatedAt(?string $created_at): void
+    public function setDescription(?string $description): void
     {
-        $this->created_at = $created_at;
+        $this->description = $description;
     }
 
     public function create($pdo)
     {
-        $stmt = $pdo->prepare('INSERT INTO categories (libelle, symbole) VALUES (:libelle, :symbole)');
+        $stmt = $pdo->prepare('INSERT INTO categories (libelle, symbole, description) VALUES (:libelle, :symbole, :description)');
         $stmt->execute([
             'libelle' => $this->getLibelle(),
-            'symbole' => $this->getSymbole()
+            'symbole' => $this->getSymbole(),
+            'description' => $this->getDescription()
         ]);
         $this->setId($pdo->lastInsertId());
     }
 
     public function update($pdo)
     {
-        $stmt = $pdo->prepare('UPDATE categories SET libelle = :libelle, symbole = :symbole WHERE id = :id');
+        $stmt = $pdo->prepare('UPDATE categories SET libelle = :libelle, symbole = :symbole, description = :description WHERE id = :id');
         $stmt->execute([
             'libelle' => $this->getLibelle(),
             'symbole' => $this->getSymbole(),
+            'description' => $this->getDescription(),
             'id' => $this->getId()
         ]);
     }
@@ -86,31 +88,13 @@ class Categorie
         if ($cat) {
             $this->setLibelle($cat['libelle']);
             $this->setSymbole($cat['symbole']);
-            $this->setCreatedAt($cat['created_at']);
+            $this->setDescription($cat['description']);
         }
     }
 
     public static function getAll($pdo)
     {
         $stmt = $pdo->query('SELECT * FROM categories ORDER BY libelle ASC');
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    public static function getAllWithCount($pdo)
-    {
-        $stmt = $pdo->query('SELECT c.*, COUNT(o.id) as objet_count 
-                             FROM categories c 
-                             LEFT JOIN objets o ON o.categorie_id = c.id AND o.deleted_at IS NULL 
-                             GROUP BY c.id');
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    public static function getStats($pdo)
-    {
-        $stmt = $pdo->query('SELECT c.libelle, COUNT(o.id) as count 
-                             FROM categories c 
-                             LEFT JOIN objets o ON o.categorie_id = c.id AND o.deleted_at IS NULL 
-                             GROUP BY c.id');
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

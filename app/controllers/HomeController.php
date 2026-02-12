@@ -14,15 +14,15 @@ class HomeController
     {
         $pdo = Flight::db();
         
-        // Get recent objects
-        $recentObjects = Objet::getRecentObjets($pdo, 8);
+        // Get all categories
+        $categories = Categorie::getAll($pdo);
         
-        // Get categories with object count
-        $categories = Categorie::getAllWithCount($pdo);
+        // Get recent objects
+        $objets = Objet::getAllWithLimits($pdo, 10);
         
         Flight::render('index', [
-            'recentObjects' => $recentObjects,
-            'categories' => $categories
+            'categories' => $categories,
+            'objets' => $objets
         ]);
     }
 }

@@ -166,6 +166,13 @@
 		});
 	});
 
+	// Fallback: hide preloader after 5 seconds if still visible
+	setTimeout(function() {
+		if ($("#preloader").is(":visible")) {
+			$("#preloader").css("visibility", "hidden").fadeOut();
+		}
+	}, 5000);
+
 
 	// Window Resize Mobile Menu Fix
 	$(window).on('resize', function() {

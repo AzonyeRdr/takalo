@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<?php 
-if (session_status() === PHP_SESSION_NONE) session_start();
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-$baseurl = Flight::get('flight.base_url'); 
-?>
+<?php $baseurl = Flight::get('flight.base_url'); ?>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -22,13 +17,10 @@ $baseurl = Flight::get('flight.base_url');
     <?php include __DIR__ . '/../includes/header.php'; ?>
 
     <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+        <div class="jumper"><div></div><div></div><div></div></div>
     </div>
 
+    <!-- Page Heading -->
     <div class="page-heading" id="top">
         <div class="container">
             <div class="row">
@@ -42,7 +34,6 @@ $baseurl = Flight::get('flight.base_url');
         </div>
     </div>
 
-
     <section class="section" id="product">
         <div class="container">
             <!-- Add button -->
@@ -54,7 +45,7 @@ $baseurl = Flight::get('flight.base_url');
                 </div>
             </div>
 
-            <?php if (isset($objets) && empty($objets)): ?>
+            <?php if (empty($objets)): ?>
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <p>Vous n'avez aucun objet pour le moment.</p>
@@ -63,13 +54,13 @@ $baseurl = Flight::get('flight.base_url');
                     </div>
                 </div>
             </div>
-            <?php elseif (isset($objets)): ?>
+            <?php else: ?>
                 <?php foreach ($objets as $objet): ?>
                 <div class="row mb-4" id="objet-row-<?php echo $objet->getId(); ?>">
                     <div class="col-lg-4">
                         <div class="left-images">
                             <?php $photo = $objet->getPhotoPrincipale(); ?>
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="<?php echo $baseurl ?>/assets/images/products/<?php echo $photo ? htmlspecialchars($photo->getChemin()) : 'default.jpg'; ?>" alt="<?php echo htmlspecialchars($objet->getTitre()); ?>" class="no-fetch">
+                            <img src="<?php echo $baseurl ?>/assets/images/products/<?php echo $photo ? htmlspecialchars($photo->getChemin()) : 'default.jpg'; ?>" alt="<?php echo htmlspecialchars($objet->getTitre()); ?>">
                         </div>
                     </div>
                     <div class="col-lg-8">
@@ -104,12 +95,6 @@ $baseurl = Flight::get('flight.base_url');
                 </div>
                 <hr>
                 <?php endforeach; ?>
-            <?php else: ?>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Erreur: Variable $objets non définie.</p>
-                </div>
-            </div>
             <?php endif; ?>
         </div>
     </section>

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <?php 
 $baseurl = Flight::get('flight.base_url');
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+if (session_status() === PHP_SESSION_NONE) session_start();
 ?>
 <html lang="fr">
 <head>

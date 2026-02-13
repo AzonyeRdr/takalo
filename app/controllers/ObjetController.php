@@ -110,11 +110,11 @@ class ObjetController
         if (!$user) { Flight::redirect('/login'); return; }
 
         $pdo = $this->db;
-        $objet = new Objet();
         $proprietaire = new User();
         $proprietaire->setId($user->getId());
-        $objet->setProprietaire($proprietaire);
-        $objets = $objet->getAllByUser($pdo);
+
+        // Utilise le loader sans photos pour accélérer le rendu de la page
+        $objets = Objet::getObjetsOfWithoutPhotos($pdo, $proprietaire);
         $categories = Categorie::getAll($pdo);
         $etats = Etat::getAll($pdo);
 

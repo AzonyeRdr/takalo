@@ -42,7 +42,7 @@
             </div>
             <div class="col-lg-12">
                 <div class="under-footer">
-                    <p>ETU004014 ETU004175 ETU004152</p>
+                    <p>ETU004014 ETU004175 ETU004162</p>
                     <p>Copyright &copy; 2026 Takalo Co., Ltd. All Rights Reserved.
                         <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
                     </p>

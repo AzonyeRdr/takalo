@@ -124,7 +124,7 @@ class Objet
                 return $photo;
             }
         }
-        return $this->photos[0];
+        return $this->photos[0] ?? null;
     }
 
     public function create($pdo)
@@ -248,6 +248,36 @@ class Objet
         $this->loadPhotos($pdo);
     }
 
+    private function buildFromRowWithoutPhotos($pdo, $row)
+    {
+        $this->setId($row['id']);
+        $this->setTitre($row['titre']);
+        $this->setDescription($row['description']);
+        $this->setPrixEstime($row['prix_estime']);
+
+        $proprietaire = new User();
+        $proprietaire->setId($row['proprietaire_id']);
+        $proprietaire->findById($pdo);
+        $this->setProprietaire($proprietaire);
+
+        $categorie = new Categorie();
+        $categorie->setId($row['categorie_id']);
+        $categorie->findById($pdo);
+        $this->setCategorie($categorie);
+
+        $etat = new Etat();
+        $etat->setId($row['etat_id']);
+        $etat->findById($pdo);
+        $this->setEtat($etat);
+
+        $statut = new Statut();
+        $statut->setId($row['statut_id']);
+        $statut->findById($pdo);
+        $this->setStatut($statut);
+
+        // No loadPhotos here
+    }
+
     public static function getAllWithLimits($pdo, $limit)
     {
         $stmt = $pdo->prepare('SELECT * FROM objets ORDER BY id DESC LIMIT ' . (int)$limit);
@@ -278,9 +308,69 @@ class Objet
         $stmt = $pdo->prepare('SELECT * FROM objets WHERE proprietaire_id = :user_id ORDER BY id DESC');
         $stmt->execute(['user_id' => $this->getProprietaire()->getId()]);
         $objets = [];
+        $objetIds = [];
         while ($row = $stmt->fetch()) {
             $objet = new Objet();
-            $objet->buildFromRow($pdo, $row);
+            $objet->buildFromRowWithoutPhotos($pdo, $row);
+            $objets[] = $objet;
+            $objetIds[] = $objet->getId();
+        }
+
+        // Batch load photos for all objects
+        if (!empty($objetIds)) {
+            $placeholders = str_repeat('?,', count($objetIds) - 1) . '?';
+            $photoStmt = $pdo->prepare("SELECT * FROM photos_objet WHERE objet_id IN ($placeholders) ORDER BY objet_id, est_principale DESC, ordre ASC");
+            $photoStmt->execute($objetIds);
+            $photosByObjet = [];
+            while ($photoRow = $photoStmt->fetch()) {
+                $photosByObjet[$photoRow['objet_id']][] = $photoRow;
+            }
+
+            foreach ($objets as $objet) {
+                $objetId = $objet->getId();
+                if (isset($photosByObjet[$objetId])) {
+                    foreach ($photosByObjet[$objetId] as $photoData) {
+                        $photo = new PhotoObjet();
+                        $photo->setId($photoData['id']);
+                        $photo->setObjetId($photoData['objet_id']);
+                        $photo->setChemin($photoData['chemin']);
+                        $photo->setOrdre($photoData['ordre']);
+                        $photo->setEstPrincipale($photoData['est_principale']);
+                        $objet->addPhoto($photo);
+                    }
+                }
+            }
+        }
+
+        return $objets;
+    }
+
+    /**
+     * Convenience static method — retourne les objets d'un utilisateur donné.
+     * Usage : Objet::getObjetsOf(
+     *            $pdo, $userInstance
+     *         );
+     */
+    public static function getObjetsOf($pdo, User $user)
+    {
+        $objet = new Objet();
+        $objet->setProprietaire($user);
+        return $objet->getAllByUser($pdo);
+    }
+
+    /**
+     * Retourne les objets d'un utilisateur **sans** charger les photos (pour rendu rapide / diagnostics).
+     * Utile pour les pages listant des objets où les images ne doivent pas être fetchées.
+     */
+    public static function getObjetsOfWithoutPhotos($pdo, User $user)
+    {
+        $stmt = $pdo->prepare('SELECT * FROM objets WHERE proprietaire_id = :user_id ORDER BY id DESC');
+        $stmt->execute(['user_id' => $user->getId()]);
+        $objets = [];
+        while ($row = $stmt->fetch()) {
+            $objet = new Objet();
+            // buildFromRowWithoutPhotos évite tout chargement de photos
+            $objet->buildFromRowWithoutPhotos($pdo, $row);
             $objets[] = $objet;
         }
         return $objets;
@@ -291,11 +381,40 @@ class Objet
         $stmt = $pdo->prepare('SELECT * FROM objets WHERE proprietaire_id = :user_id AND statut_id = 1 ORDER BY id DESC');
         $stmt->execute(['user_id' => $this->getProprietaire()->getId()]);
         $objets = [];
+        $objetIds = [];
         while ($row = $stmt->fetch()) {
             $objet = new Objet();
-            $objet->buildFromRow($pdo, $row);
+            $objet->buildFromRowWithoutPhotos($pdo, $row);
             $objets[] = $objet;
+            $objetIds[] = $objet->getId();
         }
+
+        // Batch load photos for all objects
+        if (!empty($objetIds)) {
+            $placeholders = str_repeat('?,', count($objetIds) - 1) . '?';
+            $photoStmt = $pdo->prepare("SELECT * FROM photos_objet WHERE objet_id IN ($placeholders) ORDER BY objet_id, est_principale DESC, ordre ASC");
+            $photoStmt->execute($objetIds);
+            $photosByObjet = [];
+            while ($photoRow = $photoStmt->fetch()) {
+                $photosByObjet[$photoRow['objet_id']][] = $photoRow;
+            }
+
+            foreach ($objets as $objet) {
+                $objetId = $objet->getId();
+                if (isset($photosByObjet[$objetId])) {
+                    foreach ($photosByObjet[$objetId] as $photoData) {
+                        $photo = new PhotoObjet();
+                        $photo->setId($photoData['id']);
+                        $photo->setObjetId($photoData['objet_id']);
+                        $photo->setChemin($photoData['chemin']);
+                        $photo->setOrdre($photoData['ordre']);
+                        $photo->setEstPrincipale($photoData['est_principale']);
+                        $objet->addPhoto($photo);
+                    }
+                }
+            }
+        }
+
         return $objets;
     }
 

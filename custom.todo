@@ -167,3 +167,6 @@ SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a 
 #13 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/public/index.php(5): Flight::__callStatic()
 #14 {main} So do transactonal delete (liek delte an OBjets too).
 
+
+
+Why when I go to http://localhost:1234/mes-objets the page takes forever to load like it doesnt load at all. I dont think its an error of DB but of the page because of unusued vribales because this template always does that when a vairable is unusued. Before I makde 

@@ -56,37 +56,63 @@
                 </div>
             </div>
 
+            <!-- Add button if logged in -->
+            <?php if (isset($_SESSION['session_type']) && $_SESSION['session_type'] === 'user'): ?>
+            <div class="row mb-4">
+                <div class="col-lg-12 text-right">
+                    <div class="main-border-button d-inline-block">
+                        <a href="<?php echo $baseurl; ?>/objets/ajout"><i class="fa fa-plus"></i> Ajouter un objet</a>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+
             <!-- Results -->
             <div class="row" id="objetsContainer">
                 <?php if (empty($objets)): ?>
-                <div class="col-lg-12 text-center">
-                    <p>Aucun objet disponible pour le moment.</p>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <p>Aucun objet disponible pour le moment.</p>
+                    </div>
                 </div>
                 <?php else: ?>
                     <?php foreach ($objets as $objet): ?>
-                    <div class="col-lg-4 mb-4">
-                        <div class="item">
-                            <div class="thumb">
+                    <div class="row mb-4" id="objet-row-<?php echo $objet->getId(); ?>">
+                        <div class="col-lg-4">
+                            <div class="left-images">
                                 <?php $photo = $objet->getPhotoPrincipale(); ?>
                                 <img src="<?php echo $baseurl ?>/assets/images/products/<?php echo $photo ? htmlspecialchars($photo->getChemin()) : 'default.jpg'; ?>" alt="<?php echo htmlspecialchars($objet->getTitre()); ?>">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="<?php echo $baseurl; ?>/objets/<?php echo $objet->getId(); ?>"><i class="fa fa-eye"></i></a></li>
-                                        <?php if (isset($_SESSION['user']) && $_SESSION['user']->getId() !== $objet->getProprietaire()->getId()): ?>
-                                        <li><a href="<?php echo $baseurl; ?>/objets/<?php echo $objet->getId(); ?>"><i class="fa fa-exchange"></i></a></li>
-                                        <?php endif; ?>
-                                    </ul>
-                                </div>
                             </div>
-                            <div class="down-content">
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="right-content">
                                 <h4><?php echo htmlspecialchars($objet->getTitre()); ?></h4>
-                                <span><?php echo $objet->getPrixEstime() ? number_format($objet->getPrixEstime(), 2) . ' Ar' : 'À négocier'; ?></span>
-                                <p><small><i class="fa fa-tag"></i> <?php echo htmlspecialchars($objet->getCategorie()->getLibelle()); ?></small></p>
-                                <p><small><i class="fa fa-user"></i> <?php echo htmlspecialchars($objet->getProprietaire()->getNom()); ?></small></p>
-                                <p><small><i class="fa fa-info-circle"></i> <?php echo htmlspecialchars($objet->getEtat()->getLibelle()); ?> - <?php echo htmlspecialchars($objet->getStatut()->getLibelle()); ?></small></p>
+                                <span class="price"><?php echo $objet->getPrixEstime() ? number_format($objet->getPrixEstime(), 2) . ' Ar' : 'À négocier'; ?></span>
+                                <ul class="stars">
+                                    <li><i class="fa fa-tag"></i> <?php echo htmlspecialchars($objet->getCategorie()->getLibelle()); ?></li>
+                                    <li><i class="fa fa-user"></i> <?php echo htmlspecialchars($objet->getProprietaire()->getNom()); ?></li>
+                                    <li><i class="fa fa-info-circle"></i> <?php echo htmlspecialchars($objet->getEtat()->getLibelle()); ?></li>
+                                    <li><i class="fa fa-circle"></i> <?php echo htmlspecialchars($objet->getStatut()->getLibelle()); ?></li>
+                                </ul>
+                                <span><?php echo htmlspecialchars($objet->getDescription()); ?></span>
+                                <div class="quantity-content mt-3">
+                                    <div class="left-content">
+                                        <div class="main-border-button">
+                                            <a href="<?php echo $baseurl; ?>/objets/<?php echo $objet->getId(); ?>"><i class="fa fa-eye"></i> Voir</a>
+                                        </div>
+                                    </div>
+                                    <div class="right-content">
+                                        <?php if (isset($_SESSION['user']) && $_SESSION['user']->getId() !== $objet->getProprietaire()->getId()): ?>
+                                        <div class="main-border-button">
+                                            <a href="<?php echo $baseurl; ?>/objets/<?php echo $objet->getId(); ?>"><i class="fa fa-exchange"></i> Échanger</a>
+                                        </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <hr>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>

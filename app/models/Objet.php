@@ -275,7 +275,7 @@ class Objet
         $statut->findById($pdo);
         $this->setStatut($statut);
 
-        // No loadPhotos here
+        $this->loadPhotos($pdo);
     }
 
     public static function getAllWithLimits($pdo, $limit)

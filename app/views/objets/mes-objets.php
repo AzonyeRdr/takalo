@@ -69,7 +69,7 @@ $baseurl = Flight::get('flight.base_url');
                     <div class="col-lg-4">
                         <div class="left-images">
                             <?php $photo = $objet->getPhotoPrincipale(); ?>
-                            <img src="<?php echo $baseurl ?>/assets/images/products/<?php echo $photo ? htmlspecialchars($photo->getChemin()) : 'default.jpg'; ?>" alt="<?php echo htmlspecialchars($objet->getTitre()); ?>">
+                            <img src="<?php echo $baseurl ?>/assets/images/products/<?php echo $photo ? htmlspecialchars($photo->getChemin()) : 'default.jpg'; ?>" alt="<?php echo htmlspecialchars($objet->getTitre()); ?>" style="max-height: 200px; object-fit: cover; width: 100%;">
                         </div>
                     </div>
                     <div class="col-lg-8">

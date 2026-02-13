@@ -10,8 +10,6 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Takalo - Administration</title>
-    
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo $baseurl ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $baseurl ?>/assets/css/font-awesome.css">
     <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/templatemo-hexashop.css">
@@ -22,22 +20,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <div class="col-md-2 bg-dark text-white min-vh-100 p-0">
-            <div class="p-4 bg-secondary">
-                <h3 class="mb-0"><i class="fa fa-exchange"></i> Takalo</h3>
-                <p class="mb-0 small opacity-75">Administration</p>
-            </div>
-            <nav class="nav flex-column py-3">
-                <a class="nav-link text-white active" href="<?php echo $baseurl; ?>/backoffice"><i class="fa fa-dashboard mr-2"></i> Tableau de bord</a>
-                <a class="nav-link text-white" href="#"><i class="fa fa-users mr-2"></i> Utilisateurs</a>
-                <a class="nav-link text-white" href="#"><i class="fa fa-cube mr-2"></i> Objets</a>
-                <a class="nav-link text-white" href="#"><i class="fa fa-exchange mr-2"></i> Échanges</a>
-                <a class="nav-link text-white" href="#"><i class="fa fa-tags mr-2"></i> Catégories</a>
-                <hr class="my-3">
-                <a class="nav-link text-white" href="<?php echo $baseurl; ?>/index"><i class="fa fa-home mr-2"></i> Retour au site</a>
-                <a class="nav-link text-white" href="<?php echo $baseurl; ?>/logout"><i class="fa fa-sign-out mr-2"></i> Déconnexion</a>
-            </nav>
-        </div>
+        <?php include __DIR__ . '/sidebar.php'; ?>
         
         <!-- Main Content -->
         <div class="col-md-10 p-0">
@@ -45,7 +28,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
                     <h1 class="navbar-brand mb-0"><i class="fa fa-dashboard"></i> Tableau de bord</h1>
-                    <span class="navbar-text">Administrateur: <?php echo isset($_SESSION['user']) ? htmlspecialchars($_SESSION['user']->getEmail()) : 'Admin'; ?></span>
+                    <span class="navbar-text">Administrateur: <?php echo isset($_SESSION['user']) ? htmlspecialchars($_SESSION['user']->getNom()) : 'Admin'; ?></span>
                 </div>
             </nav>
             
@@ -58,7 +41,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <div class="card-body">
                                 <i class="fa fa-users fa-2x text-primary mb-2"></i>
                                 <h5 class="card-title">Utilisateurs</h5>
-                                <p class="card-text h4">0</p>
+                                <p class="card-text h4"><?php echo $nbUsers ?? 0; ?></p>
                             </div>
                         </div>
                     </div>
@@ -67,7 +50,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <div class="card-body">
                                 <i class="fa fa-cube fa-2x text-success mb-2"></i>
                                 <h5 class="card-title">Objets</h5>
-                                <p class="card-text h4">0</p>
+                                <p class="card-text h4"><?php echo $nbObjets ?? 0; ?></p>
                             </div>
                         </div>
                     </div>
@@ -76,7 +59,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <div class="card-body">
                                 <i class="fa fa-exchange fa-2x text-info mb-2"></i>
                                 <h5 class="card-title">Échanges</h5>
-                                <p class="card-text h4">0</p>
+                                <p class="card-text h4"><?php echo $nbEchanges ?? 0; ?></p>
                             </div>
                         </div>
                     </div>
@@ -85,31 +68,44 @@ if (session_status() === PHP_SESSION_NONE) {
                             <div class="card-body">
                                 <i class="fa fa-tags fa-2x text-warning mb-2"></i>
                                 <h5 class="card-title">Catégories</h5>
-                                <p class="card-text h4">0</p>
+                                <p class="card-text h4"><?php echo $nbCategories ?? 0; ?></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Recent Activity -->
-                <div class="row">
-                    <div class="col-md-6">
+
+                <!-- Navigation Cards -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <h4 class="mb-3"><i class="fa fa-compass"></i> Naviguer vers...</h4>
+                    </div>
+                    <div class="col-md-4 mb-3">
                         <div class="card">
-                            <div class="card-header">
-                                <h5><i class="fa fa-cube"></i> Objets récents</h5>
-                            </div>
-                            <div class="card-body">
-                                <p class="text-muted">Aucun objet récent.</p>
+                            <div class="card-body text-center">
+                                <i class="fa fa-bar-chart fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Statistiques</h5>
+                                <p class="card-text">Voir les statistiques détaillées du site</p>
+                                <a href="<?php echo $baseurl; ?>/backoffice/stats" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Accéder</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4 mb-3">
                         <div class="card">
-                            <div class="card-header">
-                                <h5><i class="fa fa-exchange"></i> Échanges récents</h5>
+                            <div class="card-body text-center">
+                                <i class="fa fa-tags fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">Catégories</h5>
+                                <p class="card-text">Gérer les catégories d'objets</p>
+                                <a href="<?php echo $baseurl; ?>/backoffice/categories" class="btn btn-success"><i class="fa fa-arrow-right"></i> Accéder</a>
                             </div>
-                            <div class="card-body">
-                                <p class="text-muted">Aucun échange récent.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fa fa-home fa-3x text-info mb-3"></i>
+                                <h5 class="card-title">Retour au site</h5>
+                                <p class="card-text">Retourner à la page d'accueil</p>
+                                <a href="<?php echo $baseurl; ?>/index" class="btn btn-info"><i class="fa fa-arrow-right"></i> Accéder</a>
                             </div>
                         </div>
                     </div>
@@ -119,27 +115,9 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
 </div>
 
-    <!-- jQuery -->
     <script src="<?php echo $baseurl ?>/assets/js/jquery-2.1.0.min.js"></script>
-
-    <!-- Bootstrap -->
     <script src="<?php echo $baseurl ?>/assets/js/popper.js"></script>
     <script src="<?php echo $baseurl ?>/assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="<?php echo $baseurl ?>/assets/js/owl-carousel.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/accordions.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/datepicker.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/scrollreveal.min.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/waypoints.min.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/jquery.counterup.min.js"></script>
-    <script src="<?php echo $baseurl ?>/assets/js/imgfix.min.js"></script> 
-    <script src="<?php echo $baseurl ?>/assets/js/slick.js"></script> 
-    <script src="<?php echo $baseurl ?>/assets/js/lightbox.js"></script> 
-    <script src="<?php echo $baseurl ?>/assets/js/isotope.js"></script> 
-    
-    <!-- Global Init -->
-    <script src="<?php echo $baseurl ?>/assets/js/custom.js"></script>
 
 </body>
 </html>

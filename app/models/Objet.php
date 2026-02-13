@@ -218,6 +218,36 @@ class Objet
         }
     }
 
+    private function buildFromRow($pdo, $row)
+    {
+        $this->setId($row['id']);
+        $this->setTitre($row['titre']);
+        $this->setDescription($row['description']);
+        $this->setPrixEstime($row['prix_estime']);
+
+        $proprietaire = new User();
+        $proprietaire->setId($row['proprietaire_id']);
+        $proprietaire->findById($pdo);
+        $this->setProprietaire($proprietaire);
+
+        $categorie = new Categorie();
+        $categorie->setId($row['categorie_id']);
+        $categorie->findById($pdo);
+        $this->setCategorie($categorie);
+
+        $etat = new Etat();
+        $etat->setId($row['etat_id']);
+        $etat->findById($pdo);
+        $this->setEtat($etat);
+
+        $statut = new Statut();
+        $statut->setId($row['statut_id']);
+        $statut->findById($pdo);
+        $this->setStatut($statut);
+
+        $this->loadPhotos($pdo);
+    }
+
     public static function getAllWithLimits($pdo, $limit)
     {
         $stmt = $pdo->prepare('SELECT * FROM objets ORDER BY id DESC LIMIT ' . (int)$limit);
@@ -225,37 +255,81 @@ class Objet
         $objets = [];
         while ($row = $stmt->fetch()) {
             $objet = new Objet();
-            $objet->setId($row['id']);
-            $objet->setTitre($row['titre']);
-            $objet->setDescription($row['description']);
-            $objet->setPrixEstime($row['prix_estime']);
-
-            // Load related objects
-            $proprietaire = new User();
-            $proprietaire->setId($row['proprietaire_id']);
-            $proprietaire->findById($pdo);
-            $objet->setProprietaire($proprietaire);
-
-            $categorie = new Categorie();
-            $categorie->setId($row['categorie_id']);
-            $categorie->findById($pdo);
-            $objet->setCategorie($categorie);
-
-            $etat = new Etat();
-            $etat->setId($row['etat_id']);
-            $etat->findById($pdo);
-            $objet->setEtat($etat);
-
-            $statut = new Statut();
-            $statut->setId($row['statut_id']);
-            $statut->findById($pdo);
-            $objet->setStatut($statut);
-
-            // Load photos
-            $objet->loadPhotos($pdo);
-
+            $objet->buildFromRow($pdo, $row);
             $objets[] = $objet;
         }
         return $objets;
+    }
+
+    public static function getAll($pdo)
+    {
+        $stmt = $pdo->query('SELECT * FROM objets ORDER BY id DESC');
+        $objets = [];
+        while ($row = $stmt->fetch()) {
+            $objet = new Objet();
+            $objet->buildFromRow($pdo, $row);
+            $objets[] = $objet;
+        }
+        return $objets;
+    }
+
+    public function getAllByUser($pdo)
+    {
+        $stmt = $pdo->prepare('SELECT * FROM objets WHERE proprietaire_id = :user_id ORDER BY id DESC');
+        $stmt->execute(['user_id' => $this->getProprietaire()->getId()]);
+        $objets = [];
+        while ($row = $stmt->fetch()) {
+            $objet = new Objet();
+            $objet->buildFromRow($pdo, $row);
+            $objets[] = $objet;
+        }
+        return $objets;
+    }
+
+    public function getAllByUserDisponible($pdo)
+    {
+        $stmt = $pdo->prepare('SELECT * FROM objets WHERE proprietaire_id = :user_id AND statut_id = 1 ORDER BY id DESC');
+        $stmt->execute(['user_id' => $this->getProprietaire()->getId()]);
+        $objets = [];
+        while ($row = $stmt->fetch()) {
+            $objet = new Objet();
+            $objet->buildFromRow($pdo, $row);
+            $objets[] = $objet;
+        }
+        return $objets;
+    }
+
+    public static function search($pdo, $keyword = null, $categorieId = null)
+    {
+        $sql = 'SELECT * FROM objets WHERE 1=1';
+        $params = [];
+
+        if ($keyword !== null && $keyword !== '') {
+            $sql .= ' AND titre LIKE :keyword';
+            $params['keyword'] = '%' . $keyword . '%';
+        }
+
+        if ($categorieId !== null && $categorieId !== '' && $categorieId != 0) {
+            $sql .= ' AND categorie_id = :categorie_id';
+            $params['categorie_id'] = $categorieId;
+        }
+
+        $sql .= ' ORDER BY id DESC';
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        $objets = [];
+        while ($row = $stmt->fetch()) {
+            $objet = new Objet();
+            $objet->buildFromRow($pdo, $row);
+            $objets[] = $objet;
+        }
+        return $objets;
+    }
+
+    public static function countAll($pdo)
+    {
+        $stmt = $pdo->query('SELECT COUNT(*) FROM objets');
+        return $stmt->fetchColumn();
     }
 }

@@ -97,4 +97,10 @@ class Categorie
         $stmt = $pdo->query('SELECT * FROM categories ORDER BY libelle ASC');
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public static function countAll($pdo)
+    {
+        $stmt = $pdo->query('SELECT COUNT(*) FROM categories');
+        return $stmt->fetchColumn();
+    }
 }

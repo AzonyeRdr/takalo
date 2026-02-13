@@ -65,7 +65,11 @@
                                                 <h4>Proposez vos objets</h4>
                                                 <p>Mettez en ligne les objets que vous souhaitez échanger avec d'autres membres.</p>
                                                 <div class="main-border-button">
+                                                    <?php if (!empty($isLoggedIn)): ?>
+                                                    <a href="<?php echo $baseurl; ?>/objets/ajout">Ajouter un objet</a>
+                                                    <?php else: ?>
                                                     <a href="<?php echo $baseurl; ?>/inscription">Commencer</a>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,7 +89,11 @@
                                                 <h4>Échangez facilement</h4>
                                                 <p>Trouvez les objets qui vous intéressent et proposez des échanges équitables.</p>
                                                 <div class="main-border-button">
+                                                    <?php if (!empty($isLoggedIn)): ?>
+                                                    <a href="<?php echo $baseurl; ?>/echanges">Mes échanges</a>
+                                                    <?php else: ?>
                                                     <a href="<?php echo $baseurl; ?>/inscription">Parcourir</a>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -208,8 +216,12 @@
                                         <img src="<?php echo $baseurl . '/assets/images/products/' . htmlspecialchars($objet->getPhotos()[0]->getChemin()); ?>" alt="">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="<?php echo $baseurl ?>/inscription"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="<?php echo $baseurl ?>/objets/<?php echo $objet->getId(); ?>"><i class="fa fa-eye"></i></a></li>
+                                                <?php if (!empty($isLoggedIn)): ?>
+                                                <li><a href="<?php echo $baseurl ?>/objets/<?php echo $objet->getId(); ?>"><i class="fa fa-exchange"></i></a></li>
+                                                <?php else: ?>
                                                 <li><a href="<?php echo $baseurl ?>/inscription"><i class="fa fa-exchange"></i></a></li>
+                                                <?php endif; ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -298,7 +310,11 @@
                         <p>Notre communauté grandit chaque jour, et nous sommes fiers de promouvoir l'échange durable et solidaire.</p>
 
                         <div class="main-border-button">
+                            <?php if (!empty($isLoggedIn)): ?>
+                            <a href="<?php echo $baseurl; ?>/objets">Parcourir les objets</a>
+                            <?php else: ?>
                             <a href="<?php echo $baseurl; ?>/inscription">Commencer l'échange</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

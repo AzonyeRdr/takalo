@@ -43,7 +43,7 @@ Fonctinonalite 2:
 Frontend:
 Il faut respecter le template. Ne pas creer de custmo css ou utiliser des style tag. il faut utiliser le css du tempalte disponible pour frontend.
 
-Analyse completement le fonctionnemnt du projets, chaque fichiers pour cmoprendre comment Implémenter.
+Analyse completement le fonctionnemnt du projets, chaque fichiers pour cmoprendre comment Implémenter. Analyse les fichiers css et js du template pour bien comprendre comment implmeneter le template css professionneleme.
 
 Todo:
 A la fin je veux que tu me creer un todolist de toutes les taches que tu as faites. LIste les taches: db, controller, fonciton creer, modele creer, avec le temps en minitues a cote pour chaque tache. Comme exemple:
@@ -62,7 +62,7 @@ J'insiste fortement sur:
     - l'utilisation du js et du css et fontawesome ou autres du template a respecter iperativement. et il faut que tu saches bien jouer avec ces fichiers de frontends pour faire un renu incroyable et professsionel
     - la simplicite du code. Pas de choses compliques avec des foncitons php complique. ou encore des codes complique dans js. Tut sera simple et direct. On favorisera l'utilisation d'ajax.
     - MVC et SOC 
-    - Ne jamais utliser de join dans les sql du DAO sauf en cas de grande urence. Rely on views you'll create. Il faut recycler les sql pur plus de perframmcen. Les sql query seront du style: 
+    - Ne jamais utliser de join dans les sql du DAO sauf en cas de grande urgence. Rely on views you'll create. Il faut recycler les sql pur plus de perframmcen. Les sql query seront du style: 
 
 CREATE VIEW IF NOT EXISTS v_historique_objet AS
 SELECT
@@ -78,7 +78,7 @@ ent toutes simplicites.
 
 
 Notes:
-    - tu pourra creer les fichiers js necessaires comme par exmple ackoofice.js, objets.js ou aures qui seront specifique a leur fonction.
+    - tu pourra creer les fichiers js necessaires comme par exmple backoffice.js, objets.js ou aures qui seront specifique a leur fonction.
     - Creer les pages necessaries et n oublie pas de les links 
     - Review dead links that goes to dead pages
     - Pour savoir les transaction necessaires a faire regardes /data/other/transactionutiles.sql.
@@ -86,4 +86,84 @@ Notes:
 Final notes:
     - clean any uncessary files 
 
-Expcations at the end
+Expcations at the end:
+    - full funcitonal but simple system of exchangin with users.
+    - no errors 
+
+
+We will work one by one: 
+first in the mes objets pages: 
+    - The ajouter objet button is white so we cant see it. MAke it lke a black button fonts white that turn white font black when hovered.  Refer to emplate buttons on how to do it.
+
+in the ajouter objet page:
+    - it always says localhost:1234 non connecte even tho I'm already logged in. And also correct the button because it isvery squished too
+    - When selecting photo, we have a preview of the images and we can chose via radio who is the photo principal then we confirm.
+
+Next inside objet liste objets:
+The images are too big. The UI of this page should be like mes objets pages. 
+- It directly log me out when I got to that page
+- It kinda lags when I go to taht paeg
+
+Inside detial of objets:
+    - when I propose an exchange and hit ehcanger, nothing happens. Or is it normal.
+    - UI should be like single-product.php.
+
+inside Echanges:
+    - why cant i see other people echanges too. Because I can see only one there and inside my tables there are 2: ----+------------+----------+-----------+
+| id | echange_id | objet_id | direction |
++----+------------+----------+-----------+
+|  1 |          1 |        1 | OFFERT    |
+|  2 |          1 |        3 | DEMANDE   |
+|  3 |          2 |        5 | OFFERT    |
+|  4 |          2 |        7 | DEMANDE   |
++----+------------+----------+-----------+
+Or is ur_id | receveur_id | statut_id | date_demande        | date_reponse        |
++----+--------------+-------------+-----------+---------------------+---------------------+
+|  1 |            1 |           2 |         3 | 2026-02-12 09:17:04 | 2026-02-13 09:58:52 |
+|  2 |            3 |           2 |         2 | 2026-02-12 09:17:04 | NULL                |
++----+--------------+-------------+-----------+---------------------+---------------------+
+Or is it normal ? 
+I prefer like:
+    - section Mes propositions and section Les proposition des autres 
+
+When I try to delete an objets:
+500 Internal Server Error
+SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`takalo`.`echange_objets`, CONSTRAINT `fk_echange_objets_objet` FOREIGN KEY (`objet_id`) REFERENCES `objets` (`id`)) (23000)
+#0 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/app/models/Objet.php(162): PDOStatement->execute()
+#1 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/app/controllers/ObjetController.php(344): models\Objet->delete()
+#2 [internal function]: controllers\ObjetController->deleteObjet()
+#3 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(388): call_user_func_array()
+#4 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(299): flight\core\Dispatcher->invokeCallable()
+#5 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/Engine.php(615): flight\core\Dispatcher->execute()
+#6 [internal function]: flight\Engine->_start()
+#7 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(388): call_user_func_array()
+#8 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(299): flight\core\Dispatcher->invokeCallable()
+#9 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(143): flight\core\Dispatcher->execute()
+#10 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(106): flight\core\Dispatcher->runEvent()
+#11 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/Engine.php(154): flight\core\Dispatcher->run()
+#12 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/Flight.php(125): flight\Engine->__call()
+#13 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/public/index.php(5): Flight::__callStatic()
+#14 {main}
+It should direclty delete any Eahcnge, or ehanges objets, or anything related to that objets. So you need to use teh models functions And do delte transaction
+
+backoffice:
+    - UI of backooffice copleftely delte the home.php. And look at the tempalate pages (theme black and white and kinda golden. Shouldnt have flashy) and css to use these to recreate the UI of home.php.
+
+    - whenI try to delte a categoreis, it does erruers servuer: 500 Internal Server Error
+SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`takalo`.`objets`, CONSTRAINT `fk_objet_categorie` FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`id`)) (23000)
+#0 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/app/models/Categorie.php(80): PDOStatement->execute()
+#1 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/app/controllers/CategorieController.php(102): models\Categorie->delete()
+#2 [internal function]: controllers\CategorieController->deleteCategorie()
+#3 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(388): call_user_func_array()
+#4 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(299): flight\core\Dispatcher->invokeCallable()
+#5 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/Engine.php(615): flight\core\Dispatcher->execute()
+#6 [internal function]: flight\Engine->_start()
+#7 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(388): call_user_func_array()
+#8 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(299): flight\core\Dispatcher->invokeCallable()
+#9 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(143): flight\core\Dispatcher->execute()
+#10 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/core/Dispatcher.php(106): flight\core\Dispatcher->runEvent()
+#11 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/Engine.php(154): flight\core\Dispatcher->run()
+#12 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/vendor/flightphp/core/flight/Flight.php(125): flight\Engine->__call()
+#13 /opt/lampp/htdocs/EXAMS3/takalovrai/takalo/public/index.php(5): Flight::__callStatic()
+#14 {main} So do transactonal delete (liek delte an OBjets too).
+

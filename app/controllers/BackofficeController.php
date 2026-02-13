@@ -22,28 +22,6 @@ class BackofficeController
             return;
         }
 
-        $pdo = Flight::db();
-        
-        // Get dashboard statistics
-        $stats = [
-            'totalUsers' => User::countAll($pdo),
-            'totalObjects' => Objet::countAll($pdo),
-            'availableObjects' => Objet::countDisponibles($pdo),
-            'totalExchanges' => Echange::countAll($pdo),
-            'pendingExchanges' => Echange::countByStatut($pdo, 'EN_ATTENTE'),
-            'completedExchanges' => Echange::countByStatut($pdo, 'COMPLETE'),
-            'categoriesStats' => Categorie::getStats($pdo)
-        ];
-        
-        // Get recent activity
-        $activity = [
-            'recentObjects' => Objet::getRecentObjets($pdo, 5),
-            'recentExchanges' => Echange::getRecent($pdo, 5)
-        ];
-
-        Flight::render('backoffice/home', [
-            'stats' => $stats,
-            'activity' => $activity
-        ]);
+        Flight::render('backoffice/home');
     }
 }

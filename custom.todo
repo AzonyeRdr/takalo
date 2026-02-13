@@ -1,0 +1,89 @@
+You're a professional web developper with +30 years of experience. I'm making a Flight php website Takalo Takalo that is about echangig/trading objects between user. I want you to add these:
+
+todo:
+Other:
+    - index different si deja log in
+    - frontend de backoffice:
+        - home: naviguer vers... avec cards 
+        
+Fonctionnalite 1:
+    - CRUD de categories
+    - CRUD mes objets avec ajout d objets possiblite d'ajouter plusieur images et radio de choisir quel est limage principalge. Creer les conroller comme PhotoController ou aures pur gerer l'upload d'images et Photo::save(db) to save them
+    - CRUD les objets des autres:
+        - detail: fiche de l'objet:
+        - bouton echanger: 
+            - modal: drop downlist chosir dans votre liste d'objets (array Objet inside user)
+            - bouton proposer echange 
+    - page CRUD echanges:
+        - Deux sections: 
+            - Mes propositions ou je suis involved:
+                - si c'est une proposition que j'ai faites: je peux cancel. Je peux voir detail 
+                - si c'est une proposition que quelqu un d'autres a faites: je peux accepter ou refuser. Je peux voir detail
+            - Les propositions des autres utilisateurs:
+                - je peux voir detail juste
+
+Fonctinonalite 2:
+    - backoffice page admin:
+        - page statistiques:
+            - nb utilisateurs inscrit 
+            - nb echanges effectues (count Echange.getAll())
+    
+    - frontoffice:
+        - dans la page liste d'objets:
+            - recherche:
+                - barre de recherche au milieu qui s'actualise en temps reel grace a javascript et qui prend un mot cle (%%) et recherche le titre de l'objets 
+                - dropdownlist des categories (avec option Tous)
+                - bouton rechercher pour demarrer la recherche (call ajax to update the list of objets + fonction getALL(pdo, Objet objet) (if objet->getCategorie ou Titre != null) append to sql)
+            
+            - dans detail objets:
+                - voir la liste des propreitaires de l'objets au fil des echanges (get from histrique proprieaitre et get dateTime of Echanges)
+    
+     - Pour savoir les transaction necessaires a faire regardes /data/other/transactionutiles.sql.
+
+Frontend:
+Il faut respecter le template. Ne pas creer de custmo css ou utiliser des style tag. il faut utiliser le css du tempalte disponible pour frontend.
+
+Analyse completement le fonctionnemnt du projets, chaque fichiers pour cmoprendre comment Implémenter.
+
+Todo:
+A la fin je veux que tu me creer un todolist de toutes les taches que tu as faites. LIste les taches: db, controller, fonciton creer, modele creer, avec le temps en minitues a cote pour chaque tache. Comme exemple:
+- Implémenter showInscription dans InscriptionController (2 min)
+- Créer la vue inscription.php (5 min)
+ou autres
+
+Note A respecter:
+On sera en full OOP, dont il faut mettre les attributs en objets avec getters etsetters. 
+- Si jamais tu veux faire des sql query avec join, il faudra creer un view de ce join que tu mettra dans view.sql. et utiliser ce view instead.
+- Full MVC avec SOC. Il ne faut pas de sql query dans Controller. Les DAO seront dans les models. Pas de layer service.
+- evite les foncitons statique. on fera un style du genre user = new User. user->save(db);
+- si l'user est login donc on aura un index different.
+
+J'insiste fortement sur:
+    - l'utilisation du js et du css et fontawesome ou autres du template a respecter iperativement. et il faut que tu saches bien jouer avec ces fichiers de frontends pour faire un renu incroyable et professsionel
+    - la simplicite du code. Pas de choses compliques avec des foncitons php complique. ou encore des codes complique dans js. Tut sera simple et direct. On favorisera l'utilisation d'ajax.
+    - MVC et SOC 
+    - Ne jamais utliser de join dans les sql du DAO sauf en cas de grande urence. Rely on views you'll create. Il faut recycler les sql pur plus de perframmcen. Les sql query seront du style: 
+
+CREATE VIEW IF NOT EXISTS v_historique_objet AS
+SELECT
+    h.objet_id,
+    o.titre,
+    u.nom AS proprietaire,
+    h.date_acquisition
+FROM historique_proprietaire_objet h
+JOIN utilisateurs u ON u.id = h.utilisateur_id
+JOIN objets o ON o.id = h.objet_id
+ORDER BY h.date_acquisition;
+ent toutes simplicites. 
+
+
+Notes:
+    - tu pourra creer les fichiers js necessaires comme par exmple ackoofice.js, objets.js ou aures qui seront specifique a leur fonction.
+    - Creer les pages necessaries et n oublie pas de les links 
+    - Review dead links that goes to dead pages
+    - Pour savoir les transaction necessaires a faire regardes /data/other/transactionutiles.sql.
+
+Final notes:
+    - clean any uncessary files 
+
+Expcations at the end

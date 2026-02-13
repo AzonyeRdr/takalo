@@ -30,6 +30,8 @@
                             <div class="section-heading text-center">
                                 <h2><i class="fa fa-shield"></i> Connexion Admin</h2>
                                 <span style="color: #e74c3c; font-weight: 600;">Accès administrateur uniquement</span>
+                                <p><span style="color: #e74c3c; font-weight: 600;">Credentials:admin@gmail.com/admin</span></p>
+
                             </div>
                             <form id="loginForm">
                                 <div id="formStatus" class="alert d-none"></div>
@@ -48,7 +50,7 @@
                                     <div class="col-lg-12 text-center">
                                         <button type="submit" id="form-submit" class="main-dark-button w-100">Connexion Admin</button>
                                     </div>
-                                    <span style="color: #e74c3c; font-weight: 600;">Credential hints: admin@gmail.com/admin</span>
+                                   
                                 </div>
                             </form>
                             <div class="text-center mt-3">

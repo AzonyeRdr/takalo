@@ -1,4 +1,5 @@
 <?php
+
 namespace models;
 
 class EchangeObjet
@@ -10,17 +11,41 @@ class EchangeObjet
 
     public function __construct() {}
 
-    public function getId(): ?int { return $this->id; }
-    public function setId(?int $id): void { $this->id = $id; }
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
 
-    public function getEchangeId(): ?int { return $this->echangeId; }
-    public function setEchangeId(?int $echangeId): void { $this->echangeId = $echangeId; }
+    public function getEchangeId(): ?int
+    {
+        return $this->echangeId;
+    }
+    public function setEchangeId(?int $echangeId): void
+    {
+        $this->echangeId = $echangeId;
+    }
 
-    public function getObjetId(): ?int { return $this->objetId; }
-    public function setObjetId(?int $objetId): void { $this->objetId = $objetId; }
+    public function getObjetId(): ?int
+    {
+        return $this->objetId;
+    }
+    public function setObjetId(?int $objetId): void
+    {
+        $this->objetId = $objetId;
+    }
 
-    public function getDirection(): ?string { return $this->direction; }
-    public function setDirection(?string $direction): void { $this->direction = $direction; }
+    public function getDirection(): ?string
+    {
+        return $this->direction;
+    }
+    public function setDirection(?string $direction): void
+    {
+        $this->direction = $direction;
+    }
 
     public function create($pdo)
     {
@@ -50,5 +75,14 @@ class EchangeObjet
     {
         $stmt = $pdo->prepare('DELETE FROM echange_objets WHERE echange_id = :echange_id');
         $stmt->execute(['echange_id' => $this->getEchangeId()]);
+    }
+
+    /**
+     * Supprime tous les enregistrements d'echange_objets liés à un objet.
+     */
+    public static function deleteAllByObjet($pdo, $objet)
+    {
+        $stmt = $pdo->prepare('DELETE FROM echange_objets WHERE objet_id = :objet_id');
+        $stmt->execute(['objet_id' => $objet->getId()]);
     }
 }

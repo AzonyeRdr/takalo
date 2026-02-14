@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php $baseurl = Flight::get('flight.base_url'); ?>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,11 +14,16 @@
     <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/owl-carousel.css">
     <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/lightbox.css">
 </head>
+
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
 
     <div id="preloader">
-        <div class="jumper"><div></div><div></div><div></div></div>
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
     <!-- Page Heading -->
@@ -55,7 +61,7 @@
                                     <select name="categorie_id" class="form-control" required>
                                         <option value="">-- Choisir --</option>
                                         <?php foreach ($categories as $cat): ?>
-                                        <option value="<?php echo $cat['id']; ?>"><?php echo htmlspecialchars($cat['libelle']); ?></option>
+                                            <option value="<?php echo $cat['id']; ?>"><?php echo htmlspecialchars($cat['libelle']); ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -64,7 +70,7 @@
                                     <select name="etat_id" class="form-control" required>
                                         <option value="">-- Choisir --</option>
                                         <?php foreach ($etats as $etat): ?>
-                                        <option value="<?php echo $etat['id']; ?>"><?php echo htmlspecialchars($etat['libelle']); ?></option>
+                                            <option value="<?php echo $etat['id']; ?>"><?php echo htmlspecialchars($etat['libelle']); ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -77,9 +83,9 @@
                                     <input type="file" name="photos[]" id="photosInput" class="form-control" multiple accept="image/*">
                                     <small class="form-text text-muted">Vous pouvez sélectionner plusieurs images</small>
                                 </div>
-                                <div class="col-lg-12 mb-3" id="photoPreviewContainer" style="display:none;">
+                                <div class="col-lg-12 mb-3" id="photosPreviewContainer" style="display:none;">
                                     <label class="form-label">Choisissez l'image principale :</label>
-                                    <div id="photoPreview" class="row"></div>
+                                    <div id="photosPreview" class="row"></div>
                                     <input type="hidden" name="photo_principale" id="photoPrincipale" value="0">
                                 </div>
                                 <div class="col-lg-6">
@@ -116,4 +122,5 @@
     <script src="<?php echo $baseurl ?>/assets/js/custom.js"></script>
     <script src="<?php echo $baseurl ?>/assets/js/objets.js"></script>
 </body>
+
 </html>

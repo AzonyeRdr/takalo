@@ -1,4 +1,5 @@
 <?php
+
 namespace models;
 
 class HistoriqueProprietaire
@@ -11,20 +12,50 @@ class HistoriqueProprietaire
 
     public function __construct() {}
 
-    public function getId(): ?int { return $this->id; }
-    public function setId(?int $id): void { $this->id = $id; }
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
 
-    public function getObjetId(): ?int { return $this->objetId; }
-    public function setObjetId(?int $objetId): void { $this->objetId = $objetId; }
+    public function getObjetId(): ?int
+    {
+        return $this->objetId;
+    }
+    public function setObjetId(?int $objetId): void
+    {
+        $this->objetId = $objetId;
+    }
 
-    public function getUtilisateurId(): ?int { return $this->utilisateurId; }
-    public function setUtilisateurId(?int $utilisateurId): void { $this->utilisateurId = $utilisateurId; }
+    public function getUtilisateurId(): ?int
+    {
+        return $this->utilisateurId;
+    }
+    public function setUtilisateurId(?int $utilisateurId): void
+    {
+        $this->utilisateurId = $utilisateurId;
+    }
 
-    public function getEchangeId(): ?int { return $this->echangeId; }
-    public function setEchangeId(?int $echangeId): void { $this->echangeId = $echangeId; }
+    public function getEchangeId(): ?int
+    {
+        return $this->echangeId;
+    }
+    public function setEchangeId(?int $echangeId): void
+    {
+        $this->echangeId = $echangeId;
+    }
 
-    public function getDateAcquisition(): ?string { return $this->dateAcquisition; }
-    public function setDateAcquisition(?string $dateAcquisition): void { $this->dateAcquisition = $dateAcquisition; }
+    public function getDateAcquisition(): ?string
+    {
+        return $this->dateAcquisition;
+    }
+    public function setDateAcquisition(?string $dateAcquisition): void
+    {
+        $this->dateAcquisition = $dateAcquisition;
+    }
 
     public function create($pdo)
     {
@@ -42,5 +73,14 @@ class HistoriqueProprietaire
         $stmt = $pdo->prepare('SELECT * FROM v_historique_objet WHERE objet_id = :objet_id ORDER BY date_acquisition ASC');
         $stmt->execute(['objet_id' => $this->getObjetId()]);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Supprime tous les enregistrements d'historique liés à un objet.
+     */
+    public static function deleteAllByObjet($pdo, $objet)
+    {
+        $stmt = $pdo->prepare('DELETE FROM historique_proprietaire_objet WHERE objet_id = :objet_id');
+        $stmt->execute(['objet_id' => $objet->getId()]);
     }
 }

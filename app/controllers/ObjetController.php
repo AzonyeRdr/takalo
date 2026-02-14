@@ -1,4 +1,5 @@
 <?php
+
 namespace controllers;
 
 use Flight;
@@ -9,6 +10,7 @@ use models\Statut;
 use models\PhotoObjet;
 use models\User;
 use models\HistoriqueProprietaire;
+use models\EchangeObjet;
 
 class ObjetController
 {
@@ -107,7 +109,10 @@ class ObjetController
     public function mesObjets()
     {
         $user = $this->getUser();
-        if (!$user) { Flight::redirect('/login'); return; }
+        if (!$user) {
+            Flight::redirect('/login');
+            return;
+        }
 
         $pdo = $this->db;
         $proprietaire = new User();
@@ -129,7 +134,10 @@ class ObjetController
     public function showAjoutObjet()
     {
         $user = $this->getUser();
-        if (!$user) { Flight::redirect('/login'); return; }
+        if (!$user) {
+            Flight::redirect('/login');
+            return;
+        }
 
         $pdo = $this->db;
         $categories = Categorie::getAll($pdo);
@@ -145,7 +153,10 @@ class ObjetController
     public function createObjet()
     {
         $user = $this->getUser();
-        if (!$user) { Flight::json(['success' => false, 'message' => 'Non connecté'], 401); return; }
+        if (!$user) {
+            Flight::json(['success' => false, 'message' => 'Non connecté'], 401);
+            return;
+        }
 
         $pdo = $this->db;
         $req = Flight::request();
@@ -236,7 +247,10 @@ class ObjetController
     public function showEditObjet($id)
     {
         $user = $this->getUser();
-        if (!$user) { Flight::redirect('/login'); return; }
+        if (!$user) {
+            Flight::redirect('/login');
+            return;
+        }
 
         $pdo = $this->db;
         $objet = new Objet();
@@ -262,7 +276,10 @@ class ObjetController
     public function updateObjet($id)
     {
         $user = $this->getUser();
-        if (!$user) { Flight::json(['success' => false, 'message' => 'Non connecté'], 401); return; }
+        if (!$user) {
+            Flight::json(['success' => false, 'message' => 'Non connecté'], 401);
+            return;
+        }
 
         $pdo = $this->db;
         $objet = new Objet();
@@ -328,7 +345,10 @@ class ObjetController
     public function deleteObjet($id)
     {
         $user = $this->getUser();
-        if (!$user) { Flight::json(['success' => false, 'message' => 'Non connecté'], 401); return; }
+        if (!$user) {
+            Flight::json(['success' => false, 'message' => 'Non connecté'], 401);
+            return;
+        }
 
         $pdo = $this->db;
         $objet = new Objet();
@@ -340,9 +360,33 @@ class ObjetController
             return;
         }
 
-        PhotoObjet::deleteAllByObjet($pdo, $objet);
-        $objet->delete($pdo);
+        $uploadDir = __DIR__ . '/../../public/assets/images/products/';
 
-        Flight::json(['success' => true, 'message' => 'Objet supprimé avec succès']);
+        try {
+            $pdo->beginTransaction();
+
+            // Supprimer les enregistrements liés via les modèles (CRUD)
+            EchangeObjet::deleteAllByObjet($pdo, $objet);
+            HistoriqueProprietaire::deleteAllByObjet($pdo, $objet);
+
+            // Supprimer les photos en base et fichiers physiques
+            $photos = $objet->getPhotos();
+            foreach ($photos as $photo) {
+                $path = $uploadDir . $photo->getChemin();
+                if (is_file($path)) {
+                    @unlink($path);
+                }
+            }
+            PhotoObjet::deleteAllByObjet($pdo, $objet);
+
+            // Enfin supprimer l'objet
+            $objet->delete($pdo);
+
+            $pdo->commit();
+            Flight::json(['success' => true, 'message' => 'Objet supprimé avec succès']);
+        } catch (\Exception $e) {
+            $pdo->rollBack();
+            Flight::json(['success' => false, 'message' => 'Erreur suppression: ' . $e->getMessage()], 500);
+        }
     }
 }

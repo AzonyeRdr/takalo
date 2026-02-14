@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php $baseurl = Flight::get('flight.base_url'); ?>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,11 +14,16 @@
     <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/owl-carousel.css">
     <link rel="stylesheet" href="<?php echo $baseurl ?>/assets/css/lightbox.css">
 </head>
+
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
 
     <div id="preloader">
-        <div class="jumper"><div></div><div></div><div></div></div>
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
     <div class="page-heading" id="top">
@@ -53,7 +59,7 @@
                                     <label class="form-label">Catégorie *</label>
                                     <select name="categorie_id" class="form-control" required>
                                         <?php foreach ($categories as $cat): ?>
-                                        <option value="<?php echo $cat['id']; ?>" <?php echo $cat['id'] == $objet->getCategorie()->getId() ? 'selected' : ''; ?>><?php echo htmlspecialchars($cat['libelle']); ?></option>
+                                            <option value="<?php echo $cat['id']; ?>" <?php echo $cat['id'] == $objet->getCategorie()->getId() ? 'selected' : ''; ?>><?php echo htmlspecialchars($cat['libelle']); ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -61,7 +67,7 @@
                                     <label class="form-label">État *</label>
                                     <select name="etat_id" class="form-control" required>
                                         <?php foreach ($etats as $etat): ?>
-                                        <option value="<?php echo $etat['id']; ?>" <?php echo $etat['id'] == $objet->getEtat()->getId() ? 'selected' : ''; ?>><?php echo htmlspecialchars($etat['libelle']); ?></option>
+                                            <option value="<?php echo $etat['id']; ?>" <?php echo $etat['id'] == $objet->getEtat()->getId() ? 'selected' : ''; ?>><?php echo htmlspecialchars($etat['libelle']); ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -75,12 +81,12 @@
                                     <label class="form-label">Photos actuelles :</label>
                                     <div class="row">
                                         <?php foreach ($objet->getPhotos() as $photo): ?>
-                                        <div class="col-3 text-center mb-2">
-                                            <img src="<?php echo $baseurl ?>/assets/images/products/<?php echo htmlspecialchars($photo->getChemin()); ?>" alt="" class="img-fluid">
-                                            <?php if ($photo->getEstPrincipale()): ?>
-                                            <span class="badge badge-primary">Principale</span>
-                                            <?php endif; ?>
-                                        </div>
+                                            <div class="col-3 text-center mb-2">
+                                                <img src="<?php echo $baseurl ?>/assets/images/products/<?php echo htmlspecialchars($photo->getChemin()); ?>" alt="" class="img-fluid">
+                                                <?php if ($photo->getEstPrincipale()): ?>
+                                                    <span class="badge badge-primary">Principale</span>
+                                                <?php endif; ?>
+                                            </div>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
@@ -90,9 +96,9 @@
                                     <input type="file" name="photos[]" id="photosInput" class="form-control" multiple accept="image/*">
                                     <small class="form-text text-muted">Si vous sélectionnez de nouvelles photos, elles remplaceront les anciennes</small>
                                 </div>
-                                <div class="col-lg-12 mb-3" id="photoPreviewContainer" style="display:none;">
+                                <div class="col-lg-12 mb-3" id="photosPreviewContainer" style="display:none;">
                                     <label class="form-label">Choisissez l'image principale :</label>
-                                    <div id="photoPreview" class="row"></div>
+                                    <div id="photosPreview" class="row"></div>
                                     <input type="hidden" name="photo_principale" id="photoPrincipale" value="0">
                                 </div>
 
@@ -130,4 +136,5 @@
     <script src="<?php echo $baseurl ?>/assets/js/custom.js"></script>
     <script src="<?php echo $baseurl ?>/assets/js/objets.js"></script>
 </body>
+
 </html>

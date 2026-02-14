@@ -1,60 +1,135 @@
 <?php
-
-namespace app\controllers;
+namespace controllers;
 
 use Flight;
-use app\models\User;
+use Throwable;
+use models\User;
 
-class LoginController
-{
-    public function login()
+class LoginController {
+    private $db;
+
+    public function __construct()
     {
-        header('Content-Type: application/json; charset=utf-8');
-
-        $email = $_POST['email'] ?? null;
-        $errors = $this->validateLoginInput($email);
-
-        if (!empty($errors)) {
-            Flight::json(['success' => false, 'errors' => $errors]);
-            return;
-        }
-
-        try {
-            $user = new User();
-            $user->setEmail($email);
-            $user->findByMail(Flight::db());
-
-            if ($user->getId()) {
-                if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
-                }
-                $_SESSION['user'] = $user;
-                Flight::json(['success' => true, 'message' => 'Login successful']);
-            } else {
-                Flight::json(['success' => false, 'errors' => ['email' => 'User not found']]);
-            }
-        } catch (\Exception $e) {
-            error_log("Login error: " . $e->getMessage());
-            Flight::json(['success' => false, 'errors' => ['general' => $e->getMessage()]]);
-        }
+        $this->db = Flight::db();
     }
 
 
-    private function validateLoginInput(?string $email): array
-    {
-        $errors = [];
+    public function goToLogin() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_unset();
+        session_destroy();
+        
+        // Render user login page
+        Flight::render('login/login-user');
+    }
 
-        if (empty($email)) {
-            $errors['email'] = 'Email is required';
-            return $errors;
+    public function goToAdminLogin() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_unset();
+        session_destroy();
+        
+        // Render admin login page
+        Flight::render('login/login-admin');
+    }
+
+    public function verifyUser() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
         }
 
-        $email = trim($email);
+        $email = Flight::request()->data->email ?? '';
+        $password = Flight::request()->data->password ?? '';
+        $loginType = Flight::request()->data->loginType ?? 'user'; 
 
+        // Simple validation
+        if (empty(trim($email))) {
+            Flight::json([
+                'success' => false,
+                'message' => 'L\'email est requis'
+            ], 400);
+            return;
+        }
+        
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = 'Email format is invalid';
+            Flight::json([
+                'success' => false,
+                'message' => 'Format d\'email invalide'
+            ], 400);
+            return;
+        }
+        
+        if (empty(trim($password))) {
+            Flight::json([
+                'success' => false,
+                'message' => 'Le mot de passe est requis'
+            ], 400);
+            return;
         }
 
-        return $errors;
+        // Verify user credentials
+        $user = new User();
+        $user->setEmail($email);
+        $user->setPasswordHash($password);
+        $user = $user->verifyUser($this->db);
+
+        if ($user) {
+            if ($loginType === 'admin' && !$user->isAdmin()) {
+                Flight::json([
+                    'success' => false,
+                    'message' => 'Accès refusé. Identifiants administrateur requis.'
+                ], 403);
+                return;
+            }
+
+            if ($loginType === 'user' && $user->isAdmin()) {
+                Flight::json([
+                    'success' => false,
+                    'message' => 'Aller vers connexion admin pour vous connecter en tant qu\'admin',
+                ], 302);
+                return;
+            }
+
+            // Store user in session
+            $_SESSION['user'] = $user;
+            
+            // Set session type
+            if ($user->isAdmin()) {
+                $_SESSION['session_type'] = 'admin';
+            } else {
+                $_SESSION['session_type'] = 'user';
+            }
+
+            Flight::json([
+                'success' => true,
+                'message' => 'Connexion réussie',
+                'redirect' => $user->isAdmin() ? '/backoffice' : '/index',
+                'sessionType' => $_SESSION['session_type']
+            ]);
+        } else {
+            Flight::json([
+                'success' => false,
+                'message' => 'Email ou mot de passe invalide'
+            ], 401);
+        }
+    }
+
+    public function logout() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        // Destroy session
+        session_unset();
+        session_destroy();
+
+        Flight::redirect('/index');
+    }
+
+    public function goToBackoffice() {
+        Flight::redirect('/backoffice');
     }
 }

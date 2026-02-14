@@ -1,10 +1,12 @@
 <?php
-namespace app\models;
+namespace models;
 
 class Categorie
 {
     private ?int $id;
-    private ?string $name;
+    private ?string $libelle;
+    private ?string $symbole;
+    private ?string $description;
 
     public function __construct()
     {
@@ -20,27 +22,54 @@ class Categorie
         $this->id = $id;
     }
 
-    public function getName(): ?string
+    public function getLibelle(): ?string
     {
-        return $this->name;
+        return $this->libelle;
     }
 
-    public function setName(?string $name): void
+    public function setLibelle(?string $libelle): void
     {
-        $this->name = $name;
+        $this->libelle = $libelle;
+    }
+
+    public function getSymbole(): ?string
+    {
+        return $this->symbole;
+    }
+
+    public function setSymbole(?string $symbole): void
+    {
+        $this->symbole = $symbole;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): void
+    {
+        $this->description = $description;
     }
 
     public function create($pdo)
     {
-        $stmt = $pdo->prepare('INSERT INTO categories (name) VALUES (:name)');
-        $stmt->execute(['name' => $this->getName()]);
+        $stmt = $pdo->prepare('INSERT INTO categories (libelle, symbole, description) VALUES (:libelle, :symbole, :description)');
+        $stmt->execute([
+            'libelle' => $this->getLibelle(),
+            'symbole' => $this->getSymbole(),
+            'description' => $this->getDescription()
+        ]);
+        $this->setId($pdo->lastInsertId());
     }
 
     public function update($pdo)
     {
-        $stmt = $pdo->prepare('UPDATE categories SET name = :name WHERE id = :id');
+        $stmt = $pdo->prepare('UPDATE categories SET libelle = :libelle, symbole = :symbole, description = :description WHERE id = :id');
         $stmt->execute([
-            'name' => $this->getName(),
+            'libelle' => $this->getLibelle(),
+            'symbole' => $this->getSymbole(),
+            'description' => $this->getDescription(),
             'id' => $this->getId()
         ]);
     }
@@ -56,6 +85,22 @@ class Categorie
         $stmt = $pdo->prepare('SELECT * FROM categories WHERE id = :id');
         $stmt->execute(['id' => $this->getId()]);
         $cat = $stmt->fetch();
-        $this->setName($cat['name']);
+        if ($cat) {
+            $this->setLibelle($cat['libelle']);
+            $this->setSymbole($cat['symbole']);
+            $this->setDescription($cat['description']);
+        }
+    }
+
+    public static function getAll($pdo)
+    {
+        $stmt = $pdo->query('SELECT * FROM categories ORDER BY libelle ASC');
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public static function countAll($pdo)
+    {
+        $stmt = $pdo->query('SELECT COUNT(*) FROM categories');
+        return $stmt->fetchColumn();
     }
 }

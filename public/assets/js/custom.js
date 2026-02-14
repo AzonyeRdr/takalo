@@ -1,24 +1,13 @@
 (function ($) {
 	
 	"use strict";
-	$('.owl-men-item').owlCarousel({
-		items:5,
-		loop:true,
-		dots: true,
-		nav: true,
-		margin:30,
-		  responsive:{
-			  0:{
-				  items:1
-			  },
-			  600:{
-				  items:2
-			  },
-			  1000:{
-				  items:3
-			  }
-		 }
-	})
+	$('.no-fetch').each(function() {
+		var $img = $(this);
+		var src = $img.attr('data-src');
+		if (src) {
+			$img.attr('src', src);
+		}
+	});
 
 	$('.owl-women-item').owlCarousel({
 		items:5,
@@ -165,6 +154,13 @@
 			}, 300);
 		});
 	});
+
+	// Fallback: hide preloader after 5 seconds if still visible
+	setTimeout(function() {
+		if ($("#preloader").is(":visible")) {
+			$("#preloader").css("visibility", "hidden").fadeOut();
+		}
+	}, 5000);
 
 
 	// Window Resize Mobile Menu Fix

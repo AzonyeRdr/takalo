@@ -1,4 +1,5 @@
 <?php
+
 namespace models;
 
 class Objet
@@ -420,20 +421,24 @@ class Objet
 
     public static function search($pdo, $keyword = null, $categorieId = null)
     {
-        $sql = 'SELECT * FROM objets WHERE 1=1';
+        // Recherche uniquement sur le titre (insensible à la casse) et objets disponibles (statut_id = 1)
+        $sql = 'SELECT * FROM objets o WHERE o.statut_id = 1';
         $params = [];
 
-        if ($keyword !== null && $keyword !== '') {
-            $sql .= ' AND titre LIKE :keyword';
-            $params['keyword'] = '%' . $keyword . '%';
+        if ($keyword !== null && trim($keyword) !== '') {
+            // Utilise LOWER pour insensibilité à la casse
+            $sql .= ' AND LOWER(o.titre) LIKE :keyword';
+            $val = (string)$keyword;
+            $val = function_exists('mb_strtolower') ? mb_strtolower($val) : strtolower($val);
+            $params['keyword'] = '%' . $val . '%';
         }
 
         if ($categorieId !== null && $categorieId !== '' && $categorieId != 0) {
-            $sql .= ' AND categorie_id = :categorie_id';
+            $sql .= ' AND o.categorie_id = :categorie_id';
             $params['categorie_id'] = $categorieId;
         }
 
-        $sql .= ' ORDER BY id DESC';
+        $sql .= ' ORDER BY o.id DESC';
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute($params);

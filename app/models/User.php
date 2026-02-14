@@ -147,4 +147,18 @@ class User
         $stmt = $pdo->query('SELECT COUNT(*) FROM utilisateurs');
         return $stmt->fetchColumn();
     }
+
+    public function findById($pdo)
+    {
+        $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE id = :id");
+        $stmt->execute(['id' => $this->getId()]);
+        $row = $stmt->fetch();
+        if ($row) {
+            $this->setNom($row['nom']);
+            $this->setEmail($row['email']);
+            $this->setPasswordHash($row['password_hash']);
+            $this->setRoleId($row['role_id']);
+            $this->setTel($row['tel']);
+        }
+    }
 }

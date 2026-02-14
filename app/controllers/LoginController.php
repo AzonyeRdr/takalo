@@ -1,11 +1,13 @@
 <?php
+
 namespace controllers;
 
 use Flight;
 use Throwable;
 use models\User;
 
-class LoginController {
+class LoginController
+{
     private $db;
 
     public function __construct()
@@ -14,36 +16,26 @@ class LoginController {
     }
 
 
-    public function goToLogin() {
+    public function goToLogin()
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
         session_unset();
         session_destroy();
-        
-        // Render user login page
-        Flight::render('login/login-user');
+
+        // Render unified login page
+        Flight::render('login');
     }
 
-    public function goToAdminLogin() {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-        session_unset();
-        session_destroy();
-        
-        // Render admin login page
-        Flight::render('login/login-admin');
-    }
-
-    public function verifyUser() {
+    public function verifyUser()
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
         $email = Flight::request()->data->email ?? '';
         $password = Flight::request()->data->password ?? '';
-        $loginType = Flight::request()->data->loginType ?? 'user'; 
 
         // Simple validation
         if (empty(trim($email))) {
@@ -53,7 +45,7 @@ class LoginController {
             ], 400);
             return;
         }
-        
+
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             Flight::json([
                 'success' => false,
@@ -61,7 +53,7 @@ class LoginController {
             ], 400);
             return;
         }
-        
+
         if (empty(trim($password))) {
             Flight::json([
                 'success' => false,
@@ -77,26 +69,10 @@ class LoginController {
         $user = $user->verifyUser($this->db);
 
         if ($user) {
-            if ($loginType === 'admin' && !$user->isAdmin()) {
-                Flight::json([
-                    'success' => false,
-                    'message' => 'Accès refusé. Identifiants administrateur requis.'
-                ], 403);
-                return;
-            }
-
-            if ($loginType === 'user' && $user->isAdmin()) {
-                Flight::json([
-                    'success' => false,
-                    'message' => 'Aller vers connexion admin pour vous connecter en tant qu\'admin',
-                ], 302);
-                return;
-            }
-
             // Store user in session
             $_SESSION['user'] = $user;
-            
-            // Set session type
+
+            // Automatically detect and set session type based on user role
             if ($user->isAdmin()) {
                 $_SESSION['session_type'] = 'admin';
             } else {
@@ -117,7 +93,8 @@ class LoginController {
         }
     }
 
-    public function logout() {
+    public function logout()
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
@@ -129,7 +106,8 @@ class LoginController {
         Flight::redirect('/index');
     }
 
-    public function goToBackoffice() {
+    public function goToBackoffice()
+    {
         Flight::redirect('/backoffice');
     }
 }

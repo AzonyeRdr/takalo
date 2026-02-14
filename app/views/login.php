@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php $baseurl = Flight::get('flight.base_url');?>
+<?php $baseurl = Flight::get('flight.base_url'); ?>
 
 <html lang="en">
 
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/owl-carousel.css">
     <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/lightbox.css">
 </head>
-    
+
 
 <body>
 
@@ -77,11 +77,11 @@
     <script src="<?php echo $baseurl; ?>/assets/js/scrollreveal.min.js"></script>
     <script src="<?php echo $baseurl; ?>/assets/js/waypoints.min.js"></script>
     <script src="<?php echo $baseurl; ?>/assets/js/jquery.counterup.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/imgfix.min.js"></script> 
-    <script src="<?php echo $baseurl; ?>/assets/js/slick.js"></script> 
-    <script src="<?php echo $baseurl; ?>/assets/js/lightbox.js"></script> 
-    <script src="<?php echo $baseurl; ?>/assets/js/isotope.js"></script> 
-    
+    <script src="<?php echo $baseurl; ?>/assets/js/imgfix.min.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/slick.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/lightbox.js"></script>
+    <script src="<?php echo $baseurl; ?>/assets/js/isotope.js"></script>
+
     <!-- Global Init -->
     <script src="<?php echo $baseurl; ?>/assets/js/custom.js"></script>
 

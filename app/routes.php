@@ -1,4 +1,5 @@
 <?php
+
 use controllers\HomeController;
 use controllers\InscriptionController;
 use controllers\LoginController;
@@ -17,7 +18,6 @@ Flight::route('POST /inscription/validate', [InscriptionController::class, 'vali
 Flight::route('POST /inscription/register', [InscriptionController::class, 'register']);
 
 Flight::route('GET /login', [LoginController::class, 'goToLogin']);
-Flight::route('GET /login-admin', [LoginController::class, 'goToAdminLogin']);
 Flight::route('POST /login/verifyUser', [LoginController::class, 'verifyUser']);
 Flight::route('GET /logout', [LoginController::class, 'logout']);
 

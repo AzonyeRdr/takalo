@@ -124,7 +124,8 @@ class User
         return $this->role_id === 2; // assuming 2 is admin
     }
 
-    public function verifyUser($pdo) {
+    public function verifyUser($pdo)
+    {
         $st = $pdo->prepare("SELECT * FROM utilisateurs WHERE email=? LIMIT 1");
         $st->execute([(string)$this->getEmail()]);
         $row = $st->fetch();
@@ -146,6 +147,12 @@ class User
     {
         $stmt = $pdo->query('SELECT COUNT(*) FROM utilisateurs');
         return $stmt->fetchColumn();
+    }
+
+    public static function getAll($pdo)
+    {
+        $stmt = $pdo->query('SELECT * FROM utilisateurs ORDER BY id DESC');
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function findById($pdo)

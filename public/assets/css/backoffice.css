@@ -1,0 +1,122 @@
+/* backoffice.css - overrides et styles pour l'interface d'administration */
+/* Utilise la même police et couleurs que le template public */
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f7f8;
+  color: #333;
+}
+
+/* Sidebar fixes */
+.col-md-2.bg-dark {
+  width: 250px;
+  min-height: 100vh;
+  position: relative;
+  overflow: auto;
+}
+
+.col-md-10.p-0 {
+  /* no fixed margin: use regular grid spacing */
+  margin-left: 0;
+}
+
+.col-md-2 .p-4 {
+  background: linear-gradient(90deg, #2b2b2b, #1f1f1f);
+}
+
+.nav-link {
+  padding: 12px 20px;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+}
+
+/* Navbar header inside backoffice */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* Cards styling similar to public template */
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+/* Backoffice section spacing to avoid overlap with admin header */
+.header-admin {
+  position: relative;
+  z-index: 1100;
+}
+
+/* Backoffice section spacing to avoid overlap with admin header */
+.section {
+  padding-top: 120px; /* reserve space for admin header */
+  padding-bottom: 24px;
+}
+
+.card {
+  margin-bottom: 18px;
+}
+
+/* Slight top margin for stats cards row to ensure visible */
+.section .row.mb-4 {
+  margin-top: 6px;
+}
+
+.card {
+  margin-bottom: 16px;
+}
+
+.card .card-body i {
+  display: block;
+}
+
+/* Table tweaks */
+.table thead th {
+  background: #ffffff;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.table tbody tr:hover {
+  background: #ffffff;
+}
+
+/* Modal adjustments */
+.modal-content {
+  border-radius: 8px;
+}
+
+/* Responsive: collapse sidebar on small screens */
+@media (max-width: 991.98px) {
+  .col-md-2.bg-dark {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+  }
+  .col-md-10.p-0 {
+    margin-left: 0;
+  }
+}
+
+/* Small helpers */
+.text-primary {
+  color: #007bff !important;
+}
+.text-success {
+  color: #28a745 !important;
+}
+.text-info {
+  color: #17a2b8 !important;
+}
+.text-warning {
+  color: #ffc107 !important;
+}
+
+/* Keep footer area clean if present */
+footer {
+  display: none;
+}

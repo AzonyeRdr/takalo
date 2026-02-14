@@ -43,6 +43,8 @@ Flight::route('GET /echanges/@id/detail', [EchangeController::class, 'detailEcha
 // Backoffice
 Flight::route('GET /backoffice', [BackofficeController::class, 'showDashboard']);
 Flight::route('GET /backoffice/stats', [BackofficeController::class, 'showStats']);
+Flight::route('GET /backoffice/users', [BackofficeController::class, 'showUsers']);
+Flight::route('GET /backoffice/objets', [BackofficeController::class, 'showObjets']);
 
 // Backoffice - Categories
 Flight::route('GET /backoffice/categories', [CategorieController::class, 'showCategories']);

@@ -64,4 +64,28 @@ class BackofficeController
             'recentEchanges' => $recentEchanges
         ]);
     }
+
+    public function showUsers()
+    {
+        if (!$this->checkAdmin()) return;
+
+        $pdo = $this->db;
+        $users = User::getAll($pdo);
+
+        Flight::render('backoffice/users', [
+            'users' => $users
+        ]);
+    }
+
+    public function showObjets()
+    {
+        if (!$this->checkAdmin()) return;
+
+        $pdo = $this->db;
+        $objets = Objet::getAll($pdo);
+
+        Flight::render('backoffice/objets', [
+            'objets' => $objets
+        ]);
+    }
 }

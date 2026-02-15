@@ -139,6 +139,69 @@
         </div>
     </section>
 
+    <!-- ***** Nouveauté: Les échanges des autres utilisateurs ***** -->
+    <?php
+    // Utiliser la variable passée par le contrôleur si disponible, sinon utiliser la variable locale calculée plus haut
+    $others = $autresEchanges ?? ($propositionsAutres ?? []);
+    ?>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2><i class="fa fa-users"></i> Les échanges des autres</h2>
+                        <span>Propositions d'autres utilisateurs</span>
+                    </div>
+                </div>
+            </div>
+
+            <?php if (empty($others)): ?>
+            <div class="row mb-4">
+                <div class="col-lg-12 text-center">
+                    <p class="text-muted">Aucun échange d'autres utilisateurs pour le moment.</p>
+                </div>
+            </div>
+            <?php else: ?>
+            <div class="row mb-4">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Demandeur</th>
+                                    <th>Receveur</th>
+                                    <th>Statut</th>
+                                    <th>Date demande</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($others as $e): ?>
+                                <tr>
+                                    <td><?php echo $e['id']; ?></td>
+                                    <td><?php echo htmlspecialchars($e['demandeur_nom']); ?></td>
+                                    <td><?php echo htmlspecialchars($e['receveur_nom']); ?></td>
+                                    <td>
+                                        <?php
+                                        $badgeClass = 'badge-secondary';
+                                        if ($e['statut_code'] === 'en_attente') $badgeClass = 'badge-warning';
+                                        elseif ($e['statut_code'] === 'accepte') $badgeClass = 'badge-success';
+                                        elseif ($e['statut_code'] === 'refuse') $badgeClass = 'badge-danger';
+                                        ?>
+                                        <span class="badge <?php echo $badgeClass; ?>"><?php echo htmlspecialchars($e['statut_libelle']); ?></span>
+                                    </td>
+                                    <td><?php echo date('d/m/Y H:i', strtotime($e['date_demande'])); ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
+    </section>
+
     <!-- Modal Détail Échange -->
     <div class="modal fade" id="modalDetailEchange" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">

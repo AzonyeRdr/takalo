@@ -156,6 +156,14 @@ class Echange
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    // Récupère les échanges n'impliquant pas l'utilisateur (pour "Les échanges des autres")
+    public static function getOthers($pdo, $userId)
+    {
+        $stmt = $pdo->prepare('SELECT * FROM v_echanges WHERE demandeur_id != :uid AND receveur_id != :uid2 ORDER BY date_demande DESC');
+        $stmt->execute(['uid' => $userId, 'uid2' => $userId]);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public function accepter($pdo)
     {
         $pdo->beginTransaction();

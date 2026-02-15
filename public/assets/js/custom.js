@@ -28,6 +28,20 @@
 		 }
 	 })
 
+	// Initialize men carousel (used in index.php: class "owl-men-item")
+	$('.owl-men-item').owlCarousel({
+		items:5,
+		loop:true,
+		dots: true,
+		nav: true,
+		margin:30,
+		responsive:{
+			0:{ items:1 },
+			600:{ items:2 },
+			1000:{ items:3 }
+		}
+	});
+
 	$('.owl-kid-item').owlCarousel({
 		items:5,
 		loop:true,

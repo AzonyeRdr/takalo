@@ -31,9 +31,11 @@ class EchangeController
 
         $pdo = $this->db;
         $echanges = Echange::getByUser($pdo, $user->getId());
+        $autresEchanges = Echange::getOthers($pdo, $user->getId());
 
         Flight::render('echanges/list', [
             'echanges' => $echanges,
+            'autresEchanges' => $autresEchanges,
             'userId' => $user->getId()
         ]);
     }
@@ -220,9 +222,9 @@ class EchangeController
                 'statut' => $echange->getStatut()->getLibelle(),
                 'statut_code' => $echange->getStatut()->getCode(),
                 'date_demande' => $echange->getDateDemande(),
-                'date_reponse' => $echange->getDateReponse()
+                'date_reponse' => $echange->getDateReponse(),
             ],
-            'objets' => $items
+            'objets' => $items,
         ]);
     }
 }

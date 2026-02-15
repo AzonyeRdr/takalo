@@ -173,6 +173,48 @@ $(document).ready(function () {
     });
 
     // ============================
+    // Proposer un échange (modal dans detail objet)
+    // ============================
+    $(document).on('click', '#btnProposerEchange', function (e) {
+        e.preventDefault();
+
+        var objetOffertId = $('#objetOffert').val();
+        var objetDemandeId = $(this).data('objet-demande');
+
+        if (!objetOffertId) {
+            $('#echangeAlert').removeClass('d-none alert-success').addClass('alert-danger').html('Veuillez sélectionner un de vos objets à proposer.');
+            return;
+        }
+
+        $('#echangeAlert').addClass('d-none');
+
+        $.ajax({
+            url: baseUrl + '/echanges/proposer',
+            type: 'POST',
+            data: {
+                objet_offert_id: objetOffertId,
+                objet_demande_id: objetDemandeId
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.success) {
+                    $('#echangeAlert').removeClass('d-none alert-danger').addClass('alert-success').html(data.message || 'Échange proposé avec succès');
+                    setTimeout(function() {
+                        $('#modalEchange').modal('hide');
+                        window.location.reload();
+                    }, 2000);
+                } else {
+                    $('#echangeAlert').removeClass('d-none alert-success').addClass('alert-danger').html(data.message || 'Erreur');
+                }
+            },
+            error: function (xhr) {
+                var resp = xhr.responseJSON;
+                $('#echangeAlert').removeClass('d-none alert-success').addClass('alert-danger').html(resp && resp.message ? resp.message : 'Erreur serveur');
+            }
+        });
+    });
+
+    // ============================
     // Utilitaire
     // ============================
     function escapeHtml(text) {

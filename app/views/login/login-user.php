@@ -37,12 +37,12 @@
                                 <div class="row">
                                     <div class="col-lg-12 mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input name="email" type="email" class="form-control" id="email" placeholder="Votre email" required="">
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="Votre email" value="admin@gmail.com" required="">
                                         <div id="emailError" class="invalid-feedback d-block"></div>
                                     </div>
                                     <div class="col-lg-12 mb-3">
                                         <label for="password" class="form-label">Mot de passe</label>
-                                        <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" required="">
+                                        <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" value="admin" required="">
                                         <div id="passwordError" class="invalid-feedback d-block"></div>
                                     </div>
                                     <div class="col-lg-12 text-center">
